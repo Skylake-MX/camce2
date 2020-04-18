@@ -1,0 +1,118 @@
+body{
+    background-color: #F0F8FF;
+    background-size: cover;
+}
+
+nav{
+    background-color: #187BEC;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: white;
+    font-size: 22px;
+    font-family: Helvetica;
+    text-align: center;
+}
+.main-section{
+    margin: 0 auto;
+    margin-top: 25%;
+    padding: 0;
+
+}
+
+.modal-content{
+    background-color: #3b4652;
+    opacity: 0.84;
+    padding: 15px 0px;
+    box-shadow: 0px 0px 10px #848484;
+    border-radius: 3%;
+}
+
+.user-img{
+    margin-top: -75px;
+    margin-bottom: 35px;
+}
+
+.user-img img{
+    width: 125px;
+    height: 125px;
+    box-shadow: 0px 0px 10px #848484;
+    border-radius: 50%;
+}
+
+.form-group input{
+    height: 42px;
+    font-size: 18px;
+    border: 0;
+    padding-left: 54px;
+    border-radius: 5px;
+}
+
+.form-group::before{
+    font-family: "Font Awesome\ 5 Free";
+    position: absolute;
+    left: 28px;
+    font-size: 22px;
+    padding-top:4px;
+}
+
+.form-group#user-group::before{
+  content: "\f007";
+}
+
+.form-group#contrasena-group::before{
+  content: "\f023";
+}
+
+button{
+    width: 60%;
+    margin: 5px 0 10px;
+}
+
+.forgot a{
+    color: white;
+}
+
+.list-group{
+    text-align: center;
+    margin: 0 auto;
+    margin: 5% 25% 5%;
+    padding: 0;
+}
+
+.container{
+    margin: 0 auto;:
+    margin: 45% 60% 5%;
+    text-align: center;
+    padding: 0;
+}
+
+/*
+Add User
+*/
+
+.nav_lista{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 50px;
+}
+
+nav li{
+        list-style: none;
+}
+
+nav li a{
+
+  color: white;
+}
+
+.user-icon::before{
+    font-family: "Font Awesome\ 5 Free";
+    position: absolute;
+    left: 50%;
+    font-size: 20px;
+    padding-top:-15px;
+}
+
+.user-icon#add-user::before{
+  content: "\f234";
+}
