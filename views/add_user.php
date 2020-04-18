@@ -1,7 +1,10 @@
 <!-- <?php
-var_dump($_GET);
+var_dump($_POST);
+require_once '../scripts/connect.php';
+?>  -->
 
- ?> -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,13 +39,13 @@ var_dump($_GET);
   </nav>
 
   <div class="container">
-  <form action="" class="add_user" method="get">
+  <form action="" class="add_user" method="post">
       <br><label for=""><h5>Usuario Nuevo:</h5></label><br><br>
       <input type="text" style="width:185px" name="username"placeholder="Nombre de usuario"><br></br>
-      <select style="width:185px;border:5px;font-size:19px" onchange="this.style.width=200">
-        <option value="value1" selected>Usuario</option>
-        <option value="value2">Administrador</option>
-        <option value="value3">Tecnico</option>
+      <select type="text" style="width:185px;border:5px;font-size:19px" onchange="this.style.width=200" name="privilegio">
+        <option value="usuario" selected>Usuario</option>
+        <option value="administrador">Administrador</option>
+        <option value="tecnico">Tecnico</option>
       </select>
       <br>
       <br>
@@ -50,7 +53,31 @@ var_dump($_GET);
       <input type="password" style="width:185px"name="c_password" placeholder="Confirma Contraseña"><br></br>
       <p class="center"><input type="submit" value="Añadir"></p>
       <br>
-  </form>
+      <?php
+        if (!empty($_POST)){
+          $username = $_POST['username'];
+          $password = $_POST['password'];
+          $c_password = $_POST['c_password'];
+          $privilegio = $_POST['privilegio'];
+          if ($password == $c_password){
+            $name = ucwords(str_replace ( "." , " " , $_POST['username']));
+            $sql = "INSERT INTO usuarios(id, nombre, username, password, privilegio) VALUES (NULL, :nombre, :username, :password, :privilegio)";
+            $query = $pdo->prepare($sql);
+            $query->execute([
+              'nombre' => $name,
+              'username' => $username,
+              'password' => $password,
+              'privilegio' => $privilegio
+            ]);
+            $AddUser = "Se agrego usuario: " . $username . " correctamente";
+            echo '<div class="alert alert-success" role="alert">' . $AddUser;
+          }
+          else{
+            $errorAddUser = "La contraseña no coincide, verifica tus datos";
+            echo '<div class="alert alert-danger" role="danger">' . $errorAddUser;
+          }
+        }       
+      ?>
   </div>
 </body>
 </html>

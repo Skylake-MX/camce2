@@ -42,9 +42,9 @@ var_dump($_POST);
                     </div>
                     <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar</button>
                   </form>
-                  <div class="col-12 forgot">
+                  <!-- <div class="col-12 forgot">
                     <a href="#">Agregar Usuario</a>
-                  </div>
+                  </div> -->
                   </div>
             </div>
         </div>
