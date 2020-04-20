@@ -4,7 +4,6 @@ require_once '../scripts/connect.php';
 ?>  -->
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +28,7 @@ require_once '../scripts/connect.php';
   <nav>
       <div value="nav_option"></option>
         <ul class="nav_lista">
-            <li><a href="../index.php">Atrás</a></li>
+            <li><a href="edit_users.php">Atrás</a></li>
             <form class="user-icon" id="add-user">
             <li></li>
             </form>
@@ -38,7 +37,7 @@ require_once '../scripts/connect.php';
       </div>
   </nav>
 
-  <div class="container">
+  <div class="container" style="margin:auto;">
   <form action="" class="add_user" method="post">
       <br><label for=""><h5>Usuario Nuevo:</h5></label><br><br>
       <input type="text" style="width:185px" name="username"placeholder="Nombre de usuario"><br></br>
@@ -76,7 +75,7 @@ require_once '../scripts/connect.php';
             $errorAddUser = "La contraseña no coincide, verifica tus datos";
             echo '<div class="alert alert-danger" role="danger">' . $errorAddUser;
           }
-        }       
+        }
       ?>
   </div>
 </body>

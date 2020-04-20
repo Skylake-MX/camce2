@@ -80,7 +80,7 @@ button{
 }
 
 .container{
-    margin: 0 auto;:
+    margin: 0 auto;
     margin: 45% 60% 5%;
     text-align: center;
     padding: 0;
@@ -115,4 +115,5 @@ nav li a{
 
 .user-icon#add-user::before{
   content: "\f234";
+  
 }

@@ -56,7 +56,7 @@ var_dump($_POST);
     </div>
 
     <footer class="page-footer font-small indigo">
-        <div class="container">
+        <div class="container" style="margin: auto;">
             <hr class="rgba-white-light" style="margin: 0 15%;">
             <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
                 <div class="col-md-10 col-12 mt-5">
