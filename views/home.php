@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="views/login.css">
+    <link rel="stylesheet" type="text/css" href="views/estilos.css">
 </head>
 <body>
     <nav>
@@ -34,7 +34,5 @@
       <a href="views/edit_users.php" class="list-group-item list-group-item-action">Editar Usuario</a>
       <a href="scripts/logout.php" class="list-group-item list-group-item-action">Salir</a>
     </div>
-
-</script>
 </body>
 </html>

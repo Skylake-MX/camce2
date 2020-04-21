@@ -20,7 +20,7 @@ var_dump($_POST);
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="views/login.css">
+    <link rel="stylesheet" type="text/css" href="views/estilos.css">
 </head>
 <body>
 
