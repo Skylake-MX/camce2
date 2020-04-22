@@ -55,7 +55,7 @@ var_dump($_GET);
         <!--     <td>    <?=$row['nombre'];?>        </td> -->
             <td>    <?=$row['username'];?>      </td>
             <td>    <?=$row['privilegio'];?>    </td>
-            <td> <a href="">Delete</a>          </td>
+            <td> <a href="../scripts/delete.php?id=<?=$row['id']?>">Delete</a></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
