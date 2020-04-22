@@ -1,7 +1,7 @@
-<?php
+<!-- <?php
 var_dump($_POST);
 require_once '../scripts/connect.php';
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,60 +45,60 @@ require_once '../scripts/connect.php';
 			<div class="col">
 				<br>
   				<label class="registro" for="">Id Equipo</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="id_equipo" id="idequipo"><br>
+				<input class="registro-input" type="text"  maxlength="20" name="idequipo" id="idequipo"><br>
 
 				<label class="registro" for="">Estatus</label><br>
-				<input class="registro-input" type="text" placeholder=""maxlength="20" name="estatus" id="estatus"><br>
+				<input class="registro-input" type="text" maxlength="20" name="estatus" id="estatus"><br>
 
 				<label class="registro" for="">Razon social</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="razon_social" id="razonsocial"><br>
+				<input class="registro-input" type="text" maxlength="20" name="razonsocial" id="razonsocial"><br>
 
 				<label class="registro" for="">Segmento</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="segmento" id="segmento"><br>
+				<input class="registro-input" type="text" maxlength="20" name="segmento" id="segmento"><br>
 
 				<label class="registro" for="">Unidad de negocio</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="unidad_de_negocio" id="unidaddenegocio"><br>
+				<input class="registro-input" type="text"  maxlength="20" name="unidaddenegocio" id="unidaddenegocio"><br>
 
 				<label class="registro" for="">Cofre electronico</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="cofre_electronico" id="cofreelectronico"><br>
+				<input class="registro-input" type="text" maxlength="20" name="cofreelectronico" id="cofreelectronico"><br>
 
 			</div>
 
 			<div class="col">
 				<br>
 				<label class="registro" for="">Capacidad</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="capacidad" id="capacidad"><br>
+				<input class="registro-input" type="text" maxlength="20" name="capacidad" id="capacidad"><br>
 		
 				<label class="registro" for="">Proveedor</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="proveedor" id="proveedor"><br>
+				<input class="registro-input" type="text" maxlength="20" name="proveedor" id="proveedor"><br>
 
 				<label class="registro" for="">Modelo</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="modelo" id="modelo"><br>
+				<input class="registro-input" type="text" maxlength="20" name="modelo" id="modelo"><br>
 
 				<label class="registro" for="">Serie</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlenght="40" name="serie" id="serie"><br>
+				<input class="registro-input" type="text" maxlenght="40" name="serie" id="serie"><br>
 		
 				<label class="registro" for="">Banco</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="banco" id="banco"><br>
+				<input class="registro-input" type="text" maxlength="20" name="banco" id="banco"><br>
 
 				<label class="registro" for="">Tipo de Acreditacion</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="tipo_de_acreditacion" id="tipodeacreditacion"><br>
+				<input class="registro-input" type="text" maxlength="20" name="tipodeacreditacion" id="tipodeacreditacion"><br>
 
 			</div>
 
 			<div class="col">
 				<br>
 				<label class="registro" for="">Contenedor</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="contenedor" id="contenedor"><br>
+				<input class="registro-input" type="text" maxlength="20" name="contenedor" id="contenedor"><br>
 
 				<label class="registro" for="">Empresa</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="empresa" id="empresa"><br>
+				<input class="registro-input" type="text"" maxlength="20" name="empresa" id="empresa"><br>
 
 				<label class="registro" for="">Sucursal GSI</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="sucursal_gsi" id="sucursalgsi"><br>
+				<input class="registro-input" type="text" maxlength="20" name="sucursalgsi" id="sucursalgsi"><br>
 
 				<label class="registro" for="">Division</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="division" id="division"><br>		
+				<input class="registro-input" type="text" maxlength="20" name="division" id="division"><br>		
 		
 			</div>
 		</div>
@@ -106,7 +106,7 @@ require_once '../scripts/connect.php';
 			<div class="col">
 				<br>
 				<label class="registro" for="">Direccion</label><br>
-				<input class="registro-direccion" type="costo" placeholder="" maxlength="80" name="direccion" id="direccion"><br><br>
+				<input class="registro-direccion" type="costo" maxlength="80" name="direccion" id="direccion"><br><br>
 
 			</div>
 		</div>
@@ -114,17 +114,17 @@ require_once '../scripts/connect.php';
 		<div class="row">
 			<div class="col">
 				<label class="registro" for="">Fecha de Instalacion</label><br>
-				<input class="registro-input" type="date" placeholder="" maxlength="20" name="fecha_de_instalacion" id="fechadeinstalacion"><br>
+				<input class="registro-input" type="date" maxlength="20" name="fechadeinstalacion" id="fechadeinstalacion"><br>
 			</div>
 
 			<div class="col">
 				<label class="registro" for="">Fecha de Retiro</label><br>
-				<input class="registro-input" type="date" placeholder="" maxlength="20" name="fecha_de_retiro" id="fechaderetiro"><br>
+				<input class="registro-input" type="date" maxlength="20" name="fechaderetiro" id="fechaderetiro"><br>
 			</div>
 
 			<div class="col">
 				<label class="registro" for="">Costo</label><br>
-				<input class="registro-input" type="text" placeholder="" maxlength="20" name="costo" id="costo"><br>		
+				<input class="registro-input" type="text" maxlength="20" name="costo" id="costo"><br>		
 			</div>
 		</div>
 		
@@ -134,32 +134,31 @@ require_once '../scripts/connect.php';
 				<input action="" style="margin: auto;" type="submit" value="Guardar">
 				<?php
 					if(!empty($_POST)){
-						$idequipo = $_POST['id_equipo'];
+						$idequipo = $_POST['idequipo'];
 						$estatus = $_POST['estatus'];
-						$razonsocial = $_POST['razon_social'];
+						$razonsocial = $_POST['razonsocial'];
 						$segmento = $_POST['segmento'];
-						$unidaddenegocio = $_POST['unidad_de_negocio'];
-						$cofreelectronico = $_POST['cofre_electronico'];
+						$unidaddenegocio = $_POST['unidaddenegocio'];
+						$cofreelectronico = $_POST['cofreelectronico'];
 						$capacidad = $_POST['capacidad'];
 						$proveedor = $_POST['proveedor'];
 						$modelo = $_POST['modelo'];
 						$serie = $_POST['serie'];
 						$banco = $_POST['banco'];
-						$tipodeacreditacion = $_POST['tipo_de_acreditacion'];
+						$tipodeacreditacion = $_POST['tipodeacreditacion'];
 						$contenedor = $_POST['contenedor'];
 						$empresa = $_POST['empresa'];
-						$sucursalgsi = $_POST['sucursal_gsi'];
+						$sucursalgsi = $_POST['sucursalgsi'];
 						$division = $_POST['division'];
 						$direccion = $_POST['direccion'];
-						$fechadeinstalacion = $_POST['fecha_de_instalacion'];
-						$fechaderetiro = $_POST['fecha_de_retiro'];
+						$fechadeinstalacion = $_POST['fechadeinstalacion'];
+						$fechaderetiro = $_POST['fechaderetiro'];
 						$costo = $_POST['costo'];
 
-						$sql = "INSERT TO base(id, fecha, id_equipo, estatus, razon_social, segmento, unidad_de_negocio, cofre_electronico, capacidad, proveedor, modelo, serie, banco, tipo_de_acreditacion, contenedor, empresa, sucursal_gsi, division, direccion, fecha_de_instalacion, fecha_de_retiro, costo) 
-						VALUES (NULL, current_timestamp(), :id_equipo, :estatus, :razon_social, :segmento, :unidad_de_negocio, :cofre_electronico, :capacidad, :proveedor, :modelo, :serie, :banco, :tipo_de_acreditacion, :contenedor, :empresa, :sucursal_gsi, :division, :direccion, :fecha_de_instalacion, :fecha_de_retiro, :costo)";
+						$sql = "INSERT INTO base(id, fecha, id_equipo, estatus, razon_social, segmento, unidad_de_negocio, cofre_electronico, capacidad, proveedor, modelo, serie, banco, tipo_de_acreditacion, contenedor, empresa, sucursal_gsi, division, direccion, fecha_de_instalacion, fecha_de_retiro, costo) VALUES (NULL, current_timestamp(), :id_equipo, :estatus, :razon_social, :segmento, :unidad_de_negocio, :cofre_electronico, :capacidad, :proveedor, :modelo, :serie, :banco, :tipo_de_acreditacion, :contenedor, :empresa, :sucursal_gsi, :division, :direccion, :fecha_de_instalacion, :fecha_de_retiro, :costo)";
 						$query = $pdo->prepare($sql);
 						$query->execute([
- 						'id_equipo'=> $idequipo,
+ 						'id_equipo' => $idequipo,
 						'estatus' => $estatus,
 						'razon_social' => $razonsocial,
 						'segmento' => $segmento,
