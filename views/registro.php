@@ -1,3 +1,8 @@
+<?php
+var_dump($_POST);
+require_once '../scripts/connect.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,74 +37,156 @@
 	</nav>
 
 	<div class="" style="text-align: center;">   
-    <h5>Base de datos</h5>
+    	<h5>Base de datos</h5>
     </div>
+	<form action="" method="POST">
+	<div class="container" style="margin:auto;">
+		<div class="row">		
+			<div class="col">
+				<br>
+  				<label class="registro" for="">Id Equipo</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="id_equipo" id="idequipo"><br>
 
-		<div class="form">
-			<form action="" method="POST">
+				<label class="registro" for="">Estatus</label><br>
+				<input class="registro-input" type="text" placeholder=""maxlength="20" name="estatus" id="estatus"><br>
 
-		<label class="registro" for="">Id Equipo</label>
-		<input class="registro-input" type="idequipo" placeholder="" maxlength="20" name="idequipo" id="idequipo">
+				<label class="registro" for="">Razon social</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="razon_social" id="razonsocial"><br>
 
-		<label class="registro" for="">Estatus</label>
-		<input class="registro-input" type="estatus" placeholder=""maxlength="20" name="estatus" id="estatus">
+				<label class="registro" for="">Segmento</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="segmento" id="segmento"><br>
 
-		<label class="registro" for="">Razon social</label>
-		<input class="registro-input" type="razonsocial" placeholder="" maxlength="20" name="razonsocial" id="razonsocial">
+				<label class="registro" for="">Unidad de negocio</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="unidad_de_negocio" id="unidaddenegocio"><br>
 
-		<label class="registro" for="">Segmento</label>
-		<input class="registro-input" type="segmento" placeholder="" maxlength="20" name="segmento" id="segmento">
+				<label class="registro" for="">Cofre electronico</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="cofre_electronico" id="cofreelectronico"><br>
 
-		<label class="registro" for="">Unidad de negocio</label>
-		<input class="registro-input" type="unidaddenegocio" placeholder="" maxlength="20" name="unidaddenegocio" id="unidaddenegocio">
+			</div>
 
-		<label class="registro" for="">Cofre electronico</label>
-		<input class="registro-input" type="cofreelectronico" placeholder="" maxlength="20" name="cofreelectronico" id="cofreelectronico">
+			<div class="col">
+				<br>
+				<label class="registro" for="">Capacidad</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="capacidad" id="capacidad"><br>
+		
+				<label class="registro" for="">Proveedor</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="proveedor" id="proveedor"><br>
 
-		<label class="registro" for="">Capacidad</label>
-		<input class="registro-input" type="capacidad" placeholder="" maxlength="20" name="capacidad" id="capacidad">
+				<label class="registro" for="">Modelo</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="modelo" id="modelo"><br>
 
-		<label class="registro" for="">Proveedor</label>
-		<input class="registro-input" type="proveedor" placeholder="" maxlength="20" name="proveedor" id="proveedor">
+				<label class="registro" for="">Serie</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlenght="40" name="serie" id="serie"><br>
+		
+				<label class="registro" for="">Banco</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="banco" id="banco"><br>
 
-		<label class="registro" for="">Modelo</label>
-		<input class="registro-input" type="modelo" placeholder="" maxlength="20" name="modelo" id="modelo">
+				<label class="registro" for="">Tipo de Acreditacion</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="tipo_de_acreditacion" id="tipodeacreditacion"><br>
 
-		<label class="registro" for="">Serie</label>
-		<input class="registro-input" type="serie" placeholder="" maxlenght="40" name="serie" id="serie">
+			</div>
 
-		<label class="registro" for="">Banco</label>
-		<input class="registro-input" type="banco" placeholder="" maxlength="20" name="banco" id="banco">
+			<div class="col">
+				<br>
+				<label class="registro" for="">Contenedor</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="contenedor" id="contenedor"><br>
 
-		<label class="registro" for="">Tipo de Acreditacion</label>
-		<input class="registro-input" type="tipodeacreditacion" placeholder="" maxlength="20" name="tipodeacreditacion" id="tipodeacreditacion">
+				<label class="registro" for="">Empresa</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="empresa" id="empresa"><br>
 
-		<label class="registro" for="">Contenedor</label>
-		<input class="registro-input" type="contenedor" placeholder="" maxlength="20" name="contenedor" id="contenedor">
+				<label class="registro" for="">Sucursal GSI</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="sucursal_gsi" id="sucursalgsi"><br>
 
-		<label class="registro" for="">Empresa</label>
-		<input class="registro-input" type="empresa" placeholder="" maxlength="20" name="empresa" id="empresa">
+				<label class="registro" for="">Division</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="division" id="division"><br>		
+		
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<br>
+				<label class="registro" for="">Direccion</label><br>
+				<input class="registro-direccion" type="costo" placeholder="" maxlength="80" name="direccion" id="direccion"><br><br>
 
-		<label class="registro" for="">Sucursal GSI</label>
-		<input class="registro-input" type="sucursalgsi" placeholder="" maxlength="20" name="sucursalgsi" id="sucursalgsi">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col">
+				<label class="registro" for="">Fecha de Instalacion</label><br>
+				<input class="registro-input" type="date" placeholder="" maxlength="20" name="fecha_de_instalacion" id="fechadeinstalacion"><br>
+			</div>
 
-		<label class="registro" for="">Division</label>
-		<input class="registro-input" type="division" placeholder="" maxlength="20" name="division" id="division">
+			<div class="col">
+				<label class="registro" for="">Fecha de Retiro</label><br>
+				<input class="registro-input" type="date" placeholder="" maxlength="20" name="fecha_de_retiro" id="fechaderetiro"><br>
+			</div>
 
-		<label class="registro" for="">Fecha de Instalacion</label>
-		<input class="registro-input" type="fechadeinstalacion" placeholder="" maxlength="20" name="fechadeinstalacion" id="fechadeinstalacion">
+			<div class="col">
+				<label class="registro" for="">Costo</label><br>
+				<input class="registro-input" type="text" placeholder="" maxlength="20" name="costo" id="costo"><br>		
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col">
+				<br><br>
+				<input action="" style="margin: auto;" type="submit" value="Guardar">
+				<?php
+					if(!empty($_POST)){
+						$idequipo = $_POST['id_equipo'];
+						$estatus = $_POST['estatus'];
+						$razonsocial = $_POST['razon_social'];
+						$segmento = $_POST['segmento'];
+						$unidaddenegocio = $_POST['unidad_de_negocio'];
+						$cofreelectronico = $_POST['cofre_electronico'];
+						$capacidad = $_POST['capacidad'];
+						$proveedor = $_POST['proveedor'];
+						$modelo = $_POST['modelo'];
+						$serie = $_POST['serie'];
+						$banco = $_POST['banco'];
+						$tipodeacreditacion = $_POST['tipo_de_acreditacion'];
+						$contenedor = $_POST['contenedor'];
+						$empresa = $_POST['empresa'];
+						$sucursalgsi = $_POST['sucursal_gsi'];
+						$division = $_POST['division'];
+						$direccion = $_POST['direccion'];
+						$fechadeinstalacion = $_POST['fecha_de_instalacion'];
+						$fechaderetiro = $_POST['fecha_de_retiro'];
+						$costo = $_POST['costo'];
 
-		<label class="registro" for="">Fecha de Retiro</label>
-		<input class="registro-input" type="fechaderetiro" placeholder="" maxlength="20" name="fechaderetiro" id="fechaderetiro">
+						$sql = "INSERT TO base(id, fecha, id_equipo, estatus, razon_social, segmento, unidad_de_negocio, cofre_electronico, capacidad, proveedor, modelo, serie, banco, tipo_de_acreditacion, contenedor, empresa, sucursal_gsi, division, direccion, fecha_de_instalacion, fecha_de_retiro, costo) 
+						VALUES (NULL, current_timestamp(), :id_equipo, :estatus, :razon_social, :segmento, :unidad_de_negocio, :cofre_electronico, :capacidad, :proveedor, :modelo, :serie, :banco, :tipo_de_acreditacion, :contenedor, :empresa, :sucursal_gsi, :division, :direccion, :fecha_de_instalacion, :fecha_de_retiro, :costo)";
+						$query = $pdo->prepare($sql);
+						$query->execute([
+ 						'id_equipo'=> $idequipo,
+						'estatus' => $estatus,
+						'razon_social' => $razonsocial,
+						'segmento' => $segmento,
+						'unidad_de_negocio' => $unidaddenegocio,
+						'cofre_electronico' => $cofreelectronico,
+						'capacidad'=> $capacidad,
+						'proveedor' => $proveedor,
+						'modelo' => $modelo,
+						'serie' => $serie,
+						'banco' => $banco,
+						'tipo_de_acreditacion' => $tipodeacreditacion,
+						'contenedor' => $contenedor,
+						'empresa' => $empresa,
+						'sucursal_gsi' => $sucursalgsi,
+						'division' => $division,
+						'direccion' => $direccion,
+						'fecha_de_instalacion' => $fechadeinstalacion,
+						'fecha_de_retiro' => $fechaderetiro,
+						'costo' => $costo
+						]);
+					}
+				?>
+			</div>
+		</div>
+	</div>
+	</form>
 
-		<label class="registro" for="">Costo</label>
-		<input class="registro-input" type="costo" placeholder="" maxlength="20" name="costo" id="costo">
-
-		<label class="registro" for="">Direccion</label>
-		<input class="registro-input" type="direccion" placeholder="" maxlength="250" name="direccion" id="direccion">
-
-
-<input type="submit" value="GUARDAR">
 
 <!-- <form action="" method="post">
     <input type="submit" name="respuesta" value="atras">
