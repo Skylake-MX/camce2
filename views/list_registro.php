@@ -93,11 +93,20 @@ var_dump($_GET);
             <td>    <?=$row['fecha_de_retiro'];?>   </td>
             <td>    <?=$row['costo'];?>             </td>
             <td> <a href="update_registro.php?id=<?=$row['id']?>"><i class="fas fa-edit"></a></td>
-            <td> <a href="../scripts/delete_registro.php?id=<?=$row['id']?>"><i class="fas fa-trash-alt"></a></td>            
+            <td> <a href="#" onclick="preguntar(<?php echo $row['id']?>)"><i class="fas fa-trash-alt"></a></td>            
         </tr>
         <?php endforeach; ?>
     </tbody>
     </table>
+    
+    <script type="text/javascript">
+            function preguntar(id){
+                if(confirm('¿Estas seguro que deseas eliminar este registro?')){
+                    window.location.href = "../scripts/delete_registro.php?id=<?=$row['id']?>";
+                }
+            }
+    </script>
+
     <br>
     <br>
 </body>

@@ -55,11 +55,18 @@ var_dump($_GET);
         <!--     <td>    <?=$row['nombre'];?>        </td> -->
             <td>    <?=$row['username'];?>      </td>
             <td>    <?=$row['privilegio'];?>    </td>
-            <td style="text-align:center;"> <a href="../scripts/delete.php?id=<?=$row['id']?>"><i class="fas fa-trash-alt"></a></td>
+            <td style="text-align:center;"> <a href="#" onclick="preguntar(<?php echo $row['id']?>)"><i class="fas fa-trash-alt"></a></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
     </table>
+    <script type="text/javascript">
+            function preguntar(id){
+                if(confirm('¿Estas seguro que deseas eliminar este registro?')){
+                    window.location.href = "../scripts/delete.php?id=<?=$row['id']?>";
+                }
+            }
+    </script>
     <br>
     <br>
     <div class="" style="text-align:center;"> <a href="add_user.php">Agregar Usuario</a></div>
