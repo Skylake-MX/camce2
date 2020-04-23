@@ -31,7 +31,8 @@
       <a href="scripts/logout.php" class="list-group-item list-group-item-action">Crear Folio</a>
       <a href="scripts/logout.php" class="list-group-item list-group-item-action">Cerrar Folio</a>
       <a href="views/registro.php" class="list-group-item list-group-item-action">Agregar Registro</a>
-      <a href="views/edit_users.php" class="list-group-item list-group-item-action">Editar Usuario</a>
+      <a href="views/list_registro.php" class="list-group-item list-group-item-action">Listar Equipos</a>
+      <a href="views/edit_users.php" class="list-group-item list-group-item-action">Listar Usuarios</a>
       <a href="scripts/logout.php" class="list-group-item list-group-item-action">Salir</a>
     </div>
 </body>
