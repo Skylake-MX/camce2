@@ -40,7 +40,7 @@ require_once '../scripts/connect.php';
   <div class="container" style="margin:auto;">
   <form action="" class="add_user" method="post">
       <br><label for=""><h5>Usuario Nuevo:</h5></label><br><br>
-      <input type="text" style="width:185px" name="username"placeholder="Nombre de usuario"><br></br>
+      <input type="text" style="width:185px" name="username"placeholder="Nombre de usuario" required><br></br>
       <select type="text" style="width:185px;border:5px;font-size:19px" onchange="this.style.width=200" name="privilegio">
         <option value="usuario" selected>Usuario</option>
         <option value="administrador">Administrador</option>
@@ -48,8 +48,8 @@ require_once '../scripts/connect.php';
       </select>
       <br>
       <br>
-      <input type="password" style="width:185px" name="password" placeholder="Contraseña"><br></br>
-      <input type="password" style="width:185px"name="c_password" placeholder="Confirma Contraseña"><br></br>
+      <input type="password" style="width:185px" name="password" placeholder="Contraseña" required><br></br>
+      <input type="password" style="width:185px"name="c_password" placeholder="Confirma Contraseña" required><br></br>
       <p class="center"><input type="submit" value="Añadir"></p>
       <br>
       <?php

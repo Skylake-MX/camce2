@@ -35,10 +35,10 @@ var_dump($_POST);
                 </div>
                 <form action="" class="col-12" method="post">
                     <div class="form-group" id="user-group">
-                        <input type="text" class="form-control" placeholder="Nombre de Usuario" name="username"/>
+                        <input type="text" class="form-control" placeholder="Nombre de Usuario" name="username" required>
                     </div>
                     <div class="form-group" id="contrasena-group">
-                        <input type="password" class="form-control" placeholder="Contraseña" name="password"/>
+                        <input type="password" class="form-control" placeholder="Contraseña" name="password" required>
                     </div>
                     <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar</button>
                   </form>

@@ -42,10 +42,10 @@ var_dump($_GET);
     <thead class="thead-light">
         <tr>
             <th>
-    <!--         <th scope="col">Nombre</th> -->
+            <!-- <th scope="col">Nombre</th> -->
             <th scope="col">Usuario</th>
             <th scope="col">Privilegio</th>
-            <th scope="col">Delete</th>
+            <th scope="col" style="text-align:center;">Delete</th>
         </tr>
     </thead>
     </tbody>
@@ -55,7 +55,7 @@ var_dump($_GET);
         <!--     <td>    <?=$row['nombre'];?>        </td> -->
             <td>    <?=$row['username'];?>      </td>
             <td>    <?=$row['privilegio'];?>    </td>
-            <td> <a href="../scripts/delete.php?id=<?=$row['id']?>">Delete</a></td>
+            <td style="text-align:center;"> <a href="../scripts/delete.php?id=<?=$row['id']?>"><i class="fas fa-trash-alt"></a></td>
         </tr>
         <?php endforeach; ?>
     </tbody>

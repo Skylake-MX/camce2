@@ -45,60 +45,60 @@ require_once '../scripts/connect.php';
 			<div class="col">
 				<br>
   				<label class="registro" for="">Id Equipo</label><br>
-				<input class="registro-input" type="text"  maxlength="20" name="idequipo" id="idequipo"><br>
+				<input class="registro-input" type="text"  maxlength="20" name="idequipo" id="idequipo" required><br>
 
 				<label class="registro" for="">Estatus</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="estatus" id="estatus"><br>
+				<input class="registro-input" type="text" maxlength="20" name="estatus" id="estatus" required><br>
 
 				<label class="registro" for="">Razon social</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="razonsocial" id="razonsocial"><br>
+				<input class="registro-input" type="text" maxlength="20" name="razonsocial" id="razonsocial" required><br>
 
 				<label class="registro" for="">Segmento</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="segmento" id="segmento"><br>
+				<input class="registro-input" type="text" maxlength="20" name="segmento" id="segmento" required><br>
 
 				<label class="registro" for="">Unidad de negocio</label><br>
-				<input class="registro-input" type="text"  maxlength="20" name="unidaddenegocio" id="unidaddenegocio"><br>
+				<input class="registro-input" type="text"  maxlength="20" name="unidaddenegocio" id="unidaddenegocio" required><br>
 
 				<label class="registro" for="">Cofre electronico</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="cofreelectronico" id="cofreelectronico"><br>
+				<input class="registro-input" type="text" maxlength="20" name="cofreelectronico" id="cofreelectronico" required><br>
 
 			</div>
 
 			<div class="col">
 				<br>
 				<label class="registro" for="">Capacidad</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="capacidad" id="capacidad"><br>
+				<input class="registro-input" type="text" maxlength="20" name="capacidad" id="capacidad" required><br>
 		
 				<label class="registro" for="">Proveedor</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="proveedor" id="proveedor"><br>
+				<input class="registro-input" type="text" maxlength="20" name="proveedor" id="proveedor" required><br>
 
 				<label class="registro" for="">Modelo</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="modelo" id="modelo"><br>
+				<input class="registro-input" type="text" maxlength="20" name="modelo" id="modelo" required><br>
 
 				<label class="registro" for="">Serie</label><br>
-				<input class="registro-input" type="text" maxlenght="40" name="serie" id="serie"><br>
+				<input class="registro-input" type="text" maxlenght="40" name="serie" id="serie" required><br>
 		
 				<label class="registro" for="">Banco</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="banco" id="banco"><br>
+				<input class="registro-input" type="text" maxlength="20" name="banco" id="banco" required><br>
 
 				<label class="registro" for="">Tipo de Acreditacion</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="tipodeacreditacion" id="tipodeacreditacion"><br>
+				<input class="registro-input" type="text" maxlength="20" name="tipodeacreditacion" id="tipodeacreditacion" required><br>
 
 			</div>
 
 			<div class="col">
 				<br>
 				<label class="registro" for="">Contenedor</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="contenedor" id="contenedor"><br>
+				<input class="registro-input" type="text" maxlength="20" name="contenedor" id="contenedor" required><br>
 
 				<label class="registro" for="">Empresa</label><br>
-				<input class="registro-input" type="text"" maxlength="20" name="empresa" id="empresa"><br>
+				<input class="registro-input" type="text"" maxlength="20" name="empresa" id="empresa" required><br>
 
 				<label class="registro" for="">Sucursal GSI</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="sucursalgsi" id="sucursalgsi"><br>
+				<input class="registro-input" type="text" maxlength="20" name="sucursalgsi" id="sucursalgsi" required><br>
 
 				<label class="registro" for="">Division</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="division" id="division"><br>		
+				<input class="registro-input" type="text" maxlength="20" name="division" id="division" required><br>		
 		
 			</div>
 		</div>
@@ -106,7 +106,7 @@ require_once '../scripts/connect.php';
 			<div class="col">
 				<br>
 				<label class="registro" for="">Direccion</label><br>
-				<input class="registro-direccion" type="costo" maxlength="80" name="direccion" id="direccion"><br><br>
+				<input class="registro-direccion" type="costo" maxlength="80" name="direccion" id="direccion" required><br><br>
 
 			</div>
 		</div>
@@ -114,17 +114,17 @@ require_once '../scripts/connect.php';
 		<div class="row">
 			<div class="col">
 				<label class="registro" for="">Fecha de Instalacion</label><br>
-				<input class="registro-input" type="date" maxlength="20" name="fechadeinstalacion" id="fechadeinstalacion"><br>
+				<input class="registro-input" type="date" maxlength="20" name="fechadeinstalacion" id="fechadeinstalacion" required><br>
 			</div>
 
 			<div class="col">
 				<label class="registro" for="">Fecha de Retiro</label><br>
-				<input class="registro-input" type="date" maxlength="20" name="fechaderetiro" id="fechaderetiro"><br>
+				<input class="registro-input" type="date" maxlength="20" name="fechaderetiro" id="fechaderetiro" required><br>
 			</div>
 
 			<div class="col">
 				<label class="registro" for="">Costo</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="costo" id="costo"><br>		
+				<input class="registro-input" type="text" maxlength="20" name="costo" id="costo" required><br>		
 			</div>
 		</div>
 		
@@ -133,6 +133,7 @@ require_once '../scripts/connect.php';
 				<br><br>
 				<input action="" style="margin: auto;" type="submit" value="Guardar">
 				<?php
+					$result = false;
 					if(!empty($_POST)){
 						$idequipo = $_POST['idequipo'];
 						$estatus = $_POST['estatus'];
@@ -157,7 +158,7 @@ require_once '../scripts/connect.php';
 
 						$sql = "INSERT INTO base(id, fecha, id_equipo, estatus, razon_social, segmento, unidad_de_negocio, cofre_electronico, capacidad, proveedor, modelo, serie, banco, tipo_de_acreditacion, contenedor, empresa, sucursal_gsi, division, direccion, fecha_de_instalacion, fecha_de_retiro, costo) VALUES (NULL, current_timestamp(), :id_equipo, :estatus, :razon_social, :segmento, :unidad_de_negocio, :cofre_electronico, :capacidad, :proveedor, :modelo, :serie, :banco, :tipo_de_acreditacion, :contenedor, :empresa, :sucursal_gsi, :division, :direccion, :fecha_de_instalacion, :fecha_de_retiro, :costo)";
 						$query = $pdo->prepare($sql);
-						$query->execute([
+						$result = $query->execute([
  						'id_equipo' => $idequipo,
 						'estatus' => $estatus,
 						'razon_social' => $razonsocial,
@@ -184,6 +185,11 @@ require_once '../scripts/connect.php';
 			</div>
 		</div>
 	</div>
+	<div class="container" style="margin:auto;"><br>
+	<?php
+		if($result) { echo '<div class="alert alert-success" role="alert" style"text-center">' . "El registro para " . $idequipo . " se agrego correctamnte.";  }
+	?>
+	<div>
 	</form>
 
 
