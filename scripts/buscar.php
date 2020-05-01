@@ -48,7 +48,7 @@
                             <td>".$fila['unidad_de_negocio']."</td>
                             <td>".$fila['serie']."</td>
                             <td>".$fila['modelo']."</td>
-                            <td><a href='folio.php?id=" . $fila['id'] . "'>crear folio</a></td>
+                            <td><a href='../views/folio.php?id=" . $fila['id'] . "'>crear folio</a></td>
                         </tr>";
             }
 
