@@ -56,19 +56,21 @@ var_dump($_GET);
             <th scope="col">Banco</th>
             <th scope="col">Tipo de Acreditacion</th>
           <!--   <th scope="col">Contenedor</th> -->
-            <th scope="col">Empresa</th>
+        <!--     <th scope="col">Empresa</th> -->
             <th scope="col">Sucursal GSI</th>
         <!--     <th scope="col">Division</th> -->
             <th scope="col">Direccion</th>
-            <th scope="col">Fecha de Instalacion</th>
-            <th scope="col">Fecha de retiro</th>
-            <th scope="col">Costo</th>         
+        <!--     <th scope="col">Fecha de Instalacion</th> -->
+         <!--    <th scope="col">Fecha de retiro</th> -->
+        <!--     <th scope="col">Costo</th>   -->       
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>          
         </tr>
     </thead>
     </tbody>
-        <?php foreach($queryResult as $row): ?>
+        <?php //var_dump($queryResult); 
+        foreach($queryResult as $row): ?>
+     
         <tr>
         <th scope="row"></th>
          <!--    <td>    <?=$row['id'];?>                </td>  -->
@@ -85,13 +87,13 @@ var_dump($_GET);
             <td>    <?=$row['banco'];?>             </td>
             <td>    <?=$row['tipo_de_acreditacion'];?>    </td>
           <!--   <td>    <?=$row['contenedor'];?>        </td> -->
-            <td>    <?=$row['empresa'];?>           </td>
+            <!-- <td>    <?=$row['empresa'];?>           </td> -->
             <td>    <?=$row['sucursal_gsi'];?>      </td>
           <!--   <td>    <?=$row['division'];?>          </td> -->
             <td>    <?=$row['direccion'];?>         </td>
-            <td>    <?=$row['fecha_de_instalacion'];?>    </td>
-            <td>    <?=$row['fecha_de_retiro'];?>   </td>
-            <td>    <?=$row['costo'];?>             </td>
+            <!-- <td>    <?=$row['fecha_de_instalacion'];?>    </td> -->
+            <!-- <td>    <?=$row['fecha_de_retiro'];?>   </td> -->
+            <!-- <td>    <?=$row['costo'];?>             </td> -->
             <td> <a href="update_registro.php?id=<?=$row['id']?>"><i class="fas fa-edit"></a></td>
             <td> <a href="#" onclick="preguntar(<?php echo $row['id']?>)"><i class="fas fa-trash-alt"></a></td>            
         </tr>

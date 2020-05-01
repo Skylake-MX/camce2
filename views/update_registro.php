@@ -105,7 +105,7 @@
     }
     else{
     $id = $_GET['id'];
-    var_dump($id);
+    /* var_dump($id); */
 
     $sql="SELECT * FROM base WHERE id=:id";
     $query=$pdo->prepare($sql);

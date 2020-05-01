@@ -28,8 +28,8 @@
     <h5>¿Que deseas hacer?</h5>
     </div>
     <div class="list-group">
-      <a href="scripts/logout.php" class="list-group-item list-group-item-action">Crear Folio</a>
-      <a href="scripts/logout.php" class="list-group-item list-group-item-action">Cerrar Folio</a>
+      <a href="views/crear_folio.php" class="list-group-item list-group-item-action">Crear Folio</a>
+      <a href="#" class="list-group-item list-group-item-action">Cerrar Folio</a>
       <a href="views/registro.php" class="list-group-item list-group-item-action">Agregar Registro</a>
       <a href="views/list_registro.php" class="list-group-item list-group-item-action">Listar Equipos</a>
       <a href="views/edit_users.php" class="list-group-item list-group-item-action">Listar Usuarios</a>
