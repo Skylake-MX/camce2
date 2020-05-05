@@ -4,6 +4,7 @@ include 'db.php';
 class User extends DB{
     private $nombre;
     private $username;
+    private $privilegio;
 
 
     public function userExists($user, $pass){
@@ -20,17 +21,23 @@ class User extends DB{
 
     public function setUser($user){
         $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE username = :user');
-        $query->execute(['user' => $user]);
+        $queryResult= $query->execute(['user' => $user]);
 
         foreach ($query as $currentUser) {
             $this->nombre = $currentUser['nombre'];
-            $this->usename = $currentUser['username'];
+            $this->username = $currentUser['username'];
+            $this->privilegio = $currentUser['privilegio'];
         }
     }
 
     public function getNombre(){
         return $this->nombre;
     }
+
+    public function getPrivilegio(){
+        return $this->privilegio;
+    }
+
 }
 
 ?>
