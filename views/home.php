@@ -31,7 +31,7 @@
       <a href="views/crear_folio.php" class="list-group-item list-group-item-action">Crear Folio</a>
       <a href="views/cerrar_folio.php" class="list-group-item list-group-item-action">Cerrar Folio</a>
       <a href="views/registro.php" class="list-group-item list-group-item-action">Agregar Registro</a>
-      <a href="views/list_registro.php" class="list-group-item list-group-item-action">Listar Equipos</a>
+      <a href="views/listar_cofres.php" class="list-group-item list-group-item-action">Listar Equipos</a>
       <a href="views/edit_users.php" class="list-group-item list-group-item-action">Listar Usuarios</a>
       <a href="scripts/logout.php" class="list-group-item list-group-item-action">Salir</a>
     </div>

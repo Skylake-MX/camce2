@@ -165,7 +165,7 @@
 	<nav>
         <div value="nav_option"></option>
             <ul class="nav_lista">
-                <li><a href="list_registro.php">Atrás</a></li>
+                <li><a href="listar_cofres.php">Atrás</a></li>
                 <li><i class="fas fa-edit"></i></li>
                 </form>
                 <li><a href="../scripts/logout.php">Salir</a></li>
