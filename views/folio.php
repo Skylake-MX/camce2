@@ -4,16 +4,17 @@
 	include '../scripts/user_session.php';
 	include '../scripts/user.php';
 
-
-	/* var_dump($_POST); */
-
-	 error_reporting(E_ALL ^ E_NOTICE); 
-	 session_start();
+	error_reporting(E_ALL ^ E_NOTICE); 
+	session_start();
 	
-	$query=$pdo->query("SELECT folio FROM bitacora WHERE folio");
+	$q=str_ireplace(",", "", date("d,m,y"));
+	$query="SELECT folio FROM bitacora WHERE folio LIKE '%" . $q . "%'";
+	$query=$pdo->query($query);
 	$query->rowCount();
 
-	$contador=2;
+	echo $query->rowCount();
+
+	$contador=$query->rowCount() + 1;
 
 	while(strlen($contador)<3){
 		
