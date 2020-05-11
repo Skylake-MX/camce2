@@ -1,40 +1,98 @@
 <?php
 
-	include '../scripts/connect.php';
+    include '../scripts/connect.php';
+    include '../scripts/user_session.php';
+	include '../scripts/user.php';
 
  	error_reporting(E_ALL ^ E_NOTICE); 
-	
-	$query=$pdo->query("SELECT folio FROM bitacora WHERE folio");
-	$query->rowCount();
+    session_start();
+    $currentUser = new User();
+    $currentUser->setUser($_SESSION['user']);
 
-	$contador=2;
-
-	while(strlen($contador)<3){
-		
-		$contador="0".$contador;
-
-	}
-	$folioCAMCE= "CAMCE-". str_ireplace(",", "", date("d,m,y")) . "-" . $contador;
 
 	$result=false;
 
 	if(!empty($_POST)){
 
+        $id=$_POST['id'];  
+       /*  var_dump($id); */
+
+        $newTir = $_POST['tir'];
+        $newSolucion  = $_POST['solucion'];
+        $newPiezasProveedor  = $_POST['piezas_proveedor'];
+        $newPiezasSepsa  = $_POST['piezas_sepsa'];
+        $newDelDaño  = $_POST['del_daño'];
+        $newEstatus  = $_POST['estatus'];
+        $newDatetimeDeLlegada  = $_POST['datetime_llegada'];
+        $newDateTermino  = $_POST['datetime_termino'];
+        $newCierraFolio  = $_POST['cierra_folio'];
+
+        $sql = "UPDATE bitacora SET 
+            tir=:tir,
+            solucion=:solucion,
+            piezas_proveedor=:piezas_proveedor,
+            piezas_sepsa=:piezas_sepsa,
+            del_daño=:del_daño,
+            estatus=:estatus,
+            datetime_llegada=:datetime_llegada,
+            datetime_termino=:date_termino,
+            cierra_folio=:cierra_folio WHERE id=:id";
+
+        $query = $pdo->prepare($sql);
+        $result = $query->execute([
+            'id' => $id,
+            'tir' => $tir,
+            'solucion'=>$solucion,
+
+            ]);
+
+            $idEquipoValue = $newidEquipo;
+            $estatusValue = $newestatus;
+            $razonSocialValue = $newrazonSocial;
+            $segmentoValue = $newsegmento;
+            $unidadDeNegocioValue = $newunidadDeNegocio;
+            $cofreElectronicoValue = $newcofreElectronico;
+            $capacidadValue = $newcapacidad;
+            $proveedorValue = $newproveedor;
+            $modeloValue = $newmodelo;
+            $serieValue = $newserie;
+            $bancoValue = $newbanco;
+            $tipoDeAcreditacionValue = $newtipoDeAcreditacion;
+            $contenedorValue = $newcontenedor;
+            $empresaValue = $newempresa;
+            $sucursalGsiValue = $newsucursalGsi;
+            $divisionValue = $newdivision;
+            $direccionValue = $newdireccion;
+            $fechaDeInstalacionValue = $newfechaDeInstalacion;
+            $fechaDeRetiroValue = $newfechaDeRetiro;
+            $costoValue = $newcosto;
+
+            /* var_dump($result); */
+            $estatusOp="El registro para " . $idEquipoValue . " se actualizo correctamente ";
+
+
+
 	}else{
 		$id = $_GET['id'];
 
-		$sql="SELECT * FROM base WHERE id=:id";
+		$sql="SELECT * FROM bitacora WHERE id=:id";
 		$query=$pdo->prepare($sql);
 		$query->execute([
 			'id' => $id
-		]);
+        ]);
+        
+        $row=$query->fetch(PDO::FETCH_ASSOC);
+        
+        $sqlDireccion="SELECT direccion FROM base WHERE serie=:serie";
+        $queryDireccion=$pdo->prepare($sqlDireccion);
+        $queryDireccion->execute([
+            'serie'=>$row['serie']
+        ]);
+
+        $rowDireccion=$queryDireccion->fetch(PDO::FETCH_ASSOC);
 
 	}
 
-	$row=$query->fetch(PDO::FETCH_ASSOC);
-
-
-	
 ?>
 
 
@@ -63,7 +121,7 @@
 	<nav>
         <div value="nav_option"></option>
             <ul class="nav_lista">
-                <li><a href="crear_folio.php">Atrás</a></li>
+                <li><a href="listar_folios.php">Atrás</a></li>
                 <li><i class="fas fa-edit"></i></li>
                 </form>
                 <li><a href="../scripts/logout.php">Salir</a></li>
@@ -72,7 +130,7 @@
 	</nav>
     <br>
 	<div class="" style="text-align: center;">   
-    	<h5>Crear folio</h5>
+    	<h5>Cerrar folio</h5>
     </div>
 	<form action="" method="POST">
 	<div class="container" style="margin:auto;">
@@ -80,13 +138,13 @@
 
             <div class="col"><br>
             <label class="registro" for="">Folio</label><br>
-			    <input class="registro-input" type="text" maxlength="15" name="folio" value="<?=$folioCAMCE ?>" disabled><br>
+			    <input class="registro-input" type="text" maxlength="15" name="folio" value="<?=$row['folio']?>" readonly><br>
             </div>
 			<div class="col"><br>
                 
 
                 <label class="registro" for="">Fecha/Hora de cita</label><br>
-				<input class="registro-input" type="datetime-local" maxlength="6" name="datetime_cita" value="" disabled><br>
+				<input class="registro-input" type="datetime-local" maxlength="6" name="datetime_cita" value="<?=$row['datetime_cita']?>" readonly><br>
             </div>
 
             <div class="col"><br>
@@ -98,18 +156,18 @@
         <div class="row">
             <div class="col"><br>
                 <label class="registro" for="">Cliente</label><br>
-			    <input class="registro-input" type="text" maxlength="30" name="cliente" value="<?=$row['razon_social']?>" disabled><br> 
+			    <input class="registro-input" type="text" maxlength="30" name="cliente" value="<?=$row['cliente']?>" readonly><br> 
             
             </div>
             <div class="col"><br>
                 <label class="registro" for="">Sucursal Cliente</label><br>
-			    <input class="registro-input" type="text" maxlength="20" name="sucursal_cliente" value="<?=$row['unidad_de_negocio']?>" disabled><br>
+			    <input class="registro-input" type="text" maxlength="20" name="sucursal_cliente" value="<?=$row['sucursal_cliente']?>" readonly><br>
             
             </div>
 
             <div class="col"><br>
                 <label class="registro" for="">Falla</label><br>
-				<input class="registro-input" type="costo" maxlength="50" name="falla" value="" disabled><br>
+				<input class="registro-input" type="costo" maxlength="50" name="falla" value="<?=$row['falla']?>" readonly><br>
             
             </div>
 
@@ -119,17 +177,17 @@
 
             <div class="col"><br>
                 <label class="registro" for="">Serie</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="serie" value="<?=$row['serie']?>" disabled><br>
+				<input class="registro-input" type="text" maxlength="20" name="serie" value="<?=$row['serie']?>" readonly><br>
             
             </div>
             <div class="col"><br>
                 <label class="registro" for="">Proveedor</label><br>
-				<input class="registro-input" type="text" maxlenght="20" name="proveedor" value="<?=$row['proveedor']?>" disabled><br>
+				<input class="registro-input" type="text" maxlenght="20" name="proveedor" value="<?=$row['proveedor']?>" readonly><br>
             
             </div>
             <div class="col"><br>
                 <label class="registro" for="">Equipo</label><br>
-				<input class="registro-input" type="text" maxlength="15" name="equipo" value="<?=$row['modelo']?>" disabled><br>
+				<input class="registro-input" type="text" maxlength="15" name="equipo" value="<?=$row['equipo']?>" readonly><br>
             
             </div>
         
@@ -140,7 +198,7 @@
 
            <br>
                 <label class="registro" for="">Direccion</label><br>
-			    <input class="registro-direccion" type="costo" maxlength="50" name="falla" value="" disabled><br>
+			    <input class="registro-direccion" type="costo" maxlength="50" name="direccion" value="<?=$rowDireccion['direccion']?>" readonly><br>
             
             </div>
         
@@ -213,7 +271,7 @@
 
             <div class="col"><br>
                 <label class="registro" for="">Cierra Folio</label><br>
-                <input class="registro-input" type="text" maxlength="35" name="cierra_folio" value=""><br>	
+                <input class="registro-input" type="text" maxlength="35" name="cierra_folio" value="<?=$currentUser->getNombre();?>" readonly><br>	
             
             </div>
         </div>

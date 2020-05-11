@@ -6,6 +6,7 @@
     $query = "SELECT * FROM base ORDER By razon_social";
 
     if(isset($_POST['consulta'])){
+        
         $q=$_POST['consulta'];
         
         

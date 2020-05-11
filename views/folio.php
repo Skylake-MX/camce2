@@ -104,7 +104,7 @@
 		$row['falla']=$falla;
 		$row['estatus']=$estatus;
 
-
+		$estatusOp="El folio " . $folio . " se creo correctamente ";
 	}
 ?>
 
@@ -262,13 +262,15 @@
 				</div>
 			</div>
 		</form>
-	</div>
 
-<!--         <?php 
+		<?php 
     if($result){
         echo '<div class="alert alert-success" role="alert">' . $estatusOp; 
         }  
-    ?> -->
+    ?> 
+	</div>
+
+
 
 	
 	</body>
