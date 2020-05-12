@@ -34,9 +34,9 @@
                                 <th scope='col'>Estatus</th>
                                 <th scope='col'>Razon Social</th>
                                 <th scope='col'>Unidad de negocio</th>
-                                <th scope='col'>Serie</th>
                                 <th scope='col'>Modelo</th>
-                                <th scope='col'>Crear Folio</th>
+                                <th scope='col'>Sucursal</th>
+                                <th scope='col'>Folio</th>
                             </tr>
                         </thead>
                         <tbody>";
@@ -46,9 +46,9 @@
                             <td>".$fila['estatus']."</td>
                             <td>".$fila['razon_social']."</td>
                             <td>".$fila['unidad_de_negocio']."</td>
-                            <td>".$fila['serie']."</td>
                             <td>".$fila['modelo']."</td>
-                            <td><a href='../views/folio.php?id=" . $fila['id'] . "' style='text-align:center;'>Crear</a></td>
+                            <td>".$fila['sucursal_gsi']."</td>
+                            <td><a href='../views/folio.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-plus-circle'></i></a></td>
                         </tr>";
             }
 

@@ -12,7 +12,7 @@
 	$query=$pdo->query($query);
 	$query->rowCount();
 
-	echo $query->rowCount();
+	/* echo $query->rowCount(); */
 
 	$contador=$query->rowCount() + 1;
 

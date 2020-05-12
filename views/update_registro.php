@@ -6,8 +6,6 @@
 
     if(!empty($_POST)){
 
-       
-
         $id=$_POST['id'];  
        /*  var_dump($id); */
 
@@ -101,7 +99,7 @@
             $costoValue = $newcosto;
 
             /* var_dump($result); */
-            $estatusOp="El registro para " . $idEquipoValue . " se actualizo correctamente ";
+            $estatusOp="El registro para " . $idEquipoValue . " se actualizo correctamente. ";
     }
     else{
     $id = $_GET['id'];
@@ -266,17 +264,22 @@
 		</div>
 		
 		<div class="row">
-			<div class="col">
-                <input type="hidden" name="id" value="<?php echo $id; ?>">
+			<div class="col"><br>
+                <input type="hidden" name="id" value="<?php echo $id; echo "se genero id con get"; ?>">
 				<input style="margin: auto;" type="submit" value="Update"><br>
 			</div>
 		</div>
         <br>
-        <?php 
-    if($result){
-        echo '<div class="alert alert-success" role="alert">' . $estatusOp; 
-        }  
-    ?>
+        <div class="row">
+            <div class="col">
+                <?php 
+                    if($result){
+                        echo '<div class="alert alert-success" role="alert">' . $estatusOp; 
+                        }  
+                ?>
+            
+            </div>
+        </div>
 	</div>
 	</body>
 

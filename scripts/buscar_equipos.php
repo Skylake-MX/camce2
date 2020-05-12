@@ -31,7 +31,7 @@
     $queryResult = $pdo->query($query);
 
 
-    echo "<div class='' style='margin-left: 20%; margin-top: 2%'><label for='resultado'>" . $queryResult->rowCount() . "  Resultados</label></div>";    
+    echo "<div class='' style='margin-left: 10%; margin-top: 2%'><label for='resultado'>" . $queryResult->rowCount() . "  Resultados</label></div>";    
 
 
         if(true){

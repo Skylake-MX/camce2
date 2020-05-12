@@ -37,7 +37,7 @@ require_once '../scripts/connect.php';
 	</nav>
 
 	<div class="" style="text-align: center;">   
-    	<h5>Base de datos</h5>
+    	<h5>Nuevo Registro</h5>
     </div>
 	<form action="" method="POST">
 	<div class="container" style="margin:auto;">

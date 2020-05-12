@@ -30,7 +30,7 @@
     </nav>
 
     <div class="" style="text-align: center; margin-top:2%;">   
-    <h5>Base de datos</h5>
+    <h5>Folios</h5>
     </div>
 
     <label for="caja_busqueda" style="margin-left: 20%; margin-top: 2%;">Busqueda</label>

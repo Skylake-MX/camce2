@@ -33,11 +33,11 @@
     <h5>Base de datos</h5>
     </div>
 
-    <label for="caja_busqueda" style="margin-left: 20%; margin-top: 2%;">Busqueda</label>
+    <label for="caja_busqueda" style="margin-left: 10%; margin-top: 2%;">Busqueda</label>
     <input type="text" name="caja_busqueda_equipos" id="caja_busqueda_equipos" placeholder="Id, Equipo, cliente.."></input>
     
     
-    <a href="registro.php" style="padding-left:50%;"><i class="far fa-plus-square"></i><label for="agregar_registro" style="padding-left:5px;">Agregar registro</label> </a>
+    <a href="registro.php" style="padding-left:60%;"><i class="far fa-plus-square"></i><label for="agregar_registro" style="padding-left:5px;">Agregar registro</label> </a>
     <div id="datos_equipos"></div>
 
 
