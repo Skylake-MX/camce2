@@ -7,10 +7,11 @@
     if(!empty($_POST)){
 
         $id=$_POST['id'];  
-       /*  var_dump($id); */
+        var_dump($id);
 
         $newidEquipo  = $_POST['idequipo'];
         $newestatus  = $_POST['estatus'];
+        $newNemo = $_POST['nemo'];
         $newrazonSocial  = $_POST['razonsocial'];
         $newsegmento  = $_POST['segmento'];
         $newunidadDeNegocio  = $_POST['unidaddenegocio'];
@@ -25,14 +26,18 @@
         $newempresa  = $_POST['empresa'];
         $newsucursalGsi  = $_POST['sucursalgsi'];
         $newdivision  = $_POST['division'];
+        $newContacto = $_POST['contacto'];
+        $newTelefono = $_POST['telefono'];
         $newdireccion  = $_POST['direccion'];
         $newfechaDeInstalacion  = $_POST['fechadeinstalacion'];
         $newfechaDeRetiro  = $_POST['fechaderetiro'];
         $newcosto  = $_POST['costo'];
+        $newTipoDeCliente = $_POST['tipoDeCliente'];
 
         $sql = "UPDATE base SET 
             id_equipo=:id_equipo,
             estatus=:estatus,
+            nemo=:nemo,
             razon_social=:razon_social,
             segmento=:segmento,
             unidad_de_negocio=:unidad_de_negocio,
@@ -47,16 +52,20 @@
             empresa=:empresa,
             sucursal_gsi=:sucursal_gsi,
             division=:division,
+            contacto=:contacto,
+            telefono=:telefono,
             direccion=:direccion,
             fecha_de_instalacion=:fecha_de_instalacion,
             fecha_de_retiro=:fecha_de_retiro,
-            costo=:costo WHERE id=:id";
+            costo=:costo,
+            tipo_de_cliente=:tipo_de_cliente WHERE id=:id";
 
         $query = $pdo->prepare($sql);
         $result = $query->execute([
             'id' => $id,
             'id_equipo' => $newidEquipo,
             'estatus' => $newestatus,
+            'nemo' => $newNemo,
             'razon_social' => $newrazonSocial,
             'segmento' => $newsegmento,
             'unidad_de_negocio' => $newunidadDeNegocio,
@@ -71,14 +80,18 @@
             'empresa' => $newempresa,
             'sucursal_gsi' => $newsucursalGsi,
             'division' => $newdivision,
+            'contacto' => $newContacto,
+            'telefono' => $newTelefono,
             'direccion' => $newdireccion,
             'fecha_de_instalacion' => $newfechaDeInstalacion,
             'fecha_de_retiro' => $newfechaDeRetiro,
-            'costo' => $newcosto
+            'costo' => $newcosto,
+            'tipo_de_cliente' => $newTipoDeCliente
             ]);
 
             $idEquipoValue = $newidEquipo;
             $estatusValue = $newestatus;
+            $nemoValue= $newNemo;
             $razonSocialValue = $newrazonSocial;
             $segmentoValue = $newsegmento;
             $unidadDeNegocioValue = $newunidadDeNegocio;
@@ -93,17 +106,20 @@
             $empresaValue = $newempresa;
             $sucursalGsiValue = $newsucursalGsi;
             $divisionValue = $newdivision;
+            $contactoValue = $newContacto;
+            $telefonoValue = $newTelefono;
             $direccionValue = $newdireccion;
             $fechaDeInstalacionValue = $newfechaDeInstalacion;
             $fechaDeRetiroValue = $newfechaDeRetiro;
             $costoValue = $newcosto;
+            $tipoDeClienteValue = $newTipoDeCliente;
 
-            /* var_dump($result); */
+            var_dump($result);
             $estatusOp="El registro para " . $idEquipoValue . " se actualizo correctamente. ";
     }
     else{
     $id = $_GET['id'];
-    /* var_dump($id); */
+     var_dump($id);
 
     $sql="SELECT * FROM base WHERE id=:id";
     $query=$pdo->prepare($sql);
@@ -115,6 +131,7 @@
 
     $idEquipoValue = $row['id_equipo'];
     $estatusValue = $row['estatus'];
+    $nemoValue = $row['nemo'];
     $razonSocialValue = $row['razon_social'];
     $segmentoValue = $row['segmento'];
     $unidadDeNegocioValue = $row['unidad_de_negocio'];
@@ -129,10 +146,13 @@
     $empresaValue = $row['empresa'];
     $sucursalGsiValue = $row['sucursal_gsi'];
     $divisionValue = $row['division'];
+    $contactoValue = $row['contacto'];
+    $telefonoValue = $row['telefono'];
     $direccionValue = $row['direccion'];
     $fechaDeInstalacionValue = $row['fecha_de_instalacion'];
     $fechaDeRetiroValue = $row['fecha_de_retiro'];
     $costoValue = $row['costo'];
+    $tipoDeClienteValue = $row['tipo_de_cliente'];
 
     }
 
@@ -197,6 +217,9 @@
 				<label class="registro" for="">Cofre electronico</label><br>
 				<input class="registro-input" type="text" maxlength="20" name="cofreelectronico" id="cofreelectronico" value="<?php echo $cofreElectronicoValue; ?>"><br>
 
+                <label class="registro" for="">Nemo</label><br>
+				<input class="registro-input" type="text" maxlength="20" name="nemo" id="nemo" value="<?php echo $nemoValue; ?>"><br>		
+		
 			</div>
 
 			<div class="col">
@@ -219,6 +242,9 @@
 				<label class="registro" for="">Tipo de Acreditacion</label><br>
 				<input class="registro-input" type="text" maxlength="20" name="tipodeacreditacion" id="tipodeacreditacion" value="<?php echo $tipoDeAcreditacionValue; ?>"><br>
 
+                <label class="registro" for="">Tipo de Cliente</label><br>
+				<input class="registro-input" type="text" maxlength="20" name="tipoDeCliente" id="tipoDeCliente" value="<?php echo $tipoDeClienteValue; ?>"><br>		
+		
 			</div>
 
 			<div class="col">
@@ -234,7 +260,14 @@
 
 				<label class="registro" for="">Division</label><br>
 				<input class="registro-input" type="text" maxlength="20" name="division" id="division" value="<?php echo $divisionValue; ?>"><br>		
-		
+
+                <label class="registro" for="">Contacto</label><br>
+				<input class="registro-input" type="text" maxlength="20" name="contacto" id="contacto" value="<?php echo $contactoValue; ?>"><br>		
+
+                <label class="registro" for="">Telefono</label><br>
+				<input class="registro-input" type="text" maxlength="20" name="telefono" id="telefono" value="<?php echo $telefonoValue; ?>"><br>		
+
+ 
 			</div>
 		</div>
 		<div class="row">

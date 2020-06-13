@@ -62,6 +62,9 @@ require_once '../scripts/connect.php';
 				<label class="registro" for="">Cofre electronico</label><br>
 				<input class="registro-input" type="text" maxlength="20" name="cofreelectronico" id="cofreelectronico" required><br>
 
+				<label class="registro" for="">Nemo</label><br>
+				<input class="registro-input" type="text" maxlength="20" name="nemo" id="nemo" required><br>
+
 			</div>
 
 			<div class="col">
@@ -84,6 +87,9 @@ require_once '../scripts/connect.php';
 				<label class="registro" for="">Tipo de Acreditacion</label><br>
 				<input class="registro-input" type="text" maxlength="20" name="tipodeacreditacion" id="tipodeacreditacion" required><br>
 
+				<label class="registro" for="">Tipo de Cliente</label><br>
+				<input class="registro-input" type="text" maxlength="20" name="tipoDeCliente" id="tipoDeCliente" required><br>
+
 			</div>
 
 			<div class="col">
@@ -99,6 +105,12 @@ require_once '../scripts/connect.php';
 
 				<label class="registro" for="">Division</label><br>
 				<input class="registro-input" type="text" maxlength="20" name="division" id="division" required><br>		
+		
+				<label class="registro" for="">Contacto</label><br>
+				<input class="registro-input" type="text" maxlength="20" name="contacto" id="contacto" required><br>		
+		
+				<label class="registro" for="">Telefono</label><br>
+				<input class="registro-input" type="text" maxlength="20" name="telefono" id="telefono" required><br>		
 		
 			</div>
 		</div>
@@ -137,6 +149,7 @@ require_once '../scripts/connect.php';
 					if(!empty($_POST)){
 						$idequipo = $_POST['idequipo'];
 						$estatus = $_POST['estatus'];
+						$nemo = $_POST['nemo'];
 						$razonsocial = $_POST['razonsocial'];
 						$segmento = $_POST['segmento'];
 						$unidaddenegocio = $_POST['unidaddenegocio'];
@@ -151,16 +164,20 @@ require_once '../scripts/connect.php';
 						$empresa = $_POST['empresa'];
 						$sucursalgsi = $_POST['sucursalgsi'];
 						$division = $_POST['division'];
+						$contacto = $_POST['contacto'];
+						$telefono = $_POST['telefono'];
 						$direccion = $_POST['direccion'];
 						$fechadeinstalacion = $_POST['fechadeinstalacion'];
 						$fechaderetiro = $_POST['fechaderetiro'];
 						$costo = $_POST['costo'];
+						$tipoDeCliente = $_POST['tipoDeCliente'];
 
-						$sql = "INSERT INTO base(id, fecha, id_equipo, estatus, razon_social, segmento, unidad_de_negocio, cofre_electronico, capacidad, proveedor, modelo, serie, banco, tipo_de_acreditacion, contenedor, empresa, sucursal_gsi, division, direccion, fecha_de_instalacion, fecha_de_retiro, costo) VALUES (NULL, current_timestamp(), :id_equipo, :estatus, :razon_social, :segmento, :unidad_de_negocio, :cofre_electronico, :capacidad, :proveedor, :modelo, :serie, :banco, :tipo_de_acreditacion, :contenedor, :empresa, :sucursal_gsi, :division, :direccion, :fecha_de_instalacion, :fecha_de_retiro, :costo)";
+						$sql = "INSERT INTO base(id, fecha, id_equipo, estatus, nemo, razon_social, segmento, unidad_de_negocio, cofre_electronico, capacidad, proveedor, modelo, serie, banco, tipo_de_acreditacion, contenedor, empresa, sucursal_gsi, division, contacto, telefono, direccion, fecha_de_instalacion, fecha_de_retiro, costo, tipo_de_cliente) VALUES (NULL, current_timestamp(), :id_equipo, :estatus, :nemo, :razon_social, :segmento, :unidad_de_negocio, :cofre_electronico, :capacidad, :proveedor, :modelo, :serie, :banco, :tipo_de_acreditacion, :contenedor, :empresa, :sucursal_gsi, :division, :contacto, :telefono, :direccion, :fecha_de_instalacion, :fecha_de_retiro, :costo, :tipo_de_cliente)";
 						$query = $pdo->prepare($sql);
 						$result = $query->execute([
  						'id_equipo' => $idequipo,
 						'estatus' => $estatus,
+						'nemo' => $nemo,
 						'razon_social' => $razonsocial,
 						'segmento' => $segmento,
 						'unidad_de_negocio' => $unidaddenegocio,
@@ -175,10 +192,13 @@ require_once '../scripts/connect.php';
 						'empresa' => $empresa,
 						'sucursal_gsi' => $sucursalgsi,
 						'division' => $division,
+						'contacto' => $contacto,
+						'telefono' => $telefono,
 						'direccion' => $direccion,
 						'fecha_de_instalacion' => $fechadeinstalacion,
 						'fecha_de_retiro' => $fechaderetiro,
-						'costo' => $costo
+						'costo' => $costo,
+						'tipo_de_cliente' => $tipoDeCliente
 						]);
 					}
 				?>
