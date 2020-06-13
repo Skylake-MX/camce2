@@ -5,11 +5,13 @@ class User extends DB{
     private $nombre;
     private $username;
     private $privilegio;
+    private $localidad;
+    private $noEmpleado;
 
 
     public function userExists($user, $pass){
 
-        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE username = :user AND password = :pass');
+        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE noEmpleado = :user AND password = :pass');
         $query->execute(['user' => $user, 'pass' => $pass]);
 
         if($query->rowCount()){
@@ -20,13 +22,15 @@ class User extends DB{
     }
 
     public function setUser($user){
-        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE username = :user');
+        $query = $this->connect()->prepare('SELECT * FROM usuarios WHERE noEmpleado = :user');
         $queryResult= $query->execute(['user' => $user]);
 
         foreach ($query as $currentUser) {
             $this->nombre = $currentUser['nombre'];
-            $this->username = $currentUser['username'];
             $this->privilegio = $currentUser['privilegio'];
+            $this->localidad = $currentUser['localidad'];
+            $this->noEmpleado = $currentUser['noEmpleado'];
+            $this->email = $currentUser['email'];
         }
     }
 
@@ -37,6 +41,11 @@ class User extends DB{
     public function getPrivilegio(){
         return $this->privilegio;
     }
+
+    public function getLocalidad(){
+        return $this->localidad;
+    }
+
 
 }
 

@@ -10,9 +10,9 @@ if(isset($_SESSION['user'])){
     $user->setUser($userSession->getCurrentUser());
     include_once 'views/home.php';
 
-}else if(isset($_POST['username']) && isset($_POST['password'])){
+}else if(isset($_POST['noEmpleado']) && isset($_POST['password'])){
     //echo "Validacion de Login";
-    $userForm = $_POST['username'];
+    $userForm = $_POST['noEmpleado'];
     $passForm = $_POST['password'];
 
     $user = new User();

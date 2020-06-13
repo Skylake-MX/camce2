@@ -3,7 +3,7 @@
     require_once 'connect.php';
     $salida="";
 
-    $query = "SELECT * FROM bitacora ORDER By folio DESC";
+    $query = "SELECT * FROM bitacora ORDER By datetime_reporte DESC";
 
     if(isset($_POST['consulta'])){
         $q=$_POST['consulta'];

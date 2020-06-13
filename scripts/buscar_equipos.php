@@ -43,7 +43,6 @@
                                 <th scope='col'>Estatus</th>
                                 <th scope='col'>Razon Social</th>
                                 <th scope='col'>Unidad de negocio</th>
-                                <th scope='col'>Segmento</th>
                                 <th scope='col'>Proveedor</th>
                                 <th scope='col'>Modelo</th>
                                 <th scope='col'>Serie</th>
@@ -63,7 +62,6 @@
                             <td>".$fila['estatus']."</td>
                             <td>".$fila['razon_social']."</td>
                             <td>".$fila['unidad_de_negocio']."</td>
-                            <td>".$fila['segmento']."</td>
                             <td>".$fila['proveedor']."</td>
                             <td>".$fila['modelo']."</td>
                             <td>".$fila['serie']."</td>

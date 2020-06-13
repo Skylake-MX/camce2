@@ -1,6 +1,6 @@
-<!-- <?php
+<?php
 var_dump($_POST);
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +35,7 @@ var_dump($_POST);
                 </div>
                 <form action="" class="col-12" method="post">
                     <div class="form-group" id="user-group">
-                        <input type="text" class="form-control" placeholder="Nombre de Usuario" name="username" required>
+                        <input type="text" class="form-control" placeholder="Nombre de Usuario" name="noEmpleado" required>
                     </div>
                     <div class="form-group" id="contrasena-group">
                         <input type="password" class="form-control" placeholder="Contraseña" name="password" required>

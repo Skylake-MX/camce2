@@ -43,8 +43,11 @@ var_dump($_GET);
         <tr>
             <th>
             <!-- <th scope="col">Nombre</th> -->
-            <th scope="col">Usuario</th>
+            <th scope="col">No Empleado</th>
+            <th scope="col">Nombre</th>
             <th scope="col">Privilegio</th>
+            <th scope="col">Localidad</th>
+            <th scope="col">Email</th>
             <th scope="col" style="text-align:center;">Delete</th>
         </tr>
     </thead>
@@ -52,9 +55,11 @@ var_dump($_GET);
         <?php foreach($queryResult as $row): ?>
         <tr>
         <th scope="row"></th>
-        <!--     <td>    <?=$row['nombre'];?>        </td> -->
-            <td>    <?=$row['username'];?>      </td>
+            <td>    <?=$row['noEmpleado'];?>      </td> 
+            <td>    <?=$row['nombre'];?>      </td>
             <td>    <?=$row['privilegio'];?>    </td>
+            <td>    <?=$row['localidad'];?>      </td>
+            <td> <a href="mailto:<?=$row['email'];?>"><?=$row['email'];?></a>  </td>
             <td style="text-align:center;"> <a href="#" onclick="preguntar(<?php echo $row['id']?>)"><i class="fas fa-trash-alt"></a></td>
         </tr>
         <?php endforeach; ?>
