@@ -1,14 +1,27 @@
 <?php
 
 require_once 'connect.php';
-$id = $_GET['id'];
-var_dump($_GET);
+require_once 'user_session.php';
+require_once 'user.php';
 
-$sql='DELETE FROM base WHERE id=:id';
-$query = $pdo -> prepare($sql);
-$query ->execute([
-    'id' => $id
-]);
+ 	/* error_reporting(E_ALL ^ E_NOTICE); */ 
+    session_start();
+    $currentUser = new User();
+    $currentUser->setUser($_SESSION['user']);
+    $localidad = $currentUser->getLocalidad();
+    $privilegio = $currentUser->getPrivilegio();
+
+$id = $_GET['id'];
+/* var_dump($_GET);
+ */
+if($privilegio!=="tecnico"){
+
+    $sql='DELETE FROM base WHERE id=:id';
+    $query = $pdo -> prepare($sql);
+    $query ->execute([
+        'id' => $id
+    ]);
+}
 
 header("Location:../views/listar_cofres.php");
 

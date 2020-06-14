@@ -1,30 +1,64 @@
 <?php
-
+    
     require_once 'connect.php';
+    require_once 'user_session.php';
+	require_once 'user.php';
+
+ 	/* error_reporting(E_ALL ^ E_NOTICE); */ 
+    session_start();
+    $currentUser = new User();
+    $currentUser->setUser($_SESSION['user']);
+    $localidad = $currentUser->getLocalidad();
+    $privilegio = $currentUser->getPrivilegio();
+
+    if($privilegio=="administrador"){ }
+
     $salida="";
 
-    $query = "SELECT * FROM base ORDER By razon_social";
+    if($privilegio=="tecnico"){ 
+        $query = "SELECT * FROM base WHERE sucursal_gsi = '" . $localidad . "'ORDER By razon_social";
+        
+        
+    }
+    else{
+        $query = "SELECT * FROM base ORDER By razon_social";
+    }
 
     if(isset($_POST['consulta'])){
         
         $q=$_POST['consulta'];
         
+        if($privilegio=="tecnico"){ 
         
-        $query = "SELECT *  FROM base WHERE 
-                id_equipo LIKE '%" . $q . "%' OR
-                estatus LIKE '%" . $q . "%' OR
-                razon_social LIKE '%" . $q . "%' OR
-                unidad_de_negocio LIKE '%" . $q . "%' OR
-                segmento LIKE '%" . $q . "%' OR
-                proveedor LIKE '%" . $q . "%' OR
-                modelo LIKE '%" . $q . "%' OR
-                serie LIKE '%" . $q . "%' OR
-                capacidad LIKE '%" . $q . "%' OR
-                banco LIKE '%" . $q . "%' OR
-                tipo_de_acreditacion LIKE '%" . $q . "%' OR
-                sucursal_gsi LIKE '%" . $q . "%' OR
-                direccion LIKE '%" . $q . "%'";
-        
+            $query = "SELECT *  FROM base WHERE (
+                    id_equipo LIKE '%" . $q . "%' OR
+                    estatus LIKE '%" . $q . "%' OR
+                    razon_social LIKE '%" . $q . "%' OR
+                    unidad_de_negocio LIKE '%" . $q . "%' OR
+                    segmento LIKE '%" . $q . "%' OR
+                    proveedor LIKE '%" . $q . "%' OR
+                    modelo LIKE '%" . $q . "%' OR
+                    serie LIKE '%" . $q . "%' OR
+                    capacidad LIKE '%" . $q . "%' OR
+                    banco LIKE '%" . $q . "%' OR
+                    tipo_de_acreditacion LIKE '%" . $q . "%' OR
+                    direccion LIKE '%" . $q . "%' )" . " AND sucursal_gsi = '" . $localidad . "'" ;
+        }else{
+            $query = "SELECT *  FROM base WHERE (
+                    id_equipo LIKE '%" . $q . "%' OR
+                    estatus LIKE '%" . $q . "%' OR
+                    razon_social LIKE '%" . $q . "%' OR
+                    unidad_de_negocio LIKE '%" . $q . "%' OR
+                    segmento LIKE '%" . $q . "%' OR
+                    proveedor LIKE '%" . $q . "%' OR
+                    modelo LIKE '%" . $q . "%' OR
+                    serie LIKE '%" . $q . "%' OR
+                    capacidad LIKE '%" . $q . "%' OR
+                    banco LIKE '%" . $q . "%' OR
+                    tipo_de_acreditacion LIKE '%" . $q . "%' OR
+                    direccion LIKE '%" . $q . "%' )";
+
+        }
     }   
         
         

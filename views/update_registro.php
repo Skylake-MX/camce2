@@ -7,7 +7,7 @@
     if(!empty($_POST)){
 
         $id=$_POST['id'];  
-        var_dump($id);
+        /* var_dump($id); */
 
         $newidEquipo  = $_POST['idequipo'];
         $newestatus  = $_POST['estatus'];
@@ -114,12 +114,12 @@
             $costoValue = $newcosto;
             $tipoDeClienteValue = $newTipoDeCliente;
 
-            var_dump($result);
+            /* var_dump($result); */
             $estatusOp="El registro para " . $idEquipoValue . " se actualizo correctamente. ";
     }
     else{
     $id = $_GET['id'];
-     var_dump($id);
+    /*  var_dump($id); */
 
     $sql="SELECT * FROM base WHERE id=:id";
     $query=$pdo->prepare($sql);
