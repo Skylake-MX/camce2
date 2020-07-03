@@ -4,24 +4,25 @@
     require_once 'user_session.php';
 	require_once 'user.php';
 
- 	/* error_reporting(E_ALL ^ E_NOTICE); */ 
+ 	error_reporting(E_ALL ^ E_NOTICE); 
     session_start();
     $currentUser = new User();
     $currentUser->setUser($_SESSION['user']);
     $localidad = $currentUser->getLocalidad();
     $privilegio = $currentUser->getPrivilegio();
+    $likeUser = $currentUser->getNombre();
 
     if($privilegio=="administrador"){ }
 
     $salida="";
 
     if($privilegio=="tecnico"){ 
-        $query = "SELECT * FROM base WHERE sucursal_gsi = '" . $localidad . "'ORDER By razon_social";
+        $query = "SELECT * FROM base WHERE asignado LIKE '%" . $likeUser . "%' ORDER By sucursal_gsi";
         
         
     }
     else{
-        $query = "SELECT * FROM base ORDER By razon_social";
+        $query = "SELECT * FROM base ORDER By sucursal_gsi";
     }
 
     if(isset($_POST['consulta'])){
@@ -42,7 +43,7 @@
                     capacidad LIKE '%" . $q . "%' OR
                     banco LIKE '%" . $q . "%' OR
                     tipo_de_acreditacion LIKE '%" . $q . "%' OR
-                    direccion LIKE '%" . $q . "%' )" . " AND sucursal_gsi = '" . $localidad . "'" ;
+                    direccion LIKE '%" . $q . "%' )" . " AND asignado LIKE '%" . $likeUser . "%'" ;
         }else{
             $query = "SELECT *  FROM base WHERE (
                     id_equipo LIKE '%" . $q . "%' OR
@@ -87,6 +88,7 @@
                                 <th scope='col'>Direccion</th>
                                 <th scope='col'>Editar</th>
                                 <th scope='col'>Borrar</th>
+                                <th scope='col'>Upload</th>
                             </tr>
                         </thead>
                         <tbody>";
@@ -105,7 +107,8 @@
                             <td>".$fila['sucursal_gsi']."</td>
                             <td>".$fila['direccion']."</td>
                             <td><a href='update_registro.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-edit'></a></td>
-                            <td><a href='#' onclick='preguntar(" . $fila['id'] . " )'> <i class='fas fa-trash-alt'></a></td> 
+                            <td><a href='#' onclick='preguntar(" . $fila['id'] . " )'> <i class='fas fa-trash-alt'></a></td>
+                            <td><a href='subir_archivo.php?id=" . $fila['id'] ."'><i class='fas fa-cloud-upload-alt'></i></a></td> 
                         </tr>";
 
                         $salida.="    <script type='text/javascript'>

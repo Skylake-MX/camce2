@@ -33,6 +33,7 @@
         $newfechaDeRetiro  = $_POST['fechaderetiro'];
         $newcosto  = $_POST['costo'];
         $newTipoDeCliente = $_POST['tipoDeCliente'];
+        $newAsignado = $_POST['asignado'];
 
         $sql = "UPDATE base SET 
             id_equipo=:id_equipo,
@@ -58,7 +59,8 @@
             fecha_de_instalacion=:fecha_de_instalacion,
             fecha_de_retiro=:fecha_de_retiro,
             costo=:costo,
-            tipo_de_cliente=:tipo_de_cliente WHERE id=:id";
+            tipo_de_cliente=:tipo_de_cliente,
+            asignado=:asignado WHERE id=:id";
 
         $query = $pdo->prepare($sql);
         $result = $query->execute([
@@ -86,7 +88,8 @@
             'fecha_de_instalacion' => $newfechaDeInstalacion,
             'fecha_de_retiro' => $newfechaDeRetiro,
             'costo' => $newcosto,
-            'tipo_de_cliente' => $newTipoDeCliente
+            'tipo_de_cliente' => $newTipoDeCliente,
+            'asignado' => $newAsignado
             ]);
 
             $idEquipoValue = $newidEquipo;
@@ -113,6 +116,7 @@
             $fechaDeRetiroValue = $newfechaDeRetiro;
             $costoValue = $newcosto;
             $tipoDeClienteValue = $newTipoDeCliente;
+            $asignadoValue = $newAsignado;
 
             /* var_dump($result); */
             $estatusOp="El registro para " . $idEquipoValue . " se actualizo correctamente. ";
@@ -153,6 +157,7 @@
     $fechaDeRetiroValue = $row['fecha_de_retiro'];
     $costoValue = $row['costo'];
     $tipoDeClienteValue = $row['tipo_de_cliente'];
+    $asignadoValue = $row['asignado'];
 
     }
 
@@ -267,6 +272,8 @@
                 <label class="registro" for="">Telefono</label><br>
 				<input class="registro-input" type="text" maxlength="20" name="telefono" id="telefono" value="<?php echo $telefonoValue; ?>"><br>		
 
+                <label class="registro" for="">Tec. Asignado</label><br>
+				<input class="registro-input" type="text" maxlength="20" name="asignado" id="asignado" value="<?php echo $asignadoValue; ?>"><br>	
  
 			</div>
 		</div>

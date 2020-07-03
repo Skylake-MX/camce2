@@ -107,11 +107,14 @@ require_once '../scripts/connect.php';
 				<input class="registro-input" type="text" maxlength="20" name="division" id="division" required><br>		
 		
 				<label class="registro" for="">Contacto</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="contacto" id="contacto" required><br>		
+				<input class="registro-input" type="text" maxlength="40" name="contacto" id="contacto" required><br>		
 		
 				<label class="registro" for="">Telefono</label><br>
 				<input class="registro-input" type="text" maxlength="20" name="telefono" id="telefono" required><br>		
-		
+
+				<label class="registro" for="">Tec. Asignado</label><br>
+				<input class="registro-input" type="text" maxlength="100" name="asignado" id="asignado" required><br>	
+
 			</div>
 		</div>
 		<div class="row">
@@ -171,8 +174,9 @@ require_once '../scripts/connect.php';
 						$fechaderetiro = $_POST['fechaderetiro'];
 						$costo = $_POST['costo'];
 						$tipoDeCliente = $_POST['tipoDeCliente'];
+						$asignado = $_POST['asignado'];
 
-						$sql = "INSERT INTO base(id, fecha, id_equipo, estatus, nemo, razon_social, segmento, unidad_de_negocio, cofre_electronico, capacidad, proveedor, modelo, serie, banco, tipo_de_acreditacion, contenedor, empresa, sucursal_gsi, division, contacto, telefono, direccion, fecha_de_instalacion, fecha_de_retiro, costo, tipo_de_cliente) VALUES (NULL, current_timestamp(), :id_equipo, :estatus, :nemo, :razon_social, :segmento, :unidad_de_negocio, :cofre_electronico, :capacidad, :proveedor, :modelo, :serie, :banco, :tipo_de_acreditacion, :contenedor, :empresa, :sucursal_gsi, :division, :contacto, :telefono, :direccion, :fecha_de_instalacion, :fecha_de_retiro, :costo, :tipo_de_cliente)";
+						$sql = "INSERT INTO base(id, fecha, id_equipo, estatus, nemo, razon_social, segmento, unidad_de_negocio, cofre_electronico, capacidad, proveedor, modelo, serie, banco, tipo_de_acreditacion, contenedor, empresa, sucursal_gsi, division, contacto, telefono, direccion, fecha_de_instalacion, fecha_de_retiro, costo, tipo_de_cliente, asignado) VALUES (NULL, current_timestamp(), :id_equipo, :estatus, :nemo, :razon_social, :segmento, :unidad_de_negocio, :cofre_electronico, :capacidad, :proveedor, :modelo, :serie, :banco, :tipo_de_acreditacion, :contenedor, :empresa, :sucursal_gsi, :division, :contacto, :telefono, :direccion, :fecha_de_instalacion, :fecha_de_retiro, :costo, :tipo_de_cliente, :asignado)";
 						$query = $pdo->prepare($sql);
 						$result = $query->execute([
  						'id_equipo' => $idequipo,
@@ -198,7 +202,8 @@ require_once '../scripts/connect.php';
 						'fecha_de_instalacion' => $fechadeinstalacion,
 						'fecha_de_retiro' => $fechaderetiro,
 						'costo' => $costo,
-						'tipo_de_cliente' => $tipoDeCliente
+						'tipo_de_cliente' => $tipoDeCliente,
+						'asignado' => $asignado
 						]);
 					}
 				?>

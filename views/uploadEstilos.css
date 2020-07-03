@@ -1,0 +1,36 @@
+body{
+  background-color: #F0F8FF;
+  background-size: cover;
+}
+
+nav{
+  background-color: #187BEC;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: white;
+  font-size: 22px;
+  font-family: Helvetica;
+  text-align: center;
+}
+
+.nav_lista{
+  display: flex;
+  justify-content: space-between;
+  padding-right: 50px;
+}
+
+nav li{
+        list-style: none;
+}
+
+nav li a{
+  color: white;
+}
+
+.upload{
+  margin: 0 auto;
+  margin-top: 100px;
+  align-items: center;
+  text-align: center;
+  padding-top: -30%;
+}

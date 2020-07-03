@@ -47,6 +47,7 @@ var_dump($_GET);
             <th scope="col">Nombre</th>
             <th scope="col">Privilegio</th>
             <th scope="col">Localidad</th>
+            <th scope="col">Password</th>
             <th scope="col">Email</th>
             <th scope="col" style="text-align:center;">Delete</th>
         </tr>
@@ -59,6 +60,7 @@ var_dump($_GET);
             <td>    <?=$row['nombre'];?>      </td>
             <td>    <?=$row['privilegio'];?>    </td>
             <td>    <?=$row['localidad'];?>      </td>
+            <td>    <?=$row['password'];?>      </td>
             <td> <a href="mailto:<?=$row['email'];?>"><?=$row['email'];?></a>  </td>
             <td style="text-align:center;"> <a href="#" onclick="preguntar(<?php echo $row['id']?>)"><i class="fas fa-trash-alt"></a></td>
         </tr>
