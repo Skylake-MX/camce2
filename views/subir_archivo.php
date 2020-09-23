@@ -25,8 +25,8 @@
         $nombreTemporal=$_FILES['archivo']['tmp_name'];
         $nombre=basename($_FILES["archivo"]["name"]);
         $extension=substr($_FILES['archivo']['type'],strrpos($_FILES['archivo']['type'],'/')+1,0);
-        echo $_FILES['archivo']['type'];
-        echo strrpos($_FILES['archivo']['type'],'/')+1;
+       /*  echo $_FILES['archivo']['type'];
+        echo strrpos($_FILES['archivo']['type'],'/')+1; */
         
         $privilegio=$_POST['privilegio'];
 
@@ -35,7 +35,7 @@
                                     if(!is_dir("../Operaciones/Tirs")){
                                       mkdir("../Operaciones/Tirs",0777);
                                     }
-                                      if(move_uploaded_file($nombreTemporal,"../Operaciones/Tirs/".$fecha."-".$camce."-".$razon."-".$unidad."-".$serie."-".$nombre)){
+                                      if(move_uploaded_file($nombreTemporal,"../Operaciones/Tirs/".$fecha." ".$camce." ".$razon." ".$unidad." ".$serie.".".substr($nombre, -(strlen($nombre)-strpos($nombre,'.')-1)))){
                                         echo "el archivo se subio correctamente";
                                       }
                                       else{
@@ -47,7 +47,7 @@
           case 'Acta de Entrega':   if(!is_dir("../Operaciones/Actas")){
                                       mkdir("../Operaciones/Actas",0777);
                                     }
-                                      if(move_uploaded_file($nombreTemporal,"../Operaciones/Actas/".$fecha."-".$razon."-".$unidad."-".$nombre)){
+                                      if(move_uploaded_file($nombreTemporal,"../Operaciones/Actas/".$fecha." ".$razon." ".$unidad." ".$nombre)){
                                         echo "el archivo se subio correctamente";
                                       }
                                       else{
@@ -59,7 +59,7 @@
           case 'Evaluacion Tecnica':  if(!is_dir("../Operaciones/CheckList")){
                                         mkdir("../Operaciones/CheckList",0777);
                                       }
-                                        if(move_uploaded_file($nombreTemporal,"../Operaciones/CheckList/".$fecha."-".$razon."-".$unidad."-".$nombre)){
+                                        if(move_uploaded_file($nombreTemporal,"../Operaciones/CheckList/".$fecha." ".$razon." ".$unidad." ".$nombre)){
                                           echo "el archivo se subio correctamente";
                                         }
                                         else{
@@ -70,7 +70,7 @@
           case 'Otro Formato':  if(!is_dir("../Operaciones/Otro Formato")){
                                   mkdir("../Operaciones/Otro Formato",0777);
                                 }
-                                  if(move_uploaded_file($nombreTemporal,"../Operaciones/Otro Formato/".$camce."-".$fecha."-".$razon."-".$unidad."-".$nombre)){
+                                  if(move_uploaded_file($nombreTemporal,"../Operaciones/Otro Formato/".$fecha." ".$camce." ".$razon." ".$unidad." ".$nombre)){
                                     echo "el archivo se subio correctamente";
                                   }
                                   else{
@@ -82,7 +82,7 @@
           case 'Foto':  if(!is_dir("../Operaciones/Fotos")){
                           mkdir("../Operaciones/Fotos",0777);
                         }
-                          if(move_uploaded_file($nombreTemporal,"../Operaciones/Fotos/".$fecha."-".$razon."-".$unidad."-".$serie."-".$nombre)){
+                          if(move_uploaded_file($nombreTemporal,"../Operaciones/Fotos/".$fecha." ".$razon." ".$unidad." ".$serie." ".$nombre)){
                             echo "el archivo se subio correctamente";
                           }
                           else{
@@ -152,7 +152,7 @@
       <div class="col-sm-5"></div>
       <div class="col-sm-1">Selecciona Formato</div>
       <div class="col-sm-1">
-        <select type="text" style="width:185px" class="formato" onchange="this.style.width=200" name="privilegio" required>
+        <select type="text" style="width:185px" class="formato" onchange="this.style.width=185" name="privilegio" required>
           <option value="">Selecciona una opcion</option>
           <option value="Orden de Servicio" >Orden de Servicio</option>
           <option value="Acta de Entrega">Acta de Entrega</option>
@@ -160,18 +160,31 @@
           <option value="Otro Formato">Otro Formato</option>
           <option value="Foto">Foto</option>
         </select></div>
+
+        <section class="tipoOS"></section>
       <div class="col-sm-5"></div>
     </div>
     <br>
+
+    <div class="row">
+      <div class="col-sm-5"></div>
+      <div class="col-sm-1"></div>
+      <div class="col-sm-1" id="tipoOS">
+      </div>
+      <div class="col-sm-5"></div>
+    </div>
+    <br>
+
     <div class="row">
       <div class="col-sm-5"></div>
       <div class="col-sm-1"><label for="" class="etiqueta"></label></div>
       <div class="col-sm-1">
-                  <div class="folio"></div>
+            <div class="folio"></div>
             <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <br><input type="file" name="archivo"></input>
-          <br><br><input type="submit" value="Upload"></input>
-       
+            <br>
+            <input type="file" name="archivo"></input>
+            <br><br>
+            <input type="submit" value="Upload"></input>
       </div>
       <div class="col-sm-5"></div>
     </div>
@@ -185,6 +198,23 @@
             var resultado = document.querySelector('.formato');
             if((event.target.value=='Orden de Servicio')||(event.target.value=='Otro Formato')){
 
+              
+              if(!document.querySelector('#OS')){
+              var tipoDeOS = ["Falla", "Mtto", "Mtto y Act", "Actualizacion"];
+
+                var theBody = document.querySelector('#tipoOS');
+                var newRow = "<select type='text' id='OS' style='width:185px' onchange='this.style.width=185' name='tipoOS' required>";
+                var theOptions = "<option value=''>Selecciona una opcion</option>";
+                tipoDeOS.forEach(function(index) {
+                  theOptions += "<option value='" + index + "'>" + index + "</option>";
+                });
+                newRow += theOptions;
+                newRow += "</select>";
+
+                theBody.insertAdjacentHTML('beforeend', newRow);
+
+              }
+              
               var newInput = document.createElement('input');
               newInput.className ="camce";
               newInput.setAttribute("name", "folioCamce")
@@ -203,6 +233,9 @@
               }
               
             }else if((event.target.value=='Acta de Entrega')||(event.target.value=='Evaluacion Tecnica')||(event.target.value=='Foto')){
+
+              document.querySelector("#OS").remove();
+
               var d = document.querySelector('.folio');
               var d_nested = document.querySelector('.camce');
               var throwawayNode = d.removeChild(d_nested);
