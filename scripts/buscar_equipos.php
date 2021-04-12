@@ -74,8 +74,7 @@
             $salida.="<table class='table' style='margin:auto; margin-top:1%; width: 60%'>
                         <thead class='thead-light'>
                             <tr>
-                                <th scope='col'>ID</th>
-                                <th scope='col'>Estatus</th>
+
                                 <th scope='col'>Razon Social</th>
                                 <th scope='col'>Unidad de negocio</th>
                                 <th scope='col'>Proveedor</th>
@@ -86,7 +85,6 @@
                                 <th scope='col'>Acreditacion</th>
                                 <th scope='col'>Sucursal</th>
                                 <th scope='col'>Direccion</th>
-                                <th scope='col'>Editar</th>
                                 <th scope='col'>Borrar</th>
                                 <th scope='col'>Upload</th>
                             </tr>
@@ -94,19 +92,17 @@
                         <tbody>";
             while($fila= $queryResult->fetch(PDO::FETCH_ASSOC)){
                 $salida.="<tr>
-                            <td>".$fila['id_equipo']."</td>
-                            <td>".$fila['estatus']."</td>
+
                             <td>".$fila['razon_social']."</td>
                             <td>".$fila['unidad_de_negocio']."</td>
                             <td>".$fila['proveedor']."</td>
-                            <td>".$fila['modelo']."</td>
-                            <td>".$fila['serie']."</td>
+                            <td>".$fila['modelo']."</td>                         
+                            <td><a href='update_registro.php?id=" . $fila['id'] . "' style='text-align:center;'>".$fila['serie']."</a></td>
                             <td>".$fila['capacidad']."</td>
                             <td>".$fila['banco']."</td>
                             <td>".$fila['tipo_de_acreditacion']."</td>
                             <td>".$fila['sucursal_gsi']."</td>
                             <td>".$fila['direccion']."</td>
-                            <td><a href='update_registro.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-edit'></a></td>
                             <td><a href='#' onclick='preguntar(" . $fila['id'] . " )'> <i class='fas fa-trash-alt'></a></td>
                             <td><a href='subir_archivo.php?id=" . $fila['id'] ."'><i class='fas fa-cloud-upload-alt'></i></a></td> 
                         </tr>";
