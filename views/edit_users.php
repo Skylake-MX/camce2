@@ -69,7 +69,7 @@ var_dump($_GET);
     </table>
     <script type="text/javascript">
             function preguntar(id){
-                if(confirm('¿Estas seguro que deseas eliminar este registro?')){
+                if(confirm('¿Estas seguro de eliminar al usuario <?=$row['nombre']?>?')){
                     window.location.href = "../scripts/delete.php?id=<?=$row['id']?>";
                 }
             }
