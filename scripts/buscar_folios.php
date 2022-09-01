@@ -1,9 +1,31 @@
 <?php
-
     require_once 'connect.php';
+    require_once 'user_session.php';
+	require_once 'user.php';
+
+ 	error_reporting(E_ALL ^ E_NOTICE); 
+    session_start();
+    $currentUser = new User();
+    $currentUser->setUser($_SESSION['user']);
+    $localidad = $currentUser->getLocalidad();
+    $privilegio = $currentUser->getPrivilegio();
+    $likeUser = $currentUser->getNombre();
+
+    if($privilegio=="administrador"){
+
+
+     }
+
     $salida="";
 
-    $query = "SELECT * FROM bitacora ORDER By datetime_reporte DESC";
+    if($privilegio=="tecnico"){ 
+        $query = "SELECT * FROM bitacora WHERE sucursal LIKE '%" . $localidad . "%' ORDER By datetime_reporte DESC";
+    }
+    else{
+        $query = "SELECT * FROM bitacora ORDER By datetime_reporte DESC";
+    }
+
+    //$query = "SELECT * FROM bitacora ORDER By datetime_reporte DESC";
 
     if(isset($_POST['consulta'])){
         $q=$_POST['consulta'];
@@ -51,6 +73,7 @@
                         <tbody>";
             
             while($fila= $queryResult->fetch(PDO::FETCH_ASSOC )){
+              
                 $salida.="<tr>
                             <td>".$fila['folio']."</td>
                             <td>".$fila['serie']."</td>

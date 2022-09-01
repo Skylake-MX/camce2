@@ -60,13 +60,13 @@
             <hr class="rgba-white-light" style="margin: 0 15%;">
             <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
                 <div class="col-md-10 col-12 mt-5">
-                    <p style="line-height: 1.5rem">Dr. Barragán No. 160, Col. Doctores, México D.F. Tels: 01 (55) 5134-2204, 5134-2284 y 5761-2612</p>
+                    <p style="line-height: 1.5rem">Priv. Rancho de La Cruz 98, Jamaica, Venustiano Carranza, 15800 Ciudad de México, CDMX</p>
                 </div>
             </div>
             <hr class="clearfix d-md-none rgba-white-light" style="margin: 0% 10% 0%;">
       </div>
       <div class="footer-copyright text-center py-3">
-          <a href="http://www.gruposepsa.com.mx/"> www.gruposepsa.com.mx</a>
+          <a href="mailto:atencioncamce@gsi.com.mx"> atencioncamce@gsi.com.mx</a>
       </div>
     </footer>
 

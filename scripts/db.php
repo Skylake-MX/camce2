@@ -15,6 +15,13 @@ class DB{
         $this->charset  = 'utf8mb4';
     }
 
+    /*public function __construct(){
+        $this->host     = 'localhost';
+        $this->db       = 'u882853344_test';
+        $this->user     = 'u882853344_root';
+        $this->password = "Gheal910427.*";
+        $this->charset  = 'utf8mb4';
+    }*/
     function connect(){
 
         try{

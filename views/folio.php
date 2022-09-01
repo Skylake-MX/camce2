@@ -156,7 +156,14 @@
 						<select type="text" style="width:185px;border:5px;font-size:19px" onchange="this.style.width=200" name="camce" required	>
 							<option value="<?=NULL;?>"></option>
 							<option value="CAMCE2-">CAMCE2</option>
-        					<option value="CAMCE5-">CAMCE5</option>
+        					<option value="CAMCE5-">CAMCE3</option>
+									<option value="CAMCE5-">CAMCE4</option>
+									<option value="CAMCE5-">CAMCE5</option>
+									<option value="CAMCE5-">CAMCE6</option>
+									<option value="CAMCE5-">CAMCE7</option>
+									<option value="CAMCE5-">CAMCE8</option>
+									<option value="CAMCE5-">CAMCE9</option>
+									<option value="CAMCE5-">CAMCE10</option>
       					</select><br>
 
 						<label class="registro" style="padding-top: 10px;" for="">Folio</label><br>

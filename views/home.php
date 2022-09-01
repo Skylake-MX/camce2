@@ -44,7 +44,9 @@
       
       if($privilegio=="tecnico"){
 
-        echo '<a href="views/listar_cofres.php" class="list-group-item list-group-item-action">Listar Equipos</a>';
+        echo '<a href="views/listar_folios.php" class="list-group-item list-group-item-action">Cerrar Folio</a>
+        <a href="views/listar_cofres.php" class="list-group-item list-group-item-action">Listar Equipos</a>';
+        
       }
       elseif($privilegio=="Usuario"){
 
@@ -58,7 +60,8 @@
         <a href="views/listar_folios.php" class="list-group-item list-group-item-action">Cerrar Folio</a>
         <!-- <a href="views/registro.php" class="list-group-item list-group-item-action">Agregar Registro</a> -->
         <a href="views/listar_cofres.php" class="list-group-item list-group-item-action">Listar Equipos</a>
-        <a href="views/edit_users.php" class="list-group-item list-group-item-action">Listar Usuarios</a>';
+        <a href="views/edit_users.php" class="list-group-item list-group-item-action">Listar Usuarios</a>
+        <a href="views/listar_adquisiciones.php" class="list-group-item list-group-item-action">Adquisiciones</a>';
       }
     ?>
     <a href="scripts/logout.php" class="list-group-item list-group-item-action">Salir</a>

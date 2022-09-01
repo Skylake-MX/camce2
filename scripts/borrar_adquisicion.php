@@ -16,7 +16,7 @@ var_dump($_GET);
 
 if($privilegio!=="tecnico"){
 
-    $sql='DELETE FROM base WHERE id=:id';
+    $sql='DELETE FROM adquisiciones WHERE id=:id';
     $query = $pdo -> prepare($sql);
     $query ->execute([
         'id' => $id

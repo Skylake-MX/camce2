@@ -12,7 +12,10 @@
     $privilegio = $currentUser->getPrivilegio();
     $likeUser = $currentUser->getNombre();
 
-    if($privilegio=="administrador"){ }
+    if($privilegio=="administrador"){
+
+
+     }
 
     $salida="";
 
@@ -22,7 +25,7 @@
         
     }
     else{
-        $query = "SELECT * FROM base ORDER By sucursal_gsi";
+        $query = "SELECT * FROM base ORDER By razon_social";
     }
 
     if(isset($_POST['consulta'])){
