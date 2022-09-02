@@ -62,17 +62,29 @@ var_dump($_GET);
             <td>    <?=$row['localidad'];?>      </td>
             <td>    <?=$row['password'];?>      </td>
             <td> <a href="mailto:<?=$row['email'];?>"><?=$row['email'];?></a>  </td>
-            <td style="text-align:center;"> <a href="#" onclick="preguntar(<?php echo $row['id']?>)"><i class="fas fa-trash-alt"></a></td>
+            <!-- <td style="text-align:center;"> <a href="#" onclick="preguntar(<?php echo $row['id'];?>)"><i class="fas fa-trash-alt"></a></td> -->
+            <td style="text-align:center;"> <a href='../scripts/delete.php?id=<?=$row['id']?>' onclick='return confirmacion()'><i class="fas fa-trash-alt"></a></td>            
         </tr>
         <?php endforeach; ?>
     </tbody>
     </table>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
             function preguntar(id){
                 if(confirm('¿Estas seguro de eliminar al usuario <?=$row['nombre']?>?')){
                     window.location.href = "../scripts/delete.php?id=<?=$row['id']?>";
                 }
             }
+    </script> -->
+
+    <script>
+        function confirmacion(){
+            var respuesta=confirm('¿Estas seguro de eliminar este registro?');
+            if (respuesta == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
     </script>
     <br>
     <br>

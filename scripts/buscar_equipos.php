@@ -106,14 +106,17 @@
                             <td>".$fila['tipo_de_acreditacion']."</td>
                             <td>".$fila['sucursal_gsi']."</td>
                             <td>".$fila['direccion']."</td>
-                            <td><a href='#' onclick='preguntar(" . $fila['id'] . " )'> <i class='fas fa-trash-alt'></a></td>
-                            <td><a href='subir_archivo.php?id=" . $fila['id'] ."'><i class='fas fa-cloud-upload-alt'></i></a></td> 
+                            <td><a href='../scripts/delete_registro.php?id=".$fila['id'] . "' onclick='return confirmacion()'> <i class='fas fa-trash-alt'></a></td>
+                            <td><a href='subir_archivo.php?id=".$fila['id'] ."'><i class='fas fa-cloud-upload-alt'></i></a></td> 
                         </tr>";
 
-                        $salida.="    <script type='text/javascript'>
-                        function preguntar(id){
-                            if(confirm('¿Estas seguro que deseas eliminar este registro? " . $fila['id']. "')){
-                                window.location.href = '../scripts/delete_registro.php?id=" . $fila['id'] . "';
+                        $salida.="<script type='text/javascript'>
+                        function confirmacion(){
+                            var respuesta=confirm('¿Estas seguro de eliminar el registro?');
+                            if (respuesta == true){
+                                return true;
+                            }else{
+                                return false;
                             }
                         }
                     </script>";

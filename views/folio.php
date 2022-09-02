@@ -147,12 +147,19 @@
 		<form action="" method="POST">
 			<div class="container" style="margin:auto;">
 				<div class="row">		
-					<div class="col">
-						<br>
+					<div class="col"><br>
+
+            <label class="registro" for="">Cliente</label><br>
+						<input class="registro-input" type="text" maxlength="30" name="cliente" value="<?=$row['razon_social']?>" readonly><br>
+
+						<label class="registro" for="">Proveedor</label><br>
+						<input class="registro-input" type="text" maxlenght="20" name="proveedor" value="<?=$row['proveedor']?>" readonly><br>
+
+						<label class="registro" for="">Recibe reporte</label><br>
+						<input class="registro-input" type="text" maxlength="35" name="recibe_reporte" value="<?=$currentUser->getNombre();?>" readonly><br>
 
 						<label class="registro" style="padding-top: 10px;" for="">CAMCE</label><br>
 						<!-- <input class="registro-input" type="text"  maxlength="15" name="medio_de_reporte" value=""><br> -->
-
 						<select type="text" style="width:185px;border:5px;font-size:19px" onchange="this.style.width=200" name="camce" required	>
 							<option value="<?=NULL;?>"></option>
 							<option value="CAMCE2-">CAMCE2</option>
@@ -164,33 +171,13 @@
 									<option value="CAMCE5-">CAMCE8</option>
 									<option value="CAMCE5-">CAMCE9</option>
 									<option value="CAMCE5-">CAMCE10</option>
-      					</select><br>
+      					</select><br><br>
 
-						<label class="registro" style="padding-top: 10px;" for="">Folio</label><br>
-						<input class="registro-input" type="text" maxlength="15" name="folio" value="<?=$folioCAMCE ?>" readonly><br>
 
-						<label class="registro" for="">Recibe reporte</label><br>
-						<input class="registro-input" type="text" maxlength="35" name="recibe_reporte" value="<?=$currentUser->getNombre();?>" readonly><br>
-
-						<label class="registro" for="">Reporta fallo (cliente)</label><br>
-						<input class="registro-input" type="text" maxlength="35" name="reporta_fallo" value="" required><br>
-
-						<label class="registro" style="padding-top: 10px;" for="">Medio de Reporte</label><br>
-						<!-- <input class="registro-input" type="text"  maxlength="15" name="medio_de_reporte" value=""><br> -->
-
-						<select type="text" style="width:185px;border:5px;font-size:19px" onchange="this.style.width=200" name="medio_de_reporte" required	>
-							<option value="<?=NULL;?>"></option>
-							<option value="TELEFONO">TELEFONO</option>
-        					<option value="CORREO">CORREO</option>
-      					</select>
 
 					</div>
 
-					<div class="col">
-						<br>
-
-                		<label class="registro" for="">Cliente</label><br>
-						<input class="registro-input" type="text" maxlength="30" name="cliente" value="<?=$row['razon_social']?>" readonly><br>
+					<div class="col"><br>
 
 						<label class="registro" for="">Sucursal Cliente</label><br>
 						<input class="registro-input" type="text" maxlength="20" name="sucursal_cliente" value="<?=$row['unidad_de_negocio']?>" readonly><br>
@@ -198,48 +185,60 @@
 						<label class="registro" for="">Equipo</label><br>
 						<input class="registro-input" type="text" maxlength="15" name="equipo" value="<?=$row['modelo']?>" readonly><br>
 
-						<label class="registro" for="">Serie</label><br>
-						<input class="registro-input" type="text" maxlength="20" name="serie" value="<?=$row['serie']?>" readonly><br>
+						<label class="registro" for="">Reporta fallo (cliente)</label><br>
+						<input class="registro-input" type="text" maxlength="35" name="reporta_fallo" value="" required><br>
 
-						<label class="registro" for="">Proveedor</label><br>
-						<input class="registro-input" type="text" maxlenght="20" name="proveedor" value="<?=$row['proveedor']?>" readonly><br>
-		
-            		</div>
 
-            		<div class="col">
-               			<br>
+
+						<label class="registro" style="padding-top: 10px;" for="">Medio de Reporte</label><br>
+						<!-- <input class="registro-input" type="text"  maxlength="15" name="medio_de_reporte" value=""><br> -->
+
+						<select type="text" style="width:185px;border:5px;font-size:19px" onchange="this.style.width=200" name="medio_de_reporte" required	>
+							<option value="<?=NULL;?>"></option>
+							<option value="TELEFONO">TELEFONO</option>
+        			<option value="CORREO">CORREO</option>
+      			</select>
+          </div>
+
+          <div class="col"><br>
 
 						<label class="registro" for="">Sucursal</label><br>
 						<input class="registro-input" type="text" maxlength="20" name="sucursal" value="<?=$row['sucursal_gsi']?>" readonly><br>
 
-						<label class="registro" for="">Banco</label><br>
-						<input class="registro-input" type="text" maxlength="20" name="banco" value="<?=$row['banco']?>" readonly><br>
+						<label class="registro" for="">Serie</label><br>
+						<input class="registro-input" type="text" maxlength="20" name="serie" value="<?=$row['serie']?>" readonly><br>
 
-                		<label class="registro" for="">Division</label><br>
-						<input class="registro-input" type="text" maxlength="15" name="division" value="<?=$row['division']?>" readonly><br>
-
-
-            		</div>
-			
-					<div class="col">
-						<br>
-				
-						<label class="registro" for="">Fecha/Hora de reporte</label><br>
-						<input class="registro-input" type="datetime-local" maxlength="6" name="datetime_reporte" value="" required><br>
-
-						<label class="registro" for="">Fecha/Hora de cita</label><br>
-						<input class="registro-input" type="datetime-local" maxlength="6" name="datetime_cita" value="" required><br>
+						<label class="registro" style="padding-top: 1px;" for="">Folio</label><br>
+						<input class="registro-input" type="text" maxlength="15" name="folio" value="<?=$folioCAMCE ?>" readonly><br>
 
 						<label class="registro" style="padding-top: 10px;" for="">Estatus</label><br>
             		    <!-- <input class="registro-input" type="text" maxlength="15" name="estatus" value=""><br> -->
 						<select type="text" style="width:185px;border:5px;font-size:19px;" onchange="this.style.width=200" name="estatus" required> 
 							<option value="<?=NULL;?>"></option>
 							<option value="PENDIENTE">PENDIENTE</option>
-        					<option value="PENDIENTE POR PIEZA">PENDIENTE POR PIEZA</option>
+        			<option value="PENDIENTE POR PIEZA">PENDIENTE POR PIEZA</option>
 							<option value="CANCELADO">CANCELADO</option>
-        					<option value="CERRADO">CERRADO</option>
-      					</select>
+        			<option value="CERRADO">CERRADO</option>
+      				</select>
 
+          </div>
+			
+					<div class="col"><br>
+
+						<label class="registro" for="">Division</label><br>
+						<input class="registro-input" type="text" maxlength="15" name="division" value="<?=$row['division']?>" readonly><br>
+
+						<label class="registro" for="">Banco</label><br>
+						<input class="registro-input" type="text" maxlength="20" name="banco" value="<?=$row['banco']?>" readonly><br>
+				
+						<!-- <label class="registro" for="">Fecha/Hora de reporte</label><br>
+						<input class="registro-input" type="datetime-local" maxlength="6" name="datetime_reporte" value="" required><br> -->
+
+						<label class="registro" for="">Fecha Hora de reporte</label><br>
+						<input class="registro-input" type="text" maxlength="15" name="datetime_reporte" value="<?php date_default_timezone_set('Mexico/General'); $DateAndTime = date('d-m-Y h:i:s ', time()); echo $DateAndTime?>" readonly><br>
+
+						<label class="registro" for="">Fecha/Hora de cita</label><br>
+						<input class="registro-input" type="datetime-local" maxlength="6" name="datetime_cita" value="" required><br>
 					</div>
 				</div>
 

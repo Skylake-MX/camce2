@@ -59,7 +59,7 @@
                         <thead class='thead-light'>
                             <tr>
                                 <th scope='col'>Folio</th>
-                                <th scope='col'>ID</th>
+                                <th scope='col'>No Serie</th>
                                 <th scope='col'>Razon Social</th>
                                 <th scope='col'>Sucursal</th>
                                 <th scope='col'>Falla</th>

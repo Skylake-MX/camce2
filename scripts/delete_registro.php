@@ -23,6 +23,6 @@ if($privilegio!=="tecnico"){
     ]);
 }
 
-header("Location:../views/listar_adquisiciones.php");
+header("Location:../views/listar_cofres.php");
 
 ?>
