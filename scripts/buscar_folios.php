@@ -83,7 +83,8 @@
                             <td>".$fila['datetime_reporte']."</td>
                             <td>".$fila['datetime_cita']."</td>
                             <td>".$fila['estatus']."</td>
-                            <td><a href='ver_folio.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-eye'></i></a></td>
+                            
+                            <td><a href='ficha.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-eye'></i></a></td>
                             <td><a href='cerrar_folio.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-edit'></i></a></td> 
                         </tr>";
             }
