@@ -57,53 +57,53 @@ $row=$query->fetch(PDO::FETCH_ASSOC);
 
 
 echo '<table border="1px" style="width: 300px; height: 300px;text-align: center; margin: auto; margin-top:1px;width: 35%;">
-<th colspan="4">Ficha de reporte</th>
+<th bgcolor="#0070C0"; colspan="4">Ficha de reporte</th>
 <tr>
-  <td style="width: 200px;">Folio Camce</td>
+  <td bgcolor="#C5D9F1" style="width: 200px;">Folio Camce</td>
   <td style="width: 200px;">'; echo $row['folio']; echo '</td> 
-  <td style="width: 200px;">Fecha de Levantamiento</td>
+  <td bgcolor="#C5D9F1" style="width: 200px;">Fecha de Levantamiento</td>
   <td style="width: 200px;">'; echo $row['datetime_reporte']; echo '</td>
 </tr>
 <tr>
-  <td>Marca del Cofre</td>
+  <td bgcolor="#C5D9F1" >Marca del Cofre</td>
   <td>'; echo $row['proveedor']; echo '</td> 
-  <td>Cita Fecha programada</td>
+  <td bgcolor="#C5D9F1" >Cita Fecha programada</td>
   <td>'; echo $row['datetime_cita']; echo '</td>
 </tr>
 <tr>
-  <td>Numero de Serie</td>
+  <td bgcolor="#C5D9F1" >Numero de Serie</td>
   <td>'; echo $row['serie']; echo '</td> 
-  <td>Cita Horario Establecido</td>
+  <td bgcolor="#C5D9F1" >Cita Horario Establecido</td>
   <td>'; echo $row['datetime_llegada']; echo '</td>
 </tr>
 <tr>
-  <td>Monitor Camce</td>
+  <td bgcolor="#C5D9F1" >Monitor Camce</td>
   <td>'; echo $row['cierra_folio']; echo '</td> 
-  <td>Ruta ETV</td>
+  <td bgcolor="#C5D9F1" >Ruta ETV</td>
   <td>NO</td>
 </tr>
 
 <tr>
-  <td rowspan="2">Falla Reportada</td>
+  <td bgcolor="#C5D9F1" rowspan="2">Falla Reportada</td>
   <td colspan="3">Falla en Equipo</td>
 </tr>
 <tr>
   <td colspan="3">'; echo $row['falla']; echo '</td>
 </tr>
 <tr>
-  <td rowspan="1">Empresa GSI</td>
+  <td bgcolor="#C5D9F1" rowspan="1">Empresa GSI</td>
   <td colspan="3">'; echo $row['empresa']; echo '</td>
 </tr>
 <tr>
-  <td rowspan="1">Sucursal ETV</td>
+  <td bgcolor="#C5D9F1" rowspan="1">Sucursal ETV</td>
   <td colspan="3">'; echo $row['sucursal']; echo '</td>
 </tr>
 <tr>
-  <td rowspan="1">Cliente GSI</td>
+  <td bgcolor="#C5D9F1" rowspan="1">Cliente GSI</td>
   <td colspan="3">'; echo $row['cliente']; echo '</td>
 </tr>
 <tr>
-  <td rowspan="1">Sucursal Cliente</td>
+  <td bgcolor="#C5D9F1" rowspan="1">Sucursal Cliente</td>
   <td colspan="3">'; echo $row['sucursal_cliente']; echo '</td>
 </tr>
 
