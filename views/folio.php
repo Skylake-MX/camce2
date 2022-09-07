@@ -6,20 +6,18 @@
 
 	error_reporting(E_ALL ^ E_NOTICE); 
 	session_start();
-	
+	$currentUser = new User();
+	$currentUser->setUser($_SESSION['user']);
+	/* echo $currentUser->getPrivilegio(); 
+ */	
 	$q=str_ireplace(",", "", date("d,m,y"));
 	$query="SELECT folio FROM bitacora WHERE folio LIKE '%" . $q . "%'";
 	$query=$pdo->query($query);
 	$query->rowCount();
-
 	/* echo $query->rowCount(); */
-
 	$contador=$query->rowCount() + 1;
-
 	while(strlen($contador)<3){
-		
 		$contador="0".$contador;
-
 	}
 	$folioCAMCE= str_ireplace(",", "", date("d,m,y")) . "-" . $contador;
 
@@ -27,24 +25,7 @@
 
 	if(!empty($_POST)){
 
-	}else{
-		$id = $_GET['id'];
-
-		$sql="SELECT * FROM base WHERE id=:id";
-		$query=$pdo->prepare($sql);
-		$query->execute([
-			'id' => $id
-		]);
-
-	}
-
-	$row=$query->fetch(PDO::FETCH_ASSOC);
-
-	$currentUser = new User();
-	$currentUser->setUser($_SESSION['user']);
-	/* echo $currentUser->getPrivilegio(); 
- */	
-	if(!empty($_POST)){
+		//var_dump($_POST);
 		$id=$_POST['id'];
 		$folio=$_POST['camce'] . $_POST['folio'];
 		$recibe_reporte=$_POST['recibe_reporte'];
@@ -55,17 +36,18 @@
 		$equipo=$_POST['equipo'];
 		$serie=$_POST['serie'];
 		$proveedor=$_POST['proveedor'];
+		$empresa=$_POST['empresa'];
 		$sucursal=$_POST['sucursal'];
-		$banco=$_POST['banco'];
 		$division=$_POST['division'];
+		$banco=$_POST['banco'];
 		$datetime_reporte=$_POST['datetime_reporte'];
 		$datetime_cita=$_POST['datetime_cita'];
 		$estatus=$_POST['estatus'];
 		$direccion=$_POST['direccion'];
 		$falla=$_POST['falla'];
 
-		$sql="INSERT INTO bitacora(id, folio, recibe_reporte, reporta_fallo, medio_de_reporte, cliente, sucursal_cliente, equipo, serie, proveedor, sucursal, banco, division, fecha, datetime_reporte, datetime_cita, falla, estatus) VALUES 
-								(NULL, :folio, :recibe_reporte, :reporta_fallo, :medio_de_reporte, :cliente, :sucursal_cliente, :equipo, :serie, :proveedor, :sucursal, :banco, :division, current_timestamp(), :datetime_reporte, :datetime_cita, :falla, :estatus)";
+		$sql="INSERT INTO bitacora(id, folio, recibe_reporte, reporta_fallo, medio_de_reporte, cliente, sucursal_cliente, equipo, serie, proveedor, empresa, sucursal, division, banco,  fecha, datetime_reporte, datetime_cita, falla, estatus) VALUES 
+								(NULL, :folio, :recibe_reporte, :reporta_fallo, :medio_de_reporte, :cliente, :sucursal_cliente, :equipo, :serie, :proveedor, :empresa, :sucursal, :division, :banco,  current_timestamp(), :datetime_reporte, :datetime_cita, :falla, :estatus)";
 
 		$query=$pdo->prepare($sql);
 		$result=$query->execute([
@@ -78,9 +60,10 @@
 			'equipo'=>$equipo,
 			'serie'=>$serie,
 			'proveedor'=>$proveedor,
+			'empresa'=>$empresa,
 			'sucursal'=>$sucursal,
-			'banco'=>$banco,
 			'division'=>$division,
+			'banco'=>$banco,
 			'datetime_reporte'=>$datetime_reporte,
 			'datetime_cita'=>$datetime_cita,
 			'falla'=>$falla,
@@ -96,16 +79,46 @@
 		$row['equipo']=$equipo;
 		$row['serie']=$serie;
 		$row['proveedor']=$proveedor;
+		$row['empresa']=$empresa;
 		$row['sucursal']=$sucursal;
-		$row['banco']=$banco;
 		$row['division']=$division;
+		$row['banco']=$banco;
 		$row['datetime_reporte']=$datetime_reporte;
 		$row['datetime_cita']=$datetime_cita;
 		$row['falla']=$falla;
 		$row['estatus']=$estatus;
 
 		$estatusOp="El folio " . $folio . " se creo correctamente ";
+
+		sleep(1);
+
+		$sql="SELECT * FROM bitacora WHERE folio='".$folio."'";
+		$query=$pdo->prepare($sql);
+		$query->execute([
+			'folio' => $folio
+		]);
+		$row=$query->fetch(PDO::FETCH_ASSOC);
+		//var_dump($row['id']);
+
+		header( "refresh:5;url=ficha.php?id=".$row['id']);
+	
+	}else{
+		$id = $_GET['id'];
+
+		$sql="SELECT * FROM base WHERE id=:id";
+		$query=$pdo->prepare($sql);
+		$query->execute([
+			'id' => $id
+		]);
+		$row=$query->fetch(PDO::FETCH_ASSOC);
+		//var_dump($row);
+
+		$cliente=$row['razon_social'];
+		$sucursal_cliente=$row['unidad_de_negocio'];
+		$sucursal=$row['sucursal_gsi'];
+		$equipo=$row['modelo'];
 	}
+
 ?>
 
 
@@ -150,7 +163,7 @@
 					<div class="col"><br>
 
             <label class="registro" for="">Cliente</label><br>
-						<input class="registro-input" type="text" maxlength="30" name="cliente" value="<?=$row['razon_social']?>" readonly><br>
+						<input class="registro-input" type="text" maxlength="30" name="cliente" value="<?=$cliente?>" readonly><br>
 
 						<label class="registro" for="">Proveedor</label><br>
 						<input class="registro-input" type="text" maxlenght="20" name="proveedor" value="<?=$row['proveedor']?>" readonly><br>
@@ -163,14 +176,14 @@
 						<select type="text" style="width:185px;border:5px;font-size:19px" onchange="this.style.width=200" name="camce" required	>
 							<option value="<?=NULL;?>"></option>
 							<option value="CAMCE2-">CAMCE2</option>
-        					<option value="CAMCE5-">CAMCE3</option>
-									<option value="CAMCE5-">CAMCE4</option>
+        					<option value="CAMCE3-">CAMCE3</option>
+									<option value="CAMCE4-">CAMCE4</option>
 									<option value="CAMCE5-">CAMCE5</option>
-									<option value="CAMCE5-">CAMCE6</option>
-									<option value="CAMCE5-">CAMCE7</option>
-									<option value="CAMCE5-">CAMCE8</option>
-									<option value="CAMCE5-">CAMCE9</option>
-									<option value="CAMCE5-">CAMCE10</option>
+									<option value="CAMCE6-">CAMCE6</option>
+									<option value="CAMCE7-">CAMCE7</option>
+									<option value="CAMCE8-">CAMCE8</option>
+									<option value="CAMCE9-">CAMCE9</option>
+									<option value="CAMCE10-">CAMCE10</option>
       					</select><br><br>
 
 
@@ -180,13 +193,13 @@
 					<div class="col"><br>
 
 						<label class="registro" for="">Sucursal Cliente</label><br>
-						<input class="registro-input" type="text" maxlength="20" name="sucursal_cliente" value="<?=$row['unidad_de_negocio']?>" readonly><br>
+						<input class="registro-input" type="text" maxlength="20" name="sucursal_cliente" value="<?=$sucursal_cliente?>" readonly><br>
 		
 						<label class="registro" for="">Equipo</label><br>
-						<input class="registro-input" type="text" maxlength="15" name="equipo" value="<?=$row['modelo']?>" readonly><br>
+						<input class="registro-input" type="text" maxlength="15" name="equipo" value="<?=$equipo?>" readonly><br>
 
 						<label class="registro" for="">Reporta fallo (cliente)</label><br>
-						<input class="registro-input" type="text" maxlength="35" name="reporta_fallo" value="" required><br>
+						<input class="registro-input" type="text" maxlength="35" name="reporta_fallo" value="<?=$row['reporta_fallo']?>" required><br>
 
 
 
@@ -202,8 +215,8 @@
 
           <div class="col"><br>
 
-						<label class="registro" for="">Sucursal</label><br>
-						<input class="registro-input" type="text" maxlength="20" name="sucursal" value="<?=$row['sucursal_gsi']?>" readonly><br>
+						<label class="registro" for="">Empresa</label><br>
+						<input class="registro-input" type="text" maxlength="20" name="empresa" value="<?=$row['empresa']?>" readonly><br>
 
 						<label class="registro" for="">Serie</label><br>
 						<input class="registro-input" type="text" maxlength="20" name="serie" value="<?=$row['serie']?>" readonly><br>
@@ -225,8 +238,8 @@
 			
 					<div class="col"><br>
 
-						<label class="registro" for="">Division</label><br>
-						<input class="registro-input" type="text" maxlength="15" name="division" value="<?=$row['division']?>" readonly><br>
+						<label class="registro" for="">Sucursal GSI</label><br>
+						<input class="registro-input" type="text" maxlength="15" name="sucursal" value="<?=$sucursal?>" readonly><br>
 
 						<label class="registro" for="">Banco</label><br>
 						<input class="registro-input" type="text" maxlength="20" name="banco" value="<?=$row['banco']?>" readonly><br>
@@ -235,7 +248,7 @@
 						<input class="registro-input" type="datetime-local" maxlength="6" name="datetime_reporte" value="" required><br> -->
 
 						<label class="registro" for="">Fecha Hora de reporte</label><br>
-						<input class="registro-input" type="text" maxlength="15" name="datetime_reporte" value="<?php date_default_timezone_set('Mexico/General'); $DateAndTime = date('d-m-Y h:i:s ', time()); echo $DateAndTime?>" readonly><br>
+						<input class="registro-input" type="text" maxlength="15" name="datetime_reporte" value="<?php date_default_timezone_set('Mexico/General'); $DateAndTime = date('Y-m-d H:i:s ', time()); echo $DateAndTime?>" readonly><br>
 
 						<label class="registro" for="">Fecha/Hora de cita</label><br>
 						<input class="registro-input" type="datetime-local" maxlength="6" name="datetime_cita" value="" required><br>
@@ -255,14 +268,15 @@
 					<div class="col">
 						<br>
         		        <label class="registro" for="">Falla</label><br>
-						<input class="registro-direccion" type="text" maxlength="50" name="falla" value="" required><br>
+						<input class="registro-direccion" type="text" maxlength="50" name="falla" value="<?=$row['falla']?>" required><br>
         			</div>
 				</div>
 
 				<div class="row">
 					<div class="col">
 						<br>
-        		        <input type="hidden" name="id" value="<?php echo $id; ?>">
+							<input type="hidden" name="division" value="<?=$row['division']?>">
+							<input type="hidden" name="id" value="<?php echo $id; ?>">								
 						<input style="margin: auto;" type="submit" value="Generar folio"><br>
 					</div>
 				</div>
@@ -272,13 +286,10 @@
 		<?php 
     if($result){
         echo '<div class="alert alert-success" role="alert">' . $estatusOp; 
-        }  
+        } 
+
     ?> 
 	</div>
-
-
-
-	
 	</body>
 
 </html>

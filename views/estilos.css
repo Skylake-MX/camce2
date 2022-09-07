@@ -97,6 +97,7 @@ button{
 /* Estilo edit_users */
 
 .nav_lista{
+    width: 100%;
   display: flex;
   justify-content: space-between;
   padding-right: 50px;

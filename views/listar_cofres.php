@@ -37,7 +37,7 @@
     <input type="text" name="caja_busqueda_equipos" id="caja_busqueda_equipos" placeholder="Id, Equipo, cliente.."></input>
     
     
-    <a href="registro.php" style="padding-left:60%;"><i class="far fa-plus-square"></i><label for="agregar_registro" style="padding-left:5px;">Agregar registro</label> </a>
+    <a href="registro.php" style="padding-left:60%;"><i class="far fa-plus-square"></i><label for="Agregar_registro" style="padding-left:5px;">Agregar registro</label> </a>
     <div id="datos_equipos"></div>
 
 

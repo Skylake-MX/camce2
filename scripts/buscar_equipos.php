@@ -44,6 +44,7 @@
                     modelo LIKE '%" . $q . "%' OR
                     serie LIKE '%" . $q . "%' OR
                     capacidad LIKE '%" . $q . "%' OR
+                    empresa LIKE '%" . $q . "%' OR
                     banco LIKE '%" . $q . "%' OR
                     tipo_de_acreditacion LIKE '%" . $q . "%' OR
                     direccion LIKE '%" . $q . "%' )" . " AND asignado LIKE '%" . $likeUser . "%'" ;
@@ -58,6 +59,7 @@
                     modelo LIKE '%" . $q . "%' OR
                     serie LIKE '%" . $q . "%' OR
                     capacidad LIKE '%" . $q . "%' OR
+                    empresa LIKE '%" . $q . "%' OR
                     banco LIKE '%" . $q . "%' OR
                     tipo_de_acreditacion LIKE '%" . $q . "%' OR
                     direccion LIKE '%" . $q . "%' )";
@@ -74,7 +76,7 @@
 
         if(true){
 
-            $salida.="<table class='table' style='margin:auto; margin-top:1%; width: 60%'>
+            $salida.="<table class='table' style='margin:auto; margin-top:1%; width: 80%'>
                         <thead class='thead-light'>
                             <tr>
 
@@ -83,10 +85,10 @@
                                 <th scope='col'>Proveedor</th>
                                 <th scope='col'>Modelo</th>
                                 <th scope='col'>Serie</th>
-                                <th scope='col'>Capacidad</th>
-                                <th scope='col'>Banco</th>
-                                <th scope='col'>Acreditacion</th>
-                                <th scope='col'>Sucursal</th>
+                                <th scope='col'>Empresa</th>"
+                                // <th scope='col'>Banco</th>
+                                // <th scope='col'>Acreditacion</th>
+                                ."<th scope='col'>Sucursal</th>
                                 <th scope='col'>Direccion</th>
                                 <th scope='col'>Borrar</th>
                                 <th scope='col'>Upload</th>
@@ -101,10 +103,10 @@
                             <td>".$fila['proveedor']."</td>
                             <td>".$fila['modelo']."</td>                         
                             <td><a href='update_registro.php?id=" . $fila['id'] . "' style='text-align:center;'>".$fila['serie']."</a></td>
-                            <td>".$fila['capacidad']."</td>
-                            <td>".$fila['banco']."</td>
-                            <td>".$fila['tipo_de_acreditacion']."</td>
-                            <td>".$fila['sucursal_gsi']."</td>
+                            <td>".$fila['empresa']."</td>"
+                            // <td>".$fila['banco']."</td>
+                            // <td>".$fila['tipo_de_acreditacion']."</td>
+                            ."<td>".$fila['sucursal_gsi']."</td>
                             <td>".$fila['direccion']."</td>
                             <td><a href='../scripts/delete_registro.php?id=".$fila['id'] . "' onclick='return confirmacion()'> <i class='fas fa-trash-alt'></a></td>
                             <td><a href='subir_archivo.php?id=".$fila['id'] ."'><i class='fas fa-cloud-upload-alt'></i></a></td> 

@@ -1,10 +1,11 @@
 <?php
 
-
     include_once '../scripts/connect.php';
     $result=false;
-
+    var_dump($_POST);
     if(!empty($_POST)){
+
+        echo "Esto es un post";
 
         $id=$_POST['id'];  
         /* var_dump($id); */
@@ -123,7 +124,8 @@
     }
     else{
     $id = $_GET['id'];
-    /*  var_dump($id); */
+    var_dump($_GET);
+    echo "esto es un get";
 
     $sql="SELECT * FROM base WHERE id=:id";
     $query=$pdo->prepare($sql);
