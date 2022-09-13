@@ -268,7 +268,7 @@
 					<div class="col">
 						<br>
         		        <label class="registro" for="">Falla</label><br>
-						<input class="registro-direccion" type="text" maxlength="50" name="falla" value="<?=$row['falla']?>" required><br>
+						<textarea class="falla" type="text" rows="5" cols="120" name="falla" value="<?=$row['falla']?>" required></textarea><br>
         			</div>
 				</div>
 
