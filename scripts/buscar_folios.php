@@ -43,24 +43,26 @@
                 falla LIKE '%" . $q . "%' OR
                 solucion LIKE '%" . $q . "%' OR
                 del_dano LIKE '%" . $q . "%' OR
-                estatus LIKE '%" . $q . "%'";
+                estatus LIKE '%" . $q . "%' OR
+                ingeniero LIKE '%" . $q . "%'";
         
     }   
         
     $queryResult = $pdo->query($query);
 
 
-    echo "<div class='' style='margin-left: 20%; margin-top: 2%'><label for='resultado'>" . $queryResult->rowCount() . "  Resultados</label></div>";    
+    echo "<div class='' style='margin-left: 5%; margin-top: 2%'><label for='resultado'>" . $queryResult->rowCount() . "  Resultados</label></div>";    
 
 
         if(true){
 
-            $salida.="<table class='table' style='margin:auto; margin-top:1%; width: 60%'>
+            $salida.="<table class='table' style='margin:auto; margin-top:1%; width: 90%'>
                         <thead class='thead-light'>
                             <tr>
                                 <th scope='col'>Folio</th>
+                                <th scope='col'>Cliente</th>
                                 <th scope='col'>No Serie</th>
-                                <th scope='col'>Razon Social</th>
+                                <th scope='col'>Empresa</th>
                                 <th scope='col'>Sucursal</th>
                                 <th scope='col'>Falla</th>
                                 <th scope='col'>Fecha de reporte</th>
@@ -77,7 +79,8 @@
                 $salida.="<tr>
                             <td>".$fila['folio']."</td>
                             <td>".$fila['serie']."</td>
-                            <td>".$fila['cliente']."</td>
+                            <td>".$fila['cliente']."/".$fila['sucursal_cliente']."</td>
+                            <td>".$fila['empresa']."</td>
                             <td>".$fila['sucursal']."</td>
                             <td>".$fila['falla']."</td>
                             <td>".$fila['datetime_reporte']."</td>

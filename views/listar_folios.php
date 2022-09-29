@@ -33,7 +33,7 @@
     <h5>Folios</h5>
     </div>
 
-    <label for="caja_busqueda" style="margin-left: 20%; margin-top: 2%;">Busqueda</label>
+    <label for="caja_busqueda" style="margin-left: 5%; margin-top: 2%;">Busqueda</label>
     <input type="text" name="caja_busqueda_folios" id="caja_busqueda_folios" placeholder="Folio, Id, Equipo, Cliente.."></input>
     
     
