@@ -33,11 +33,10 @@
     <h5>Crear Folio</h5>
     </div>
 
-    <label for="caja_busqueda" style="margin-left: 20%; margin-top: 2%;">Busqueda</label>
+    <label for="caja_busqueda" style="margin-left: 10%; margin-top: 2%;">Busqueda</label>
     <input type="text" name="caja_busqueda" id="caja_busqueda" placeholder="Id, Equipo, cliente.."></input>
     
     <div id="datos"></div>
-
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
 </body>

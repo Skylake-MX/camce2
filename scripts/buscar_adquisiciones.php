@@ -30,12 +30,12 @@
     $queryResult = $pdo->query($query);
 
 
-    echo "<div class='' style='margin-left: 20%; margin-top: 2%'><label for='resultado'>" . $queryResult->rowCount() . "  Resultados</label></div>";    
+    echo "<div class='' style='margin-left: 10%; margin-top: 2%'><label for='resultado'>" . $queryResult->rowCount() . "  Resultados</label></div>";    
 
 
         if(true){
 
-            $salida.="<table class='table' style='margin:auto; margin-top:1%; width: 60%'>
+            $salida.="<table class='table' style='margin:auto; margin-top:2%; width: 80%;'>
                         <thead class='thead-light'>
                             <tr>
                                 <th scope='col'>Contrato</th>
