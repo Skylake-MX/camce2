@@ -25,7 +25,7 @@
 <body>
 
     <nav>
-      Administración CAMCE
+      Administración CAMCE 2.0
     </nav>
     <div class="modal-dialog text-center">
         <div class="col-sm-8 main-section">
