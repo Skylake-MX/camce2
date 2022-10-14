@@ -56,7 +56,7 @@ $row=$query->fetch(PDO::FETCH_ASSOC);
 // var_dump($row);
 
 
-echo '<table border="1px" style="width: 300px; height: 300px;text-align: center; margin: auto; margin-top:1px;width: 35%;">
+echo '<table border="1px" style="width: 300px; height: 300px;text-align: center; margin: auto; margin-top:1px;width: 600px; font-size: 11px">
 <th bgcolor="#0070C0"; colspan="4">Ficha de reporte</th>
 <tr>
   <td bgcolor="#C5D9F1" style="width: 200px;">Folio Camce</td>
@@ -107,9 +107,32 @@ echo '<table border="1px" style="width: 300px; height: 300px;text-align: center;
   <td colspan="3">'; echo $row['sucursal_cliente']; echo '</td>
 </tr>
 
-</table>'
+</table>';
+
+$nombre=$row['folio']." ".$row['cliente']." ".$row['sucursal_cliente']." ".$row['serie']." ".$row['empresa']. " ".$row['sucursal'].".jpg";
 
 ?> 
+
+<p></p>
+<div style="width: 600px; text-align: left; margin: auto; margin-top:1px;font-size: 11px">
+    Solucion: <?=" ".$row['solucion'];?><br>
+    Estatus del equipo: <?=" ".$row['asesoria_telefonica'];?><br>
+    Piezas requeridas: <?=" ".$row['piezas_proveedor'];?><br>
+    Tipo de cambio: <?=" ".$row['del_dano'];?><br>
+    Hora de Llegada: <?=" ".$row['datetime_llegada'];?><br>
+    Hora de Salida: <?=" ".$row['datetime_termino'];?><br>
+    Nombre del Tecnico: <?=" ".$row['ingeniero'];?><br>
+    Nombre del VoBo Cliente: <?=" ".$row['piezas_sepsa'];?><br>
+
+</div>
+ 
+
+
+<p></p>
+  <div style="text-align: center;">
+  <img src="../Operaciones/Ordenes/<?=$nombre?>" width="600px" >
+</div>
+
 
 </body>
 </html>

@@ -3,7 +3,6 @@
 body{
     background-color: #F0F8FF;
     background-size: cover;
-    font-size: 12px;
 }
 
 nav{
@@ -171,8 +170,4 @@ div .upload{
     align-items: center;
     text-align: center;
     padding: 25%;
-}
-
-.table{
-    font-size: 11px;
 }

@@ -51,25 +51,26 @@
     $queryResult = $pdo->query($query);
 
 
-    echo "<div class='' style='margin-left: 10%; margin-top: 2%'><label for='resultado'>" . $queryResult->rowCount() . "  Resultados</label></div>";    
+    echo "<div class='resultado' style='margin-left: 10%; margin-top: 2%'><label for='resultado'>" . $queryResult->rowCount() . "  Resultados</label></div>";    
 
 
         if(true){
 
-            $salida.="<table class='table' style='margin:auto; margin-top:2%; width: 80%;'>
+            $salida.="<table class='table' style='margin:auto; margin-top:2%; width: 80%; font-size: 11px;'>
                         <thead class='thead-light'>
                             <tr>
-                                <th scope='col'>Folio</th>
-                                <th scope='col'>Cliente</th>
-                                <th scope='col'>No Serie</th>
-                                <th scope='col'>Empresa</th>
-                                <th scope='col'>Sucursal</th>
-                                <th scope='col'>Falla</th>
-                                <th scope='col'>Fecha de reporte</th>
-                                <th scope='col'>Fecha de cita</th>
-                                <th scope='col'>Estatus</th>
-                                <th scope='col'>Ver</th>
-                                <th scope='col'>Cerrar</th>
+                                <th scope='col'>FOLIO</th>
+                                <th scope='col'>CLIENTE</th>
+                                <th scope='col'>SERIE</th>
+                                <th scope='col'>ETV</th>
+                                <th scope='col'>SUCURSAL GSI</th>
+                                <th scope='col'>REPORTE</th>
+                                <th scope='col'>FECHA DE REPORTE</th>
+                                <th scope='col'>FECHA DE CITA</th>
+                                <th scope='col'>ESTATUS</th>
+                                <th scope='col'>VER</th>
+                                <th scope='col'>ORDEN</th>
+                                <th scope='col'>CERRAR</th>
                             </tr>
                         </thead>
                         <tbody>";
@@ -78,8 +79,8 @@
               
                 $salida.="<tr>
                             <td>".$fila['folio']."</td>
-                            <td>".$fila['serie']."</td>
                             <td>".$fila['cliente']."/".$fila['sucursal_cliente']."</td>
+                            <td>".$fila['serie']."</td>
                             <td>".$fila['empresa']."</td>
                             <td>".$fila['sucursal']."</td>
                             <td>".$fila['falla']."</td>
@@ -88,6 +89,7 @@
                             <td>".$fila['estatus']."</td>
                             
                             <td><a href='ficha.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-eye'></i></a></td>
+                            <td><a href='../scripts/subir_orden.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-cloud-upload-alt'></i></a></td>
                             <td><a href='cerrar_folio.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-edit'></i></a></td> 
                         </tr>";
             }

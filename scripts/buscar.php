@@ -28,7 +28,7 @@
 
         if(true){
 
-            $salida.="<table class='table' style='margin:auto; margin-top: 2%; width: 80%;'>
+            $salida.="<table class='table' style='margin:auto; margin-top: 2%; width: 80%; font-size: 11px;'>
                         <thead class='thead-light'>
                             <tr>
 

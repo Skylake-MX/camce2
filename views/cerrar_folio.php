@@ -188,7 +188,7 @@
             </div>
 
             <div class="col"><br>
-                <label class="registro" for="">Tir</label><br>
+                <label class="registro" for="">Folio Proveedor</label><br>
 			    <input class="registro-input" type="text" maxlength="8" name="tir" value="<?php echo $tirValue; ?>"><br>
             </div>
         </div>
@@ -247,7 +247,7 @@
         <div class="row">
             <div class="col"><br>
                 <label class="registro" for="">Solucion</label><br>
-			    <input class="registro-direccion" type="costo" maxlength="150" name="solucion" value="<?php echo $solucionValue; ?>"><br>
+			    <input class="registro-direccion" type="text" maxlength="150" name="solucion" value="<?php echo $solucionValue; ?>"><br>
             </div>
 
 
@@ -256,14 +256,41 @@
         <div class="row">
 
             <div class="col"><br>
-                <label class="registro" for="">Piezas proveedor</label><br>
-                <input class="registro-input" type="text" maxlength="50" name="piezas_proveedor" value="<?php echo $piezasProveedorValue; ?>"><br>
+
+            <label class="registro" style="padding-top: 10px;" for="">Estatus del equipo</label><br>
+                <select type="text" style="width:185px;border:5px;font-size:19px;" onchange="this.style.width=200" name="asesoria_telefonica">
+                            							
+                <?php
+
+                    $option1=NULL;
+                    $option2=NULL;
+
+                    switch($asesoriaTelefonicaValue){
+
+                        case "EN OPERACION":   $option1="selected";
+                                            break;
+
+                        case "FUERA DE SERVICIO":     $option2="selected";
+                                            break;
+                    }
+                ?>
+
+                <option value='' ></option>
+                <option value='EN OPERACION' <?=$option1;?>>EN OPERACION</option>
+                <option value='FUERA DE SERVICIO' <?=$option2;?>>FUERA DE SERVICIO</option>
+                </select><br>
+
+
+
 
             </div>
 
             <div class="col"><br>
-                <label class="registro" for="">Piezas Sepsa</label><br>
-                <input class="registro-input" type="text" maxlength="50" name="piezas_sepsa" value="<?php echo $piezasSepsaValue; ?>"><br>
+
+            <label class="registro" for="">Piezas Requeridas</label><br>
+                <input class="registro-input" type="text" maxlength="50" name="piezas_proveedor" value="<?php echo $piezasProveedorValue; ?>"><br>
+
+
 
             </div>
 
@@ -296,8 +323,8 @@
                 ?>
 
                 <option value='' ></option>
-                <option value='CLIENTE' <?=$option1;?>>CLIENTE</option>
-                <option value='DESGASTE' <?=$option2;?>>DESGASTE</option>
+                <option value='COTIZACION' <?=$option1;?>>COTIZACION</option>
+                <option value='GARANTIA' <?=$option2;?>>GARANTIA</option>
                 <option value='VANDALIZMO' <?=$option3;?>>VANDALIZMO</option>                       
 				</select><br>
             </div>
@@ -327,7 +354,7 @@
                         case "CANCELADO":   $option1="selected";
                                             break;
 
-                        case "CERRADO":     $option2="selected";
+                        case "PRE-CERRADO":     $option2="selected";
                                             break;
 
                         case "PENDIENTE":   $option3="selected";
@@ -340,7 +367,7 @@
 
                 <option value='' ></option>
                 <option value='CANCELADO' <?=$option1;?>>CANCELADO</option>
-                <option value='CERRADO' <?=$option2;?>>CERRADO</option>
+                <option value='PRE-CERRADO' <?=$option2;?>>PRE-CERRADO</option>
                 <option value='PENDIENTE' <?=$option3;?>>PENDIENTE</option>                       
                 <option value='PENDIENTE POR PIEZA' <?=$option4;?>>PENDIENTE POR PIEZA</option>  
                 </select><br>
@@ -373,28 +400,10 @@
             </div> -->
 
             <div class="col"><br>
-                <label class="registro" style="padding-top: 10px;" for="">Asesoria Telefonica</label><br>
-                <select type="text" style="width:185px;border:5px;font-size:19px;" onchange="this.style.width=200" name="asesoria_telefonica">
-                            							
-                <?php
-
-                    $option1=NULL;
-                    $option2=NULL;
-
-                    switch($asesoriaTelefonicaValue){
-
-                        case "PROGRAMACION":   $option1="selected";
-                                            break;
-
-                        case "VANDALIZMO":     $option2="selected";
-                                            break;
-                    }
-                ?>
-
-                <option value='' ></option>
-                <option value='PROGRAMACION' <?=$option1;?>>PROGRAMACION</option>
-                <option value='VANDALIZMO' <?=$option2;?>>VANDALIZMO</option>
-                </select><br>
+                    
+            <label class="registro" for="">VoBo del Cliente</label><br>
+                <input class="registro-input" type="text" maxlength="50" name="piezas_sepsa" value="<?php echo $piezasSepsaValue; ?>"><br>
+ 
             </div>
 
             <div class="col"><br>
