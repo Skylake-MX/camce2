@@ -109,20 +109,20 @@ echo '<table border="1px" style="width: 300px; height: 300px;text-align: center;
 
 </table>';
 
-$nombre=$row['folio']." ".$row['cliente']." ".$row['sucursal_cliente']." ".$row['serie']." ".$row['empresa']. " ".$row['sucursal'].".jpg";
-
+$nombre=str_replace("/","",$row['folio'])." ".$row['cliente']." ".$row['sucursal_cliente']." ".$row['serie']." ".$row['empresa']. " ".$row['sucursal'].".jpg";
+//echo $nombre;
 ?> 
 
 <p></p>
 <div style="width: 600px; text-align: left; margin: auto; margin-top:1px;font-size: 11px">
-    Solucion: <?=" ".$row['solucion'];?><br>
-    Estatus del equipo: <?=" ".$row['asesoria_telefonica'];?><br>
-    Piezas requeridas: <?=" ".$row['piezas_proveedor'];?><br>
-    Tipo de cambio: <?=" ".$row['del_dano'];?><br>
-    Hora de Llegada: <?=" ".$row['datetime_llegada'];?><br>
-    Hora de Salida: <?=" ".$row['datetime_termino'];?><br>
-    Nombre del Tecnico: <?=" ".$row['ingeniero'];?><br>
-    Nombre del VoBo Cliente: <?=" ".$row['piezas_sepsa'];?><br>
+    SOLUCION DEL REPORTE: <?=" ".$row['solucion'];?><br>
+    ESTATUS DEL EQUIPO: <?=" ".$row['asesoria_telefonica'];?><br>
+    PIEZAS NECESARIAS: <?=" ".$row['piezas_proveedor'];?><br>
+    TIPO DEL CAMBIO: <?=" ".$row['del_dano'];?><br>
+    HORA DE LLEGADA: <?=" ".$row['datetime_llegada'];?><br>
+    HORA DE SALIDA: <?=" ".$row['datetime_termino'];?><br>
+    NOMBRE DEL INGENIERO: <?=" ".$row['ingeniero'];?><br>
+    NOMBRE DEL CLIENTE QUE FIRMA: <?=" ".$row['piezas_sepsa'];?><br>
 
 </div>
  

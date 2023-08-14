@@ -170,266 +170,208 @@
 	</nav>
     <br>
 	<div class="" style="text-align: center;">   
-    	<h5>Cerrar folio</h5>
+    	<h5>CERRRAR FOLIO: <?php echo $folioValue; ?></h5>
     </div>
 	<form action="" method="POST">
-	<div class="container" style="margin:auto;">
-		<div class="row">	
+	<div class="form" style="margin:0 auto; ">
 
-            <div class="col"><br>
-                <label class="registro" for="">Folio</label><br>
-			    <input class="registro-input" type="text" maxlength="15" name="folio" value="<?php echo $folioValue; ?>" readonly><br>
-            </div>
-			
-            <div class="col"><br>   
+			    <input class="registro-input" type="hidden" name="folio" value="<?php echo $folioValue; ?>" readonly><br>
+			    <input class="registro-input" type="hidden" name="tir" value="<?php echo $tirValue; ?>"><br>
 
-                <label class="registro" for="">Fecha/Hora de cita</label><br>
-				<input class="registro-input" type="datetime-local" maxlength="6" name="datetime_cita" value="<?php echo $fechaDeCitaValue; ?>" readonly><br>
-            </div>
+                
+                <table border="1px" style="width: 300px; height: 300px;text-align: center; margin: auto; margin-top:1px;width: 500px; font-size: 11px">
+                <tr>
+                    <td>CLIENTE: </td>
+                    <td><b><?php echo $clienteValue; ?></b></td>
+                </tr>
+                <tr>
+                    <td>SUCURSAL: </td>
+                    <td><b><?php echo $sucursalClienteValue; ?></b></td>
+                </tr>
+                <tr>
+                    <td>DIRECCION: </td>
+                    <td><b><?php echo $direccionValue; ?></b></td>
+                </tr>
+                <tr>
+                    <td>PROVEEDOR: </td>
+                    <td><b><?php echo $proveedorValue; ?></b></td>
+                </tr>
+                <tr>
+                    <td>EQUIPO: </td>
+                    <td><b><?php $equipoValue; ?></b></td>
+                </tr>
+                <tr>
+                    <td>NO. SERIE: </td>
+                    <td><b><?php echo $serieValue; ?></b></td>
+                </tr>
+                <tr>
+                    <td>FALLA REPORTADA: </td>
+                    <td><b><?php echo $fallaValue?></b></td>
+                </tr>
+                <tr>
+                    <td>FECHA Y HORA DE CITA: </td>
+                    <td><b><?php echo $fechaDeCitaValue; ?></b></td>
+                </tr>
+                <tr>
+                    <td>FECHA Y HORA DE LLEGADA: </td>
+                    <td><input class="registro-input" type="datetime-local" style="width:185px;border:5px;font-size:11px;" maxlength="6" name="datetime_llegada" value="<?php echo $fechaDeLlegadaValue; ?>" required><br></td>
+                </tr>
+                <tr>
+                    <td>FECHA Y HORA DE TERMINO: </td>
+                    <td><input class="registro-input" type="datetime-local" style="width:185px;border:5px;font-size:11px;" maxlength="6" name="datetime_termino" value="<?php echo $fechaDeTerminoValue; ?>" required><br>	</td>
+                </tr>
+                <tr>
+                    <td>SOLUCION DEL PROBLEMA REPORTADO: </td>
+                    <td><textarea name="solucion" rows="4" cols="41" value="<?php echo $solucionValue; ?>" required><?php echo $solucionValue; ?></textarea></td>
+                </tr>
 
-            <div class="col"><br>
-                <label class="registro" for="">Folio Proveedor</label><br>
-			    <input class="registro-input" type="text" maxlength="8" name="tir" value="<?php echo $tirValue; ?>"><br>
-            </div>
-        </div>
+                <tr>
+                    <td>REFACCIONES REQUERIDAS: </td>
+                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px;" name="piezas_proveedor" value="<?php echo $piezasProveedorValue; ?>"></td>
+                </tr>
 
-        <div class="row">
-            <div class="col"><br>
-                <label class="registro" for="">Cliente</label><br>
-			    <input class="registro-input" type="text" maxlength="30" name="cliente" value="<?php echo $clienteValue; ?>" readonly><br> 
+                <tr>
+                    <td>C. REFACCIONES POR: </td>
+                    <td>                
+                            <select type="text" style="width:185px; text-align: center; border:5px;font-size:11px;" onchange="this.style.width=200" name="del_dano">
+							
+                            <?php
             
-            </div>
-            <div class="col"><br>
-                <label class="registro" for="">Sucursal Cliente</label><br>
-			    <input class="registro-input" type="text" maxlength="20" name="sucursal_cliente" value="<?php echo $sucursalClienteValue; ?>" readonly><br>
+                            $option1=NULL;
+                            $option2=NULL;
             
-            </div>
-
-            <div class="col"><br>
-                <label class="registro" for="">Falla</label><br>
-				<input class="registro-input" type="costo" maxlength="50" name="falla" value="<?php echo $fallaValue?>" readonly><br>
+                            switch($delDañoValue){
             
-            </div>
-
-
-        </div>
-        <div class="row">
-
-            <div class="col"><br>
-                <label class="registro" for="">Serie</label><br>
-				<input class="registro-input" type="text" maxlength="20" name="serie" value="<?php echo $serieValue; ?>" readonly><br>
+                                case "CLIENTE":     $option1="selected";
+                                                    break;
             
-            </div>
-            <div class="col"><br>
-                <label class="registro" for="">Proveedor</label><br>
-				<input class="registro-input" type="text" maxlenght="20" name="proveedor" value="<?php echo $proveedorValue; ?>" readonly><br>
+                                case "DESGASTE":    $option2="selected";
+                                                    break;
+                            }
+                            ?>
             
-            </div>
-            <div class="col"><br>
-                <label class="registro" for="">Equipo</label><br>
-				<input class="registro-input" type="text" maxlength="15" name="equipo" value="<?php $equipoValue; ?>" readonly><br>
-            
-            </div>
-        
-        </div>
+                            <option value='' ></option>
+                            <option value='COTIZACION' <?=$option1;?>>GARANTIA</option>
+                            <option value='GARANTIA' <?=$option2;?>>COTIZACION</option>                     
+                            </select>
+                            </td>
+                </tr>
 
-        <div class="row">
-            <div class="col">
-
-           <br>
-                <label class="registro" for="">Direccion</label><br>
-			    <input class="registro-direccion" type="costo" maxlength="50" name="direccion" value="<?php echo $direccionValue; ?>" readonly><br>
-            
-            </div>
-        
-        </div>
-
-        <div class="row">
-            <div class="col"><br>
-                <label class="registro" for="">Solucion</label><br>
-			    <input class="registro-direccion" type="text" maxlength="150" name="solucion" value="<?php echo $solucionValue; ?>"><br>
-            </div>
-
-
-        </div>
-
-        <div class="row">
-
-            <div class="col"><br>
-
-            <label class="registro" style="padding-top: 10px;" for="">Estatus del equipo</label><br>
-                <select type="text" style="width:185px;border:5px;font-size:19px;" onchange="this.style.width=200" name="asesoria_telefonica">
+                <tr>
+                    <td>ESTATUS DEL EQUIPO: </td>
+                    <td><select type="text" style="width:185px; text-align: center; border:5px;font-size:11px;" onchange="this.style.width=200" name="asesoria_telefonica" required>
                             							
-                <?php
+                                                        <?php
+                                        
+                                                            $option1=NULL;
+                                                            $option2=NULL;
+                                        
+                                                            switch($asesoriaTelefonicaValue){
+                                        
+                                                                case "EN OPERACION":   $option1="selected";
+                                                                                    break;
+                                        
+                                                                case "FUERA DE SERVICIO":     $option2="selected";
+                                                                                    break;
+                                                            }
+                                                        ?>
+                                        
+                                                        <option value='' ></option>
+                                                        <option value='EN OPERACION' <?=$option1;?>>EN OPERACION</option>
+                                                        <option value='FUERA DE SERVICIO' <?=$option2;?>>FUERA DE SERVICIO</option>
+                                                        </select></td>
+                </tr>
+                <tr>
+                    <td>NOMBRE DEL INGENIERO: </td>
+                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px;" maxlength="35" name="ingeniero" value="<?php echo $ingenieroValue; ?>" required></td>
+                </tr>
+                <tr>
+                    <td>NOMBRE DEL CLIENTE QUE FIRMA OS: </td>
+                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px;" maxlength="50" name="piezas_sepsa" value="<?php echo $piezasSepsaValue; ?>" required></td>
+                </tr>
+                <tr>
+                    <td>ESTATUS DEL FOLIO: </td>
+                    <td><select type="text" style="width:185px;text-align: center; border:5px;font-size:11px;" onchange="this.style.width=200" name="estatus" required>
+                            							
+                                                        <?php
+                                        
+                                                            $option1=NULL;
+                                                            $option2=NULL;
+                                                            $option3=NULL;
+                                                            $option4=NULL;
+                                        
+                                                            switch($estatusValue){
+                                        
+                                                                case "PENDIENTE":   $option1="selected";
+                                                                                    break;
+                                        
+                                                                case "PENDIENTE POR PIEZA":     $option2="selected";
+                                                                                    break;
+                                        
+                                                                case "CANCELADO":   $option3="selected";
+                                                                                    break;
+                                        
+                                                                case "PRE-CERRADO":     $option4="selected";
+                                                                                                break;
+                                                            }
+                                                        ?>
+                                        
+                                                        <option value='' ></option>
+                                                        <option value='PENDIENTE' <?=$option1;?>>PENDIENTE</option>
+                                                        <option value='PENDIENTE POR PIEZA' <?=$option2;?>>PENDIENTE POR PIEZA</option>
+                                                        <option value='CANCELADO' <?=$option3;?>>CANCELADO</option>                       
+                                                        <option value='PRE-CERRADO' <?=$option4;?>>PRE-CERRADO</option>  
+                                                        </select></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+				        <input style="margin: auto;" type="submit" value="Update"></td>
+                    <td>
+                        <br>
+                        <?php 
+                        if($result){
+                            echo '<div class="alert alert-success" role="alert">' . $estatusOp; 
+                            }  
+                        ?>
+                    </td>
+                </tr>
 
-                    $option1=NULL;
-                    $option2=NULL;
+            </table>
 
-                    switch($asesoriaTelefonicaValue){
-
-                        case "EN OPERACION":   $option1="selected";
-                                            break;
-
-                        case "FUERA DE SERVICIO":     $option2="selected";
-                                            break;
-                    }
-                ?>
-
-                <option value='' ></option>
-                <option value='EN OPERACION' <?=$option1;?>>EN OPERACION</option>
-                <option value='FUERA DE SERVICIO' <?=$option2;?>>FUERA DE SERVICIO</option>
-                </select><br>
+			    <input class="registro-input" type="hidden" name="cliente" value="<?php echo $clienteValue; ?>" >
+			    <input class="registro-input" type="hidden" name="sucursal_cliente" value="<?php echo $sucursalClienteValue; ?>" >
+			    <input class="registro-direccion" type="hidden" name="direccion" value="<?php echo $direccionValue; ?>" >
+				<input class="registro-input" type="hidden" name="proveedor" value="<?php echo $proveedorValue; ?>" >
+				<input class="registro-input" type="hidden" name="equipo" value="<?php $equipoValue; ?>" >
+				<input class="registro-input" type="hidden" name="serie" value="<?php echo $serieValue; ?>" >
+				<input class="registro-input" type="hidden" name="falla" value="<?php echo $fallaValue?>" >
+				<input class="registro-input" type="hidden" name="datetime_cita" value="<?php echo $fechaDeCitaValue; ?>" > 
+                <!-- <label class="registro" for="">CIERRA FOLIO: </label> -->
+                <input class="registro-input" type="hidden" maxlength="35" name="cierra_folio" value="<?=$currentUser->getNombre();?>" readonly><br>	
+            
 
 
 
+  
 
-            </div>
-
-            <div class="col"><br>
-
-            <label class="registro" for="">Piezas Requeridas</label><br>
-                <input class="registro-input" type="text" maxlength="50" name="piezas_proveedor" value="<?php echo $piezasProveedorValue; ?>"><br>
-
-
-
-            </div>
-
+            
             <!-- <div class="col"><br>
                 <label class="registro" for="">Del daño</label><br>
                 <input class="registro-input" type="text" maxlength="50" name="del_dano" value="<?php echo $newDelDaño; ?>"><br>	
             </div> -->
-
-            <div class="col"><br>
-                <label class="registro" style="padding-top: 10px;" for="">Del daño</label><br>
-                <select type="text" style="width:185px;border:5px;font-size:19px;" onchange="this.style.width=200" name="del_dano">
-							
-                <?php
-
-                $option1=NULL;
-                $option1=NULL;
-                $option1=NULL;
-
-                switch($delDañoValue){
-
-                    case "CLIENTE":     $option1="selected";
-                                        break;
-
-                    case "DESGASTE":    $option2="selected";
-                                        break;
-
-                    case "VANDALIZMO":  $option3="selected";
-                                        break;
-                }
-                ?>
-
-                <option value='' ></option>
-                <option value='COTIZACION' <?=$option1;?>>COTIZACION</option>
-                <option value='GARANTIA' <?=$option2;?>>GARANTIA</option>
-                <option value='VANDALIZMO' <?=$option3;?>>VANDALIZMO</option>                       
-				</select><br>
-            </div>
-
-        </div>
-
-        <div class="row">
 
           <!--   <div class="col"><br>
             <label class="registro" for="">Estatus</label><br>
                 <input class="registro-input" type="text" maxlength="15" name="estatus" value="<?php echo $estatusValue; ?>"><br>
             </div> -->
 
-            <div class="col"><br>
-                <label class="registro" style="padding-top: 10px;" for="">Estatus</label><br>
-                <select type="text" style="width:185px;border:5px;font-size:19px;" onchange="this.style.width=200" name="estatus">
-                            							
-                <?php
-
-                    $option1=NULL;
-                    $option2=NULL;
-                    $option3=NULL;
-                    $option4=NULL;
-
-                    switch($estatusValue){
-
-                        case "CANCELADO":   $option1="selected";
-                                            break;
-
-                        case "PRE-CERRADO":     $option2="selected";
-                                            break;
-
-                        case "PENDIENTE":   $option3="selected";
-                                            break;
-
-                        case "PENDIENTE POR PIEZA":     $option4="selected";
-                                                        break;
-                    }
-                ?>
-
-                <option value='' ></option>
-                <option value='CANCELADO' <?=$option1;?>>CANCELADO</option>
-                <option value='PRE-CERRADO' <?=$option2;?>>PRE-CERRADO</option>
-                <option value='PENDIENTE' <?=$option3;?>>PENDIENTE</option>                       
-                <option value='PENDIENTE POR PIEZA' <?=$option4;?>>PENDIENTE POR PIEZA</option>  
-                </select><br>
-            </div>
-
-            <div class="col"><br>
-                
-            <label class="registro" for="">Fecha/Hora de llegada</label><br>
-				<input class="registro-input" type="datetime-local" maxlength="6" name="datetime_llegada" value="<?php echo $fechaDeLlegadaValue; ?>"><br>
-            </div>
-
-            <div class="col"><br>
-            <label class="registro" for="">Fecha/Hora de termino</label><br>
-				<input class="registro-input" type="datetime-local" maxlength="6" name="datetime_termino" value="<?php echo $fechaDeTerminoValue; ?>"><br>	    
-            
-            </div>
-        
-        </div>
-
-        <div class="row">
-            <div class="col"><br>
-                <label class="registro" for="">Nombre del ingeniero </label><br>
-                <input class="registro-input" type="text" maxlength="35" name="ingeniero" value="<?php echo $ingenieroValue; ?>"><br>	
-            
-            </div>
            <!--  <div class="col"><br>
                 <label class="registro" for="">Valida en sitio</label><br>
                 <input class="registro-input" type="text" maxlength="35" name="cierra_folio" value=""><br>	
             
             </div> -->
 
-            <div class="col"><br>
-                    
-            <label class="registro" for="">VoBo del Cliente</label><br>
-                <input class="registro-input" type="text" maxlength="50" name="piezas_sepsa" value="<?php echo $piezasSepsaValue; ?>"><br>
- 
-            </div>
-
-            <div class="col"><br>
-                <label class="registro" for="">Cierra Folio</label><br>
-                <input class="registro-input" type="text" maxlength="35" name="cierra_folio" value="<?=$currentUser->getNombre();?>" readonly><br>	
-            
-            </div>
-        </div>
-        <div class="row">
-            <div class="col"><br>
-                <input type="hidden" name="id" value="<?php echo $id; ?>">
-				<input style="margin: auto;" type="submit" value="Update"><br>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col"><br>   
-                <?php 
-                    if($result){
-                        echo '<div class="alert alert-success" role="alert">' . $estatusOp; 
-                        }  
-                ?>
-            
-            </div>
-        </div>
-    </div>
     </form>          	
 		
 	</body>

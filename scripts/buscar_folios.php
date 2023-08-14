@@ -38,6 +38,7 @@
                 serie LIKE '%" . $q . "%' OR
                 proveedor LIKE '%" . $q . "%' OR
                 sucursal LIKE '%" . $q . "%' OR
+                empresa LIKE '%" . $q . "%' OR
                 banco LIKE '%" . $q . "%' OR
                 division LIKE '%" . $q . "%' OR
                 falla LIKE '%" . $q . "%' OR

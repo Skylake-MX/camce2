@@ -17,7 +17,7 @@
         $d=$today['mday'];
         $fecha=$y."-".$m."-".$d;
         
-        $camce=$cliente['folio'];
+        $camce=str_replace("/","",$cliente['folio']);
         $razon=$cliente['cliente'];
         $unidad=$cliente['sucursal_cliente'];
         $serie=$cliente['serie'];
