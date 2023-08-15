@@ -110,7 +110,9 @@ echo '<table border="1px" style="width: 300px; height: 300px;text-align: center;
 </table>';
 
 $nombre=str_replace("/","",$row['folio'])." ".$row['cliente']." ".$row['sucursal_cliente']." ".$row['serie']." ".$row['empresa']. " ".$row['sucursal'].".jpg";
-//echo $nombre;
+$nombre2=str_replace("/","",$row['folio'])." ".$row['cliente']." ".$row['sucursal_cliente']." ".$row['serie']." ".$row['empresa']. " ".$row['sucursal'].".jpeg";
+
+
 ?> 
 
 <p></p>
@@ -172,7 +174,8 @@ $nombre=str_replace("/","",$row['folio'])." ".$row['cliente']." ".$row['sucursal
 
 <p></p>
   <div style="text-align: center;">
-  <img src="../Operaciones/Ordenes/<?=$nombre?>" width="600px" >
+  <img src="../Operaciones/Ordenes/<?=$nombre?>" width="600px" alt="">
+  <img src="../Operaciones/Ordenes/<?=$nombre2?>" width="600px" alt="">
 </div>
 
 

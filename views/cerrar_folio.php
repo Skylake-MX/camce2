@@ -15,6 +15,43 @@
 
         $id=$_POST['id'];
 
+        $camce="";
+        $query = "SELECT * FROM bitacora WHERE id = '" . $id . "'";
+        $queryResult=$pdo->query($query);
+        $cliente = $queryResult->fetch(PDO::FETCH_ASSOC);
+
+        $today=getdate();
+        $y=$today['year'];
+        $m=$today['mon'];
+        $d=$today['mday'];
+        $fecha=$y."-".$m."-".$d;
+
+        $camce=str_replace("/","",$cliente['folio']);
+        $razon=$cliente['cliente'];
+        $unidad=$cliente['sucursal_cliente'];
+        $serie=$cliente['serie'];
+        $empresa=$cliente['empresa'];
+        $sucursal=$cliente['sucursal'];
+        
+        $nombreTemporal=$_FILES['archivo']['tmp_name'];
+        $nombre=basename($_FILES["archivo"]["name"]);
+        $extension=substr($_FILES['archivo']['type'],strrpos($_FILES['archivo']['type'],'/')+1,0);
+        echo $extension;
+       /*  echo $_FILES['archivo']['type'];
+        echo strrpos($_FILES['archivo']['type'],'/')+1; */
+
+        if(!is_dir("../Operaciones/Ordenes")){
+          mkdir("../Operaciones/Ordenes",0777);
+        }
+
+        if(move_uploaded_file($nombreTemporal,"../Operaciones/Ordenes/".$camce." ".$razon." ".$unidad." ".$serie." ".$empresa." ".$sucursal.".".substr($nombre, -(strlen($nombre)-strpos($nombre,'.')-1)))){
+            echo "el archivo se subio correctamente";
+        }
+        else{
+          echo "No se pudo subir archivo";
+        }
+
+
         $sqlDireccion="SELECT direccion FROM base WHERE serie=:serie";
         $queryDireccion=$pdo->prepare($sqlDireccion);
         $queryDireccion->execute([
@@ -141,7 +178,10 @@
         $fechaDeTerminoValue=$row['datetime_termino'];
         $CierraFolioValue=$row['cierra_folio'];
         $ingenieroValue=$row['ingeniero'];
-
+        
+        $query = "SELECT * FROM bitacora WHERE id = '" . $id . "'";
+        $queryResult=$pdo->query($query);
+        $cliente = $queryResult->fetch(PDO::FETCH_ASSOC);
 	}
 
 ?>
@@ -183,7 +223,7 @@
 	<div class="" style="text-align: center;">   
     	<h5>CERRAR FOLIO: <?php echo $folioValue; ?></h5>
     </div>
-	<form action="" method="POST">
+	<form action="" method="POST" enctype="multipart/form-data">
 	<div class="form" style="margin:0 auto; ">
 
 			    <input class="registro-input" type="hidden" name="folio" value="<?php echo $folioValue; ?>" readonly><br>
@@ -337,9 +377,25 @@
                                                         </select></td>
                 </tr>
                 <tr>
+                    <td bgcolor="#C5D9F1">NOMBRE DEL ARCHIVO: </td>
+                    <td><?= $cliente['folio']." ". 
+                            $cliente['cliente']." ". 
+                            $cliente['sucursal_cliente'] . " " . 
+                            $cliente['serie']." ".
+                            $cliente['empresa']." ".
+                            $cliente['sucursal']."..."?> </td>
+ 
+                </tr>
+                <tr>
+                    <td bgcolor="#C5D9F1">HOJA DE SERVICIO: <?echo $_FILES['archivo']['type'];
+        echo strrpos($_FILES['archivo']['type'],'/')+1; ?></td>
+                    <td><input type="file" name="archivo"></input></td>
+                </tr>
+
+                <tr>
                     <td bgcolor="#C5D9F1">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
-				        <input style="margin: auto;" type="submit" value="Update"></td>
+				        <input style="margin: auto;" type="submit" value="GUARDAR"></td>
                     <td>
                         <br>
                         <?php 
