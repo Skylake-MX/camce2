@@ -57,9 +57,9 @@ $row=$query->fetch(PDO::FETCH_ASSOC);
 
 
 echo '<table border="1px" style="width: 300px; height: 300px;text-align: center; margin: auto; margin-top:1px;width: 600px; font-size: 11px">
-<th bgcolor="#0070C0"; colspan="4">Ficha de reporte</th>
+<th bgcolor="#0070C0"; colspan="4">FICHA DE REPORTE</th>
 <tr>
-  <td bgcolor="#C5D9F1" style="width: 200px;">Folio Camce</td>
+  <td bgcolor="#C5D9F1" style="width: 200px;">Folio CAMCE</td>
   <td style="width: 200px;">'; echo $row['folio']; echo '</td> 
   <td bgcolor="#C5D9F1" style="width: 200px;">Fecha de Levantamiento</td>
   <td style="width: 200px;">'; echo $row['datetime_reporte']; echo '</td>
@@ -115,14 +115,56 @@ $nombre=str_replace("/","",$row['folio'])." ".$row['cliente']." ".$row['sucursal
 
 <p></p>
 <div style="width: 600px; text-align: left; margin: auto; margin-top:1px;font-size: 11px">
-    SOLUCION DEL REPORTE: <?=" ".$row['solucion'];?><br>
-    ESTATUS DEL EQUIPO: <?=" ".$row['asesoria_telefonica'];?><br>
-    PIEZAS NECESARIAS: <?=" ".$row['piezas_proveedor'];?><br>
-    TIPO DEL CAMBIO: <?=" ".$row['del_dano'];?><br>
-    HORA DE LLEGADA: <?=" ".$row['datetime_llegada'];?><br>
-    HORA DE SALIDA: <?=" ".$row['datetime_termino'];?><br>
-    NOMBRE DEL INGENIERO: <?=" ".$row['ingeniero'];?><br>
-    NOMBRE DEL CLIENTE QUE FIRMA: <?=" ".$row['piezas_sepsa'];?><br>
+   
+<table border="1px" style="width: 300px; height: 300px;text-align: center; margin: auto; margin-top:1px;width: 600px; font-size: 11px">
+<th bgcolor="#0070C0"; colspan="2">CAPTURA DE HOJA DE SERVICIO</th>
+<tr>
+  <td bgcolor="#C5D9F1" style="width: 65px;">SOLUCION DEL REPORTE:</td>
+  <td style="width: 200px;"><b><?=" ".$row['solucion'];?></td> 
+
+</tr>
+<tr>
+  <td bgcolor="#C5D9F1" >ESTATUS DEL EQUIPO:</td>
+  <td><b><?=" ".$row['asesoria_telefonica'];?></b></td> 
+
+</tr>
+<tr>
+  <td bgcolor="#C5D9F1" >PIEZAS NECESARIAS:</td>
+  <td><b><?=" ".$row['piezas_proveedor'];?></td> 
+</tr>
+<tr>
+  <td bgcolor="#C5D9F1" >TIPO DEL CAMBIO:</td>
+  <td><b><?=" ".$row['del_dano'];?></b></td> 
+</tr>
+
+<tr>
+  <td bgcolor="#C5D9F1" rowspan="1">HORA DE LLEGADA:</td>
+  <td colspan="3"><b><?=" ".$row['datetime_llegada'];?></b></td>
+</tr>
+<tr>
+  <td bgcolor="#C5D9F1" rowspan="1">HORA DE SALIDA:</td>
+  <td colspan="3"><b><?=" ".$row['datetime_termino'];?></b></td>
+</tr>
+<tr>
+  <td bgcolor="#C5D9F1" rowspan="1">NOMBRE DEL INGENIERO:</td>
+  <td colspan="3"><b><?=" ".$row['ingeniero'];?></b></td>
+</tr>
+<tr>
+  <td bgcolor="#C5D9F1" rowspan="1">NOMBRE DEL CLIENTE QUE FIRMA:</td>
+  <td colspan="3"><b><?=" ".$row['piezas_sepsa'];?></b</td>
+</tr>
+
+</table>
+
+
+    <!-- SOLUCION DEL REPORTE: <b><?=" ".$row['solucion'];?></b><br>
+    ESTATUS DEL EQUIPO: <b><?=" ".$row['asesoria_telefonica'];?></b><br>
+    PIEZAS NECESARIAS: <b><?=" ".$row['piezas_proveedor'];?></b><br>
+    TIPO DEL CAMBIO: <b><?=" ".$row['del_dano'];?></b><br>
+    HORA DE LLEGADA: <b><?=" ".$row['datetime_llegada'];?></b><br>
+    HORA DE SALIDA: <b><?=" ".$row['datetime_termino'];?></b><br>
+    NOMBRE DEL INGENIERO: <b><?=" ".$row['ingeniero'];?></b><br>
+    NOMBRE DEL CLIENTE QUE FIRMA: <b><?=" ".$row['piezas_sepsa'];?></b><br> -->
 
 </div>
  

@@ -21,7 +21,7 @@
 </head>
 <body>
     <nav>
-            Bienvenido <?php echo $user->getNombre(); ?>
+            BIENVENIDO <?php echo $user->getNombre(); ?>
     </nav>
     <div class="modal-dialog text-center">
     <br>
@@ -44,8 +44,8 @@
       
       if($privilegio=="tecnico"){
 
-        echo '<a href="views/listar_folios.php" class="list-group-item list-group-item-action">Cerrar Folio</a>
-        <a href="views/listar_cofres.php" class="list-group-item list-group-item-action">Listar Equipos</a>';
+        echo '<a href="views/listar_folios.php" class="list-group-item list-group-item-action">Cerrar Folio</a>';
+        /*<a href="views/listar_cofres.php" class="list-group-item list-group-item-action">Listar Equipos</a>';*/
         
       }
       elseif($privilegio=="Usuario"){

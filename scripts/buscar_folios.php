@@ -19,10 +19,10 @@
     $salida="";
 
     if($privilegio=="tecnico"){ 
-        $query = "SELECT * FROM bitacora WHERE sucursal LIKE '%" . $localidad . "%' ORDER By datetime_reporte DESC";
+        $query = "SELECT * FROM bitacora WHERE ingeniero LIKE '%" . $likeUser . "%' ORDER By folio asc";
     }
     else{
-        $query = "SELECT * FROM bitacora ORDER By datetime_reporte DESC";
+        $query = "SELECT * FROM bitacora ORDER By folio asc";
     }
 
     //$query = "SELECT * FROM bitacora ORDER By datetime_reporte DESC";

@@ -9,7 +9,6 @@
     $currentUser = new User();
     $currentUser->setUser($_SESSION['user']);
 
-
 	$result=false;
 
 	if(!empty($_POST)){
@@ -90,6 +89,17 @@
             /* var_dump($result); */
             $estatusOp="El registro para " . $folioValue . " se actualizo correctamente. ";
 
+            sleep(1);
+
+            $sql="SELECT * FROM bitacora WHERE folio='".$folioValue."'";
+            $query=$pdo->prepare($sql);
+            $query->execute([
+                'folio' => $folio
+            ]);
+            $row=$query->fetch(PDO::FETCH_ASSOC);
+            //var_dump($row['id']);
+    
+            header( "refresh:5;url=ficha.php?id=".$row['id']);
 
 
 	}else{
@@ -131,6 +141,7 @@
         $fechaDeTerminoValue=$row['datetime_termino'];
         $CierraFolioValue=$row['cierra_folio'];
         $ingenieroValue=$row['ingeniero'];
+
 	}
 
 ?>
@@ -170,7 +181,7 @@
 	</nav>
     <br>
 	<div class="" style="text-align: center;">   
-    	<h5>CERRRAR FOLIO: <?php echo $folioValue; ?></h5>
+    	<h5>CERRAR FOLIO: <?php echo $folioValue; ?></h5>
     </div>
 	<form action="" method="POST">
 	<div class="form" style="margin:0 auto; ">
@@ -180,58 +191,60 @@
 
                 
                 <table border="1px" style="width: 300px; height: 300px;text-align: center; margin: auto; margin-top:1px;width: 500px; font-size: 11px">
+                <th bgcolor="#0070C0"; colspan="2">INFORMACION GENERAL</th>
                 <tr>
-                    <td>CLIENTE: </td>
+                    <td bgcolor="#C5D9F1">CLIENTE: </td>
                     <td><b><?php echo $clienteValue; ?></b></td>
                 </tr>
                 <tr>
-                    <td>SUCURSAL: </td>
+                    <td bgcolor="#C5D9F1">SUCURSAL: </td>
                     <td><b><?php echo $sucursalClienteValue; ?></b></td>
                 </tr>
                 <tr>
-                    <td>DIRECCION: </td>
+                    <td bgcolor="#C5D9F1">DIRECCION: </td>
                     <td><b><?php echo $direccionValue; ?></b></td>
                 </tr>
                 <tr>
-                    <td>PROVEEDOR: </td>
+                    <td bgcolor="#C5D9F1">PROVEEDOR: </td>
                     <td><b><?php echo $proveedorValue; ?></b></td>
                 </tr>
                 <tr>
-                    <td>EQUIPO: </td>
+                    <td bgcolor="#C5D9F1">EQUIPO: </td>
                     <td><b><?php $equipoValue; ?></b></td>
                 </tr>
                 <tr>
-                    <td>NO. SERIE: </td>
+                    <td bgcolor="#C5D9F1">NO. SERIE: </td>
                     <td><b><?php echo $serieValue; ?></b></td>
                 </tr>
                 <tr>
-                    <td>FALLA REPORTADA: </td>
+                    <td bgcolor="#C5D9F1">FALLA REPORTADA: </td>
                     <td><b><?php echo $fallaValue?></b></td>
                 </tr>
                 <tr>
-                    <td>FECHA Y HORA DE CITA: </td>
+                    <td bgcolor="#C5D9F1">FECHA Y HORA DE CITA: </td>
                     <td><b><?php echo $fechaDeCitaValue; ?></b></td>
                 </tr>
+                <th bgcolor="#0070C0"; colspan="2">COMENTARIOS DE HOJA DE SERVICIO</th>
                 <tr>
-                    <td>FECHA Y HORA DE LLEGADA: </td>
+                    <td bgcolor="#C5D9F1">FECHA Y HORA DE LLEGADA: </td>
                     <td><input class="registro-input" type="datetime-local" style="width:185px;border:5px;font-size:11px;" maxlength="6" name="datetime_llegada" value="<?php echo $fechaDeLlegadaValue; ?>" required><br></td>
                 </tr>
                 <tr>
-                    <td>FECHA Y HORA DE TERMINO: </td>
+                    <td bgcolor="#C5D9F1">FECHA Y HORA DE TERMINO: </td>
                     <td><input class="registro-input" type="datetime-local" style="width:185px;border:5px;font-size:11px;" maxlength="6" name="datetime_termino" value="<?php echo $fechaDeTerminoValue; ?>" required><br>	</td>
                 </tr>
                 <tr>
-                    <td>SOLUCION DEL PROBLEMA REPORTADO: </td>
+                    <td bgcolor="#C5D9F1">SOLUCION DEL PROBLEMA REPORTADO: </td>
                     <td><textarea name="solucion" rows="4" cols="41" value="<?php echo $solucionValue; ?>" required><?php echo $solucionValue; ?></textarea></td>
                 </tr>
 
                 <tr>
-                    <td>REFACCIONES REQUERIDAS: </td>
+                    <td bgcolor="#C5D9F1">REFACCIONES REQUERIDAS: </td>
                     <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px;" name="piezas_proveedor" value="<?php echo $piezasProveedorValue; ?>"></td>
                 </tr>
 
                 <tr>
-                    <td>C. REFACCIONES POR: </td>
+                    <td bgcolor="#C5D9F1">C. REFACCIONES POR: </td>
                     <td>                
                             <select type="text" style="width:185px; text-align: center; border:5px;font-size:11px;" onchange="this.style.width=200" name="del_dano">
 							
@@ -258,7 +271,7 @@
                 </tr>
 
                 <tr>
-                    <td>ESTATUS DEL EQUIPO: </td>
+                    <td bgcolor="#C5D9F1">ESTATUS DEL EQUIPO: </td>
                     <td><select type="text" style="width:185px; text-align: center; border:5px;font-size:11px;" onchange="this.style.width=200" name="asesoria_telefonica" required>
                             							
                                                         <?php
@@ -282,15 +295,15 @@
                                                         </select></td>
                 </tr>
                 <tr>
-                    <td>NOMBRE DEL INGENIERO: </td>
-                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px;" maxlength="35" name="ingeniero" value="<?php echo $ingenieroValue; ?>" required></td>
+                    <td bgcolor="#C5D9F1">NOMBRE DEL INGENIERO: </td>
+                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px;" maxlength="35" name="ingeniero" value="<?php echo $currentUser->getNombre(); ?>" required></td>
                 </tr>
                 <tr>
-                    <td>NOMBRE DEL CLIENTE QUE FIRMA OS: </td>
+                    <td bgcolor="#C5D9F1">NOMBRE DEL CLIENTE QUE FIRMA OS: </td>
                     <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px;" maxlength="50" name="piezas_sepsa" value="<?php echo $piezasSepsaValue; ?>" required></td>
                 </tr>
                 <tr>
-                    <td>ESTATUS DEL FOLIO: </td>
+                    <td bgcolor="#C5D9F1">ESTATUS DEL FOLIO: </td>
                     <td><select type="text" style="width:185px;text-align: center; border:5px;font-size:11px;" onchange="this.style.width=200" name="estatus" required>
                             							
                                                         <?php
@@ -324,7 +337,7 @@
                                                         </select></td>
                 </tr>
                 <tr>
-                    <td>
+                    <td bgcolor="#C5D9F1">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
 				        <input style="margin: auto;" type="submit" value="Update"></td>
                     <td>
@@ -332,6 +345,7 @@
                         <?php 
                         if($result){
                             echo '<div class="alert alert-success" role="alert">' . $estatusOp; 
+
                             }  
                         ?>
                     </td>
