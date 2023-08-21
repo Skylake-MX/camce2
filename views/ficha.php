@@ -34,6 +34,7 @@
       <?php
     // var_dump($_POST);
     require_once '../scripts/connect.php';
+    error_reporting(E_ALL ^ E_NOTICE); 
 
     if(!empty($_POST)){
 
@@ -109,10 +110,15 @@
 
     </table>';
 
-    $nombre=str_replace("/","",$row['folio'])." ".$row['cliente']." ".$row['sucursal_cliente']." ".$row['serie']." ".$row['empresa']. " ".$row['sucursal'].".jpg";
-    $nombre2=str_replace("/","",$row['folio'])." ".$row['cliente']." ".$row['sucursal_cliente']." ".$row['serie']." ".$row['empresa']. " ".$row['sucursal'].".jpeg";
-    $nombre3=str_replace("/","",$row['folio'])." ".$row['cliente']." ".$row['sucursal_cliente']." ".$row['serie']." ".$row['empresa']. " ".$row['sucursal'].".pdf";
+    
+    $archivo=glob("../Operaciones/Ordenes/".str_replace("/","",$row['folio'])."*");
 
+    if(strpos(basename($archivo[0]),'pdf')){
+      $nombrePDF=basename($archivo[0]);
+    }
+    else{
+      $nombreIMG=basename($archivo[0]);
+    }
 
     ?> 
 
@@ -156,7 +162,6 @@
       <td bgcolor="#C5D9F1" rowspan="1">NOMBRE DEL CLIENTE QUE FIRMA:</td>
       <td colspan="3"><b><?=" ".$row['piezas_sepsa'];?></b</td>
     </tr>
-
     </table>
 
 
@@ -171,14 +176,15 @@
 
     </div>
     
-
-
     <p></p>
-      <div style="text-align: center;">
-      <img src="../Operaciones/Ordenes/<?=$nombre?>" width="600px" alt="">
-      <img src="../Operaciones/Ordenes/<?=$nombre2?>" width="600px" alt="">
-      <object clas="pdfview" data="../Operaciones/Ordenes/<?=$nombre3?>" type="application/pdf" width="600px" height="750px"/>
-    </div>
+
+
+      <div style="text-align: center; margin: auto;">
+      <img src="../Operaciones/Ordenes/<?=$nombreIMG?>" width="600px" alt="">
+      <br>
+      <!-- <object clas="pdfview" data="../Operaciones/Ordenes/<?=$nombrePDF?>" type="application/pdf" width="600px" height="750px"></object> -->
+      <embed src="../Operaciones/Ordenes/<?=$nombrePDF?>" type="application/pdf" width="600px" height="750px" />
+      </div>
 
 
     </body>
