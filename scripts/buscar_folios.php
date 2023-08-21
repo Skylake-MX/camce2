@@ -78,6 +78,14 @@
             while($fila= $queryResult->fetch(PDO::FETCH_ASSOC )){
                 $archivo=glob("../Operaciones/Ordenes/".str_replace("/","",$fila['folio'])."*");
 
+                if(strlen(basename($archivo[0]))>0){
+                    $color="green";          
+                }
+                else{
+                    $color="";
+                }
+                
+
                 $salida.="<tr>
                             <td>".$fila['folio']."</td>
                             <td>".$fila['cliente']."/".$fila['sucursal_cliente']."</td>
@@ -88,8 +96,8 @@
                             <td>".$fila['datetime_reporte']."</td>
                             <td>".$fila['datetime_cita']."</td>
                             <td>".$fila['estatus']."</td>
-                            <td><a href='ficha.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-eye'></i></a></td>
-                            <td><a href='cerrar_folio.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-edit'></i></a></td> 
+                            <td><a href='ficha.php?id=" . $fila['id'] . "' style='text-align:center; color:".$color.";'><i class='fas fa-eye'></i></a></td>
+                            <td><a href='cerrar_folio.php?id=" . $fila['id'] . "' style='text-align:center; color:".$color."'><i class='fas fa-edit'></i></a></td> 
                         </tr>";
             }
             $salida.="</tbody></table>";           

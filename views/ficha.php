@@ -34,7 +34,7 @@
       <?php
     // var_dump($_POST);
     require_once '../scripts/connect.php';
-    error_reporting(E_ALL ^ E_NOTICE); 
+    // error_reporting(E_ALL ^ E_NOTICE); 
 
     if(!empty($_POST)){
 
@@ -113,6 +113,11 @@
     
     $archivo=glob("../Operaciones/Ordenes/".str_replace("/","",$row['folio'])."*");
 
+    // if(strlen(basename($archivo[0]))>0){
+    //   echo "Existe el archivo";
+    // }
+    
+
     if(strpos(basename($archivo[0]),'pdf')){
       $nombrePDF=basename($archivo[0]);
     }
@@ -182,8 +187,7 @@
       <div style="text-align: center; margin: auto;">
       <img src="../Operaciones/Ordenes/<?=$nombreIMG?>" width="600px" alt="">
       <br>
-      <!-- <object clas="pdfview" data="../Operaciones/Ordenes/<?=$nombrePDF?>" type="application/pdf" width="600px" height="750px"></object> -->
-      <embed src="../Operaciones/Ordenes/<?=$nombrePDF?>" type="application/pdf" width="600px" height="750px" />
+      <object clas="pdfview" data="../Operaciones/Ordenes/<?=$nombrePDF?>" type="application/pdf" width="600px" height="750px"></object>
       </div>
 
 
