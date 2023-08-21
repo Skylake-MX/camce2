@@ -70,7 +70,6 @@
                                 <th scope='col'>FECHA DE CITA</th>
                                 <th scope='col'>ESTATUS</th>
                                 <th scope='col'>VER</th>
-                                <th scope='col'>ORDEN</th>
                                 <th scope='col'>CERRAR</th>
                             </tr>
                         </thead>
@@ -90,7 +89,6 @@
                             <td>".$fila['estatus']."</td>
                             
                             <td><a href='ficha.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-eye'></i></a></td>
-                            <td><a href='../scripts/subir_orden.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-cloud-upload-alt'></i></a></td>
                             <td><a href='cerrar_folio.php?id=" . $fila['id'] . "' style='text-align:center;'><i class='fas fa-edit'></i></a></td> 
                         </tr>";
             }

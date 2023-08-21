@@ -35,20 +35,22 @@
         
         $nombreTemporal=$_FILES['archivo']['tmp_name'];
         $nombre=basename($_FILES["archivo"]["name"]);
-        $extension=substr($_FILES['archivo']['type'],strrpos($_FILES['archivo']['type'],'/')+1,0);
-        echo $extension;
-       /*  echo $_FILES['archivo']['type'];
-        echo strrpos($_FILES['archivo']['type'],'/')+1; */
+        $extension=substr($_FILES['archivo']['type'],strrpos($_FILES['archivo']['type'],'/')+1,strlen($_FILES['archivo']['type'])-strrpos($_FILES['archivo']['type'],'/')+1);
 
         if(!is_dir("../Operaciones/Ordenes")){
-          mkdir("../Operaciones/Ordenes",0777);
-        }
-
-        if(move_uploaded_file($nombreTemporal,"../Operaciones/Ordenes/".$camce." ".$razon." ".$unidad." ".$serie." ".$empresa." ".$sucursal.".".substr($nombre, -(strlen($nombre)-strpos($nombre,'.')-1)))){
-            echo "el archivo se subio correctamente";
+            mkdir("../Operaciones/Ordenes",0777);
+          }
+        if($extension=="jpeg" or $extension=="jpg" or $extension=="png" or $extension=="bmp" or $extension=="pdf"){
+        // if(move_uploaded_file($nombreTemporal,"../Operaciones/Ordenes/".$camce." ".$razon." ".$unidad." ".$serie." ".$empresa." ".$sucursal.".".substr($nombre, -(strlen($nombre)-strpos($nombre,'.')-1)))){
+            if(move_uploaded_file($nombreTemporal,"../Operaciones/Ordenes/".$camce." ".$razon." ".$unidad." ".$serie." ".$empresa." ".$sucursal.".".$extension)){
+                echo "el archivo se subio correctamente";
+            }
+            else{
+            echo "No se pudo subir archivo";
+            }
         }
         else{
-          echo "No se pudo subir archivo";
+            echo '<div class="alert alert-danger" role="alert">No se pudo subir archivo, formatos permitidos .jpeg, .jpg, .png, .bmp ó .pdf </div>';
         }
 
 
@@ -378,12 +380,13 @@
                 </tr>
                 <tr>
                     <td bgcolor="#C5D9F1">NOMBRE DEL ARCHIVO: </td>
-                    <td><?= $cliente['folio']." ". 
+                    <td><?= $camce=str_replace("/","",$cliente['folio'])." ". 
                             $cliente['cliente']." ". 
                             $cliente['sucursal_cliente'] . " " . 
                             $cliente['serie']." ".
                             $cliente['empresa']." ".
-                            $cliente['sucursal']."..."?> </td>
+                            $cliente['sucursal']."".
+                            $extension?> </td>
  
                 </tr>
                 <tr>
