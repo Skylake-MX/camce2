@@ -264,7 +264,7 @@
                 </tr>
                 <tr>
                     <td bgcolor="#C5D9F1">FECHA Y HORA DE CITA: </td>
-                    <td><b><?php echo $fechaDeCitaValue; ?></b></td>
+                    <td><b><?php echo str_replace("T"," ",$fechaDeCitaValue); ?></b></td>
                 </tr>
                 <th bgcolor="#0070C0"; colspan="2">COMENTARIOS DE HOJA DE SERVICIO</th>
                 <tr>
@@ -277,12 +277,12 @@
                 </tr>
                 <tr>
                     <td bgcolor="#C5D9F1">SOLUCION DEL PROBLEMA REPORTADO: </td>
-                    <td><textarea name="solucion" rows="4" cols="41" value="<?php echo $solucionValue; ?>" required><?php echo $solucionValue; ?></textarea></td>
+                    <td><textarea name="solucion" rows="4" cols="41" style="text-transform:uppercase;" value="<?php echo $solucionValue; ?>" required><?php echo $solucionValue; ?></textarea></td>
                 </tr>
 
                 <tr>
                     <td bgcolor="#C5D9F1">REFACCIONES REQUERIDAS: </td>
-                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px;" name="piezas_proveedor" value="<?php echo $piezasProveedorValue; ?>"></td>
+                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px; text-transform:uppercase;" name="piezas_proveedor" value="<?php echo $piezasProveedorValue; ?>"></td>
                 </tr>
 
                 <tr>
@@ -338,11 +338,11 @@
                 </tr>
                 <tr>
                     <td bgcolor="#C5D9F1">NOMBRE DEL INGENIERO: </td>
-                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px;" maxlength="35" name="ingeniero" value="<?php echo $currentUser->getNombre(); ?>" required></td>
+                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px; text-transform:uppercase;" maxlength="35" name="ingeniero" value="<?php echo $currentUser->getNombre(); ?>" required></td>
                 </tr>
                 <tr>
                     <td bgcolor="#C5D9F1">NOMBRE DEL CLIENTE QUE FIRMA OS: </td>
-                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px;" maxlength="50" name="piezas_sepsa" value="<?php echo $piezasSepsaValue; ?>" required></td>
+                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px; text-transform:uppercase;" maxlength="50" name="piezas_sepsa" value="<?php echo $piezasSepsaValue; ?>" required></td>
                 </tr>
                 <tr>
                     <td bgcolor="#C5D9F1">ESTATUS DEL FOLIO: </td>
@@ -354,6 +354,8 @@
                                                             $option2=NULL;
                                                             $option3=NULL;
                                                             $option4=NULL;
+                                                            $option5=NULL;
+                                                            $option6=NULL;
                                         
                                                             switch($estatusValue){
                                         
@@ -368,6 +370,10 @@
                                         
                                                                 case "PRE-CERRADO":     $option4="selected";
                                                                                                 break;
+                                                                case "NO REALIZADO":     $option5="selected";
+                                                                                                 break;
+                                                                case "EQUIPO RETIRADO":     $option6="selected";
+                                                                                                break;
                                                             }
                                                         ?>
                                         
@@ -375,7 +381,9 @@
                                                         <option value='PENDIENTE' <?=$option1;?>>PENDIENTE</option>
                                                         <option value='PENDIENTE POR PIEZA' <?=$option2;?>>PENDIENTE POR PIEZA</option>
                                                         <option value='CANCELADO' <?=$option3;?>>CANCELADO</option>                       
-                                                        <option value='PRE-CERRADO' <?=$option4;?>>PRE-CERRADO</option>  
+                                                        <option value='PRE-CERRADO' <?=$option4;?>>PRE-CERRADO</option>
+                                                        <option value='NO REALIZADO' <?=$option5;?>>NO REALIZADO</option>  
+                                                        <option value='EQUIPO RETIRADO' <?=$option6;?>>EQUIPO RETIRADO</option>    
                                                         </select></td>
                 </tr>
                 <tr>

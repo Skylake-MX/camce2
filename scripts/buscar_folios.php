@@ -46,17 +46,14 @@
                 del_dano LIKE '%" . $q . "%' OR
                 estatus LIKE '%" . $q . "%' OR
                 ingeniero LIKE '%" . $q . "%'";
+
         
     }   
-        
+    
     $queryResult = $pdo->query($query);
-
-
-    echo "<div class='resultado' style='margin-left: 10%; margin-top: 2%'><label for='resultado'>" . $queryResult->rowCount() . "  Resultados</label></div>";    
-
+    echo "<div class='resultado' style='margin-left: 10%; margin-top: 2%'><label for='resultado'>" . $queryResult->rowCount() . "  RESULTADOS</label></div>";    
 
         if(true){
-
             $salida.="<table class='table' style='margin:auto; margin-top:2%; width: 80%; font-size: 11px;'>
                         <thead class='thead-light'>
                             <tr>
@@ -78,13 +75,12 @@
             while($fila= $queryResult->fetch(PDO::FETCH_ASSOC )){
                 $archivo=glob("../Operaciones/Ordenes/".str_replace("/","",$fila['folio'])."*");
 
-                if(strlen(basename($archivo[0]))>0){
-                    $color="green";          
-                }
-                else{
-                    $color="";
-                }
+                if(strlen(basename($archivo[0]))>0)$color="green";          
+                else $color="";
                 
+                if($fila['estatus']=="CERRADO") $foliosCerrados ++;
+                else if ($fila['estatus']=="PRE-CERRADO") $folioPreCerrado ++;
+                   
 
                 $salida.="<tr>
                             <td>".$fila['folio']."</td>
@@ -93,14 +89,19 @@
                             <td>".$fila['empresa']."</td>
                             <td>".$fila['sucursal']."</td>
                             <td>".$fila['falla']."</td>
-                            <td>".$fila['datetime_reporte']."</td>
-                            <td>".$fila['datetime_cita']."</td>
+                            <td>".str_replace("T"," ",$fila['datetime_reporte'])."</td>
+                            <td>".str_replace("T"," ",$fila['datetime_cita'])."</td>
                             <td>".$fila['estatus']."</td>
-                            <td><a href='ficha.php?id=" . $fila['id'] . "' style='text-align:center; color:".$color.";'><i class='fas fa-eye'></i></a></td>
-                            <td><a href='cerrar_folio.php?id=" . $fila['id'] . "' style='text-align:center; color:".$color."'><i class='fas fa-edit'></i></a></td> 
+                            <td><a href='ficha.php?id=" . $fila['id'] . "' style='text-align:center; color:".$color."; font-size:18px'><i class='fas fa-eye'></i></a></td>
+                            <td><a href='cerrar_folio.php?id=" . $fila['id'] . "' style='text-align:center; color:".$color."; font-size:18px'><i class='fas fa-edit'></i></a></td> 
                         </tr>";
             }
             $salida.="</tbody></table>";           
         }
         echo $salida;
+        
+
+        echo
+            "<div class='resultado' style='margin-left: 10%; margin-top: 2%'>
+            <label>" . $foliosCerrados . "  FOLIOS CERRADOS</label></div>";
 ?>

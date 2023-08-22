@@ -118,7 +118,7 @@
     // }
     
 
-    if(strpos(basename($archivo[0]),'pdf')){
+    if(strpos(basename($archivo[0]),'pdf') or strpos(basename($archivo[0]),'PDF')){
       $nombrePDF=basename($archivo[0]);
     }
     else{
