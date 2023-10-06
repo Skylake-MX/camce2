@@ -9,6 +9,9 @@
     $currentUser = new User();
     $currentUser->setUser($_SESSION['user']);
 
+// var_dump($currentUser);
+//var_dump($_POST);
+
 	$result=false;
 
 	if(!empty($_POST)){
@@ -180,6 +183,7 @@
         $fechaDeTerminoValue=$row['datetime_termino'];
         $CierraFolioValue=$row['cierra_folio'];
         $ingenieroValue=$row['ingeniero'];
+
         
         $query = "SELECT * FROM bitacora WHERE id = '" . $id . "'";
         $queryResult=$pdo->query($query);
@@ -338,7 +342,7 @@
                 </tr>
                 <tr>
                     <td bgcolor="#C5D9F1">NOMBRE DEL INGENIERO: </td>
-                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px; text-transform:uppercase;" maxlength="35" name="ingeniero" value="<?php echo $currentUser->getNombre(); ?>" required></td>
+                    <td><input class="registro-input" type="text" style="width:185px;border:5px;font-size:11px; text-transform:uppercase;" maxlength="35" name="cierra_folio" value="<?php echo $currentUser->getNombre(); ?>" readonly></td>
                 </tr>
                 <tr>
                     <td bgcolor="#C5D9F1">NOMBRE DEL CLIENTE QUE FIRMA OS: </td>
@@ -421,6 +425,7 @@
             </table>
 
 			    <input class="registro-input" type="hidden" name="cliente" value="<?php echo $clienteValue; ?>" >
+                
 			    <input class="registro-input" type="hidden" name="sucursal_cliente" value="<?php echo $sucursalClienteValue; ?>" >
 			    <input class="registro-direccion" type="hidden" name="direccion" value="<?php echo $direccionValue; ?>" >
 				<input class="registro-input" type="hidden" name="proveedor" value="<?php echo $proveedorValue; ?>" >
@@ -429,7 +434,7 @@
 				<input class="registro-input" type="hidden" name="falla" value="<?php echo $fallaValue?>" >
 				<input class="registro-input" type="hidden" name="datetime_cita" value="<?php echo $fechaDeCitaValue; ?>" > 
                 <!-- <label class="registro" for="">CIERRA FOLIO: </label> -->
-                <input class="registro-input" type="hidden" maxlength="35" name="cierra_folio" value="<?=$currentUser->getNombre();?>" readonly><br>	
+                <input class="registro-input" type="hidden" maxlength="35" name="ingeniero" value="<?=$ingenieroValue;?>" ><br>	
             
 
 
